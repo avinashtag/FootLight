@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB13883619FBE07E0034027C /* FootLightCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */; };
+		BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883819FBE1BB0034027C /* FLNavigationBar.m */; };
+		BB13883B19FBE1BB0034027C /* FLNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB13883919FBE1BB0034027C /* FLNavigationBar.xib */; };
+		BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883D19FBE6990034027C /* HomeCellModel.m */; };
+		BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884019FBEAB80034027C /* FLTheaterViewController.m */; };
+		BB13884519FBEB5B0034027C /* FLPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884319FBEB5B0034027C /* FLPicker.m */; };
+		BB13884619FBEB5B0034027C /* FLPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB13884419FBEB5B0034027C /* FLPicker.xib */; };
+		BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884819FBED7F0034027C /* FLPickerModel.m */; };
+		BB13884C19FBF2290034027C /* FLByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884B19FBF2290034027C /* FLByLocationViewController.m */; };
+		BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884E19FBFC9B0034027C /* FLCollectionCell.m */; };
+		BB13885119FBFC9B0034027C /* FLCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */; };
+		BB13885419FC068C0034027C /* FLAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885319FC068B0034027C /* FLAlert.m */; };
 		BB7C321319FAB82500A5EFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321219FAB82500A5EFCF /* main.m */; };
 		BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321519FAB82500A5EFCF /* AppDelegate.m */; };
 		BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321819FAB82500A5EFCF /* ViewController.m */; };
@@ -14,6 +26,34 @@
 		BB7C321E19FAB82500A5EFCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB7C321D19FAB82500A5EFCF /* Images.xcassets */; };
 		BB7C322119FAB82500A5EFCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7C321F19FAB82500A5EFCF /* LaunchScreen.xib */; };
 		BB7C322D19FAB82500A5EFCF /* FootLightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C322C19FAB82500A5EFCF /* FootLightTests.m */; };
+		BB7C324219FAB8FB00A5EFCF /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323719FAB8FB00A5EFCF /* default.png */; };
+		BB7C324319FAB8FB00A5EFCF /* Category_Cabaret.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323819FAB8FB00A5EFCF /* Category_Cabaret.png */; };
+		BB7C324419FAB8FB00A5EFCF /* Category_Comedy.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323919FAB8FB00A5EFCF /* Category_Comedy.png */; };
+		BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323A19FAB8FB00A5EFCF /* Category_Dance.png */; };
+		BB7C324619FAB8FB00A5EFCF /* Home_Favourites.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323B19FAB8FB00A5EFCF /* Home_Favourites.png */; };
+		BB7C324719FAB8FB00A5EFCF /* Home_Listings.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323C19FAB8FB00A5EFCF /* Home_Listings.png */; };
+		BB7C324819FAB8FB00A5EFCF /* Category_Music.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323D19FAB8FB00A5EFCF /* Category_Music.png */; };
+		BB7C324919FAB8FB00A5EFCF /* Category_Museum.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323E19FAB8FB00A5EFCF /* Category_Museum.png */; };
+		BB7C324A19FAB8FB00A5EFCF /* Category_Theatre.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */; };
+		BB7C324B19FAB8FB00A5EFCF /* Home_TopPicks.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */; };
+		BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */; };
+		BBDA3E7E19FB4F470077CFD9 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */; };
+		BBDA3E7F19FB4F470077CFD9 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */; };
+		BBDA3E8119FB587B0077CFD9 /* Home_location.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8019FB587B0077CFD9 /* Home_location.png */; };
+		BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8319FBD7230077CFD9 /* critic.png */; };
+		BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */; };
+		BBDA3E9319FBD7230077CFD9 /* fail.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8519FBD7230077CFD9 /* fail.png */; };
+		BBDA3E9419FBD7230077CFD9 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8619FBD7230077CFD9 /* favorite.png */; };
+		BBDA3E9519FBD7230077CFD9 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8719FBD7230077CFD9 /* home.png */; };
+		BBDA3E9619FBD7230077CFD9 /* ic_drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8819FBD7230077CFD9 /* ic_drawer.png */; };
+		BBDA3E9719FBD7230077CFD9 /* ic_launcher.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8919FBD7230077CFD9 /* ic_launcher.jpg */; };
+		BBDA3E9819FBD7230077CFD9 /* image_back.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8A19FBD7230077CFD9 /* image_back.png */; };
+		BBDA3E9919FBD7230077CFD9 /* knob.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8B19FBD7230077CFD9 /* knob.png */; };
+		BBDA3E9A19FBD7230077CFD9 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8C19FBD7230077CFD9 /* list.png */; };
+		BBDA3E9B19FBD7230077CFD9 /* location.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8D19FBD7230077CFD9 /* location.png */; };
+		BBDA3E9C19FBD7230077CFD9 /* red_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8E19FBD7230077CFD9 /* red_heart.png */; };
+		BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8F19FBD7230077CFD9 /* success.png */; };
+		BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E9019FBD7230077CFD9 /* wait.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +67,27 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootLightCategoryViewController.h; sourceTree = "<group>"; };
+		BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootLightCategoryViewController.m; sourceTree = "<group>"; };
+		BB13883719FBE1BB0034027C /* FLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLNavigationBar.h; sourceTree = "<group>"; };
+		BB13883819FBE1BB0034027C /* FLNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLNavigationBar.m; sourceTree = "<group>"; };
+		BB13883919FBE1BB0034027C /* FLNavigationBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLNavigationBar.xib; sourceTree = "<group>"; };
+		BB13883C19FBE6990034027C /* HomeCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCellModel.h; sourceTree = "<group>"; };
+		BB13883D19FBE6990034027C /* HomeCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCellModel.m; sourceTree = "<group>"; };
+		BB13883F19FBEAB80034027C /* FLTheaterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLTheaterViewController.h; sourceTree = "<group>"; };
+		BB13884019FBEAB80034027C /* FLTheaterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLTheaterViewController.m; sourceTree = "<group>"; };
+		BB13884219FBEB5B0034027C /* FLPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPicker.h; sourceTree = "<group>"; };
+		BB13884319FBEB5B0034027C /* FLPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPicker.m; sourceTree = "<group>"; };
+		BB13884419FBEB5B0034027C /* FLPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLPicker.xib; sourceTree = "<group>"; };
+		BB13884719FBED7F0034027C /* FLPickerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLPickerModel.h; sourceTree = "<group>"; };
+		BB13884819FBED7F0034027C /* FLPickerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLPickerModel.m; sourceTree = "<group>"; };
+		BB13884A19FBF2290034027C /* FLByLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLByLocationViewController.h; sourceTree = "<group>"; };
+		BB13884B19FBF2290034027C /* FLByLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLByLocationViewController.m; sourceTree = "<group>"; };
+		BB13884D19FBFC9B0034027C /* FLCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLCollectionCell.h; sourceTree = "<group>"; };
+		BB13884E19FBFC9B0034027C /* FLCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLCollectionCell.m; sourceTree = "<group>"; };
+		BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLCollectionCell.xib; sourceTree = "<group>"; };
+		BB13885219FC068B0034027C /* FLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAlert.h; sourceTree = "<group>"; };
+		BB13885319FC068B0034027C /* FLAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAlert.m; sourceTree = "<group>"; };
 		BB7C320D19FAB82500A5EFCF /* FootLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7C321119FAB82500A5EFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7C321219FAB82500A5EFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +101,35 @@
 		BB7C322619FAB82500A5EFCF /* FootLightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FootLightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7C322B19FAB82500A5EFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7C322C19FAB82500A5EFCF /* FootLightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FootLightTests.m; sourceTree = "<group>"; };
+		BB7C323719FAB8FB00A5EFCF /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		BB7C323819FAB8FB00A5EFCF /* Category_Cabaret.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Cabaret.png; sourceTree = "<group>"; };
+		BB7C323919FAB8FB00A5EFCF /* Category_Comedy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Comedy.png; sourceTree = "<group>"; };
+		BB7C323A19FAB8FB00A5EFCF /* Category_Dance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Dance.png; sourceTree = "<group>"; };
+		BB7C323B19FAB8FB00A5EFCF /* Home_Favourites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_Favourites.png; sourceTree = "<group>"; };
+		BB7C323C19FAB8FB00A5EFCF /* Home_Listings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_Listings.png; sourceTree = "<group>"; };
+		BB7C323D19FAB8FB00A5EFCF /* Category_Music.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Music.png; sourceTree = "<group>"; };
+		BB7C323E19FAB8FB00A5EFCF /* Category_Museum.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Museum.png; sourceTree = "<group>"; };
+		BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Theatre.png; sourceTree = "<group>"; };
+		BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_TopPicks.png; sourceTree = "<group>"; };
+		BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		BBDA3E7B19FB4F470077CFD9 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		BBDA3E8019FB587B0077CFD9 /* Home_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_location.png; sourceTree = "<group>"; };
+		BBDA3E8319FBD7230077CFD9 /* critic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = critic.png; sourceTree = "<group>"; };
+		BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drop_down.jpg; sourceTree = "<group>"; };
+		BBDA3E8519FBD7230077CFD9 /* fail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fail.png; sourceTree = "<group>"; };
+		BBDA3E8619FBD7230077CFD9 /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		BBDA3E8719FBD7230077CFD9 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		BBDA3E8819FBD7230077CFD9 /* ic_drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_drawer.png; sourceTree = "<group>"; };
+		BBDA3E8919FBD7230077CFD9 /* ic_launcher.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ic_launcher.jpg; sourceTree = "<group>"; };
+		BBDA3E8A19FBD7230077CFD9 /* image_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_back.png; sourceTree = "<group>"; };
+		BBDA3E8B19FBD7230077CFD9 /* knob.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knob.png; sourceTree = "<group>"; };
+		BBDA3E8C19FBD7230077CFD9 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		BBDA3E8D19FBD7230077CFD9 /* location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = location.png; sourceTree = "<group>"; };
+		BBDA3E8E19FBD7230077CFD9 /* red_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_heart.png; sourceTree = "<group>"; };
+		BBDA3E8F19FBD7230077CFD9 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
+		BBDA3E9019FBD7230077CFD9 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,11 +171,37 @@
 		BB7C320F19FAB82500A5EFCF /* FootLight */ = {
 			isa = PBXGroup;
 			children = (
+				BBDA3E8219FBD6FB0077CFD9 /* Images */,
+				BB7C323619FAB8FB00A5EFCF /* FootLight */,
 				BB7C321419FAB82500A5EFCF /* AppDelegate.h */,
 				BB7C321519FAB82500A5EFCF /* AppDelegate.m */,
 				BB7C321719FAB82500A5EFCF /* ViewController.h */,
 				BB7C321819FAB82500A5EFCF /* ViewController.m */,
+				BB13883C19FBE6990034027C /* HomeCellModel.h */,
+				BB13883D19FBE6990034027C /* HomeCellModel.m */,
+				BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */,
+				BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */,
+				BB13883F19FBEAB80034027C /* FLTheaterViewController.h */,
+				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
+				BB13884A19FBF2290034027C /* FLByLocationViewController.h */,
+				BB13884B19FBF2290034027C /* FLByLocationViewController.m */,
+				BB13883719FBE1BB0034027C /* FLNavigationBar.h */,
+				BB13883819FBE1BB0034027C /* FLNavigationBar.m */,
+				BB13883919FBE1BB0034027C /* FLNavigationBar.xib */,
+				BB13884219FBEB5B0034027C /* FLPicker.h */,
+				BB13884319FBEB5B0034027C /* FLPicker.m */,
+				BB13884419FBEB5B0034027C /* FLPicker.xib */,
+				BB13884719FBED7F0034027C /* FLPickerModel.h */,
+				BB13884819FBED7F0034027C /* FLPickerModel.m */,
 				BB7C321A19FAB82500A5EFCF /* Main.storyboard */,
+				BBDA3E7B19FB4F470077CFD9 /* HomeCell.h */,
+				BB13884D19FBFC9B0034027C /* FLCollectionCell.h */,
+				BB13884E19FBFC9B0034027C /* FLCollectionCell.m */,
+				BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */,
+				BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */,
+				BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */,
+				BB13885219FC068B0034027C /* FLAlert.h */,
+				BB13885319FC068B0034027C /* FLAlert.m */,
 				BB7C321D19FAB82500A5EFCF /* Images.xcassets */,
 				BB7C321F19FAB82500A5EFCF /* LaunchScreen.xib */,
 				BB7C321019FAB82500A5EFCF /* Supporting Files */,
@@ -118,6 +234,49 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		BB7C323619FAB8FB00A5EFCF /* FootLight */ = {
+			isa = PBXGroup;
+			children = (
+				BB7C323719FAB8FB00A5EFCF /* default.png */,
+				BB7C323B19FAB8FB00A5EFCF /* Home_Favourites.png */,
+				BB7C323C19FAB8FB00A5EFCF /* Home_Listings.png */,
+				BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */,
+				BBDA3E8019FB587B0077CFD9 /* Home_location.png */,
+				BB7C323819FAB8FB00A5EFCF /* Category_Cabaret.png */,
+				BB7C323919FAB8FB00A5EFCF /* Category_Comedy.png */,
+				BB7C323A19FAB8FB00A5EFCF /* Category_Dance.png */,
+				BB7C323D19FAB8FB00A5EFCF /* Category_Music.png */,
+				BB7C323E19FAB8FB00A5EFCF /* Category_Museum.png */,
+				BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */,
+				BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */,
+			);
+			path = FootLight;
+			sourceTree = "<group>";
+		};
+		BBDA3E8219FBD6FB0077CFD9 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BBDA3E8319FBD7230077CFD9 /* critic.png */,
+				BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */,
+				BBDA3E8519FBD7230077CFD9 /* fail.png */,
+				BBDA3E8619FBD7230077CFD9 /* favorite.png */,
+				BBDA3E8719FBD7230077CFD9 /* home.png */,
+				BBDA3E8819FBD7230077CFD9 /* ic_drawer.png */,
+				BBDA3E8919FBD7230077CFD9 /* ic_launcher.jpg */,
+				BBDA3E8A19FBD7230077CFD9 /* image_back.png */,
+				BBDA3E8B19FBD7230077CFD9 /* knob.png */,
+				BBDA3E8C19FBD7230077CFD9 /* list.png */,
+				BBDA3E8D19FBD7230077CFD9 /* location.png */,
+				BBDA3E8E19FBD7230077CFD9 /* red_heart.png */,
+				BBDA3E8F19FBD7230077CFD9 /* success.png */,
+				BBDA3E9019FBD7230077CFD9 /* wait.png */,
+			);
+			name = Images;
+			path = ..;
+			sourceTree = "<group>";
+			tabWidth = 4;
+			usesTabs = 0;
 		};
 /* End PBXGroup section */
 
@@ -200,8 +359,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB7C321C19FAB82500A5EFCF /* Main.storyboard in Resources */,
+				BBDA3E9919FBD7230077CFD9 /* knob.png in Resources */,
+				BB7C324719FAB8FB00A5EFCF /* Home_Listings.png in Resources */,
+				BBDA3E9519FBD7230077CFD9 /* home.png in Resources */,
 				BB7C322119FAB82500A5EFCF /* LaunchScreen.xib in Resources */,
+				BBDA3E9619FBD7230077CFD9 /* ic_drawer.png in Resources */,
+				BB7C324819FAB8FB00A5EFCF /* Category_Music.png in Resources */,
+				BBDA3E7F19FB4F470077CFD9 /* HomeCell.xib in Resources */,
+				BB13885119FBFC9B0034027C /* FLCollectionCell.xib in Resources */,
+				BB13883B19FBE1BB0034027C /* FLNavigationBar.xib in Resources */,
+				BBDA3E8119FB587B0077CFD9 /* Home_location.png in Resources */,
+				BB7C324419FAB8FB00A5EFCF /* Category_Comedy.png in Resources */,
+				BBDA3E9C19FBD7230077CFD9 /* red_heart.png in Resources */,
+				BB7C324A19FAB8FB00A5EFCF /* Category_Theatre.png in Resources */,
+				BB13884619FBEB5B0034027C /* FLPicker.xib in Resources */,
+				BB7C324B19FAB8FB00A5EFCF /* Home_TopPicks.png in Resources */,
 				BB7C321E19FAB82500A5EFCF /* Images.xcassets in Resources */,
+				BBDA3E9819FBD7230077CFD9 /* image_back.png in Resources */,
+				BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */,
+				BB7C324919FAB8FB00A5EFCF /* Category_Museum.png in Resources */,
+				BBDA3E9419FBD7230077CFD9 /* favorite.png in Resources */,
+				BBDA3E9719FBD7230077CFD9 /* ic_launcher.jpg in Resources */,
+				BBDA3E9A19FBD7230077CFD9 /* list.png in Resources */,
+				BB7C324319FAB8FB00A5EFCF /* Category_Cabaret.png in Resources */,
+				BBDA3E9319FBD7230077CFD9 /* fail.png in Resources */,
+				BB7C324619FAB8FB00A5EFCF /* Home_Favourites.png in Resources */,
+				BB7C324219FAB8FB00A5EFCF /* default.png in Resources */,
+				BBDA3E9B19FBD7230077CFD9 /* location.png in Resources */,
+				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
+				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
+				BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */,
+				BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */,
+				BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,9 +408,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB13883619FBE07E0034027C /* FootLightCategoryViewController.m in Sources */,
 				BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */,
+				BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */,
+				BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */,
+				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
+				BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */,
 				BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */,
+				BBDA3E7E19FB4F470077CFD9 /* HomeCell.m in Sources */,
 				BB7C321319FAB82500A5EFCF /* main.m in Sources */,
+				BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */,
+				BB13884C19FBF2290034027C /* FLByLocationViewController.m in Sources */,
+				BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */,
+				BB13885419FC068C0034027C /* FLAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +611,7 @@
 				BB7C323219FAB82500A5EFCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BB7C323319FAB82500A5EFCF /* Build configuration list for PBXNativeTarget "FootLightTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +620,7 @@
 				BB7C323519FAB82500A5EFCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
