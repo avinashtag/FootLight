@@ -19,13 +19,11 @@
 
 -(id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelHandler:(FLAlertCancel)cancelHandler otherHandler:(FLAlertOtherPressed)otherHandler otherButtonTitles:(NSString *)otherButtonTitles, ...{
     
-    if (!self) {
         self = [super init];
         self.cancel = cancelHandler;
         self.OtherPressed = otherHandler;
         UIAlertView *alert= [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
         [alert show];
-    }
     return self;
     
 }

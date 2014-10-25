@@ -47,9 +47,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     FLCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CustomIdentifier" forIndexPath:indexPath];
-//    if (!cell) {
-//        cell = []
-//    }
     [cell.imageView setImage:[(HomeCellModel*)[datasource objectAtIndex:indexPath.row] image]];
     [cell.title setText:[(HomeCellModel*)[datasource objectAtIndex:indexPath.row] title]];
     return cell;
