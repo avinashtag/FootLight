@@ -39,8 +39,6 @@
 		BB7C324A19FAB8FB00A5EFCF /* Category_Theatre.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */; };
 		BB7C324B19FAB8FB00A5EFCF /* Home_TopPicks.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */; };
 		BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */; };
-		BBDA3E7E19FB4F470077CFD9 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */; };
-		BBDA3E7F19FB4F470077CFD9 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */; };
 		BBDA3E8119FB587B0077CFD9 /* Home_location.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8019FB587B0077CFD9 /* Home_location.png */; };
 		BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8319FBD7230077CFD9 /* critic.png */; };
 		BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */; };
@@ -90,8 +88,8 @@
 		BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLCollectionCell.xib; sourceTree = "<group>"; };
 		BB13885219FC068B0034027C /* FLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAlert.h; sourceTree = "<group>"; };
 		BB13885319FC068B0034027C /* FLAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAlert.m; sourceTree = "<group>"; };
-		BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowModalFromView.m"; sourceTree = "<group>"; };
-		BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowModalFromView.h"; sourceTree = "<group>"; };
+		BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIViewController+ShowModalFromView.m"; path = "../UIViewController+ShowModalFromView.m"; sourceTree = "<group>"; };
+		BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ShowModalFromView.h"; path = "../UIViewController+ShowModalFromView.h"; sourceTree = "<group>"; };
 		BB13885819FC1EC30034027C /* UIView+FLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLView.h"; sourceTree = "<group>"; };
 		BB13885919FC1EC30034027C /* UIView+FLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLView.m"; sourceTree = "<group>"; };
 		BB7C320D19FAB82500A5EFCF /* FootLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,9 +116,6 @@
 		BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Theatre.png; sourceTree = "<group>"; };
 		BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_TopPicks.png; sourceTree = "<group>"; };
 		BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
-		BBDA3E7B19FB4F470077CFD9 /* HomeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
-		BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
-		BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
 		BBDA3E8019FB587B0077CFD9 /* Home_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_location.png; sourceTree = "<group>"; };
 		BBDA3E8319FBD7230077CFD9 /* critic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = critic.png; sourceTree = "<group>"; };
 		BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drop_down.jpg; sourceTree = "<group>"; };
@@ -156,11 +151,81 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		BB7C320419FAB82500A5EFCF = {
+		BB7A74A119FE95D300D71D66 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				BB7C321419FAB82500A5EFCF /* AppDelegate.h */,
+				BB7C321519FAB82500A5EFCF /* AppDelegate.m */,
+				BB7C321A19FAB82500A5EFCF /* Main.storyboard */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		BB7A74A219FE95F400D71D66 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB7C321719FAB82500A5EFCF /* ViewController.h */,
+				BB7C321819FAB82500A5EFCF /* ViewController.m */,
+				BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */,
+				BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */,
+				BB13883F19FBEAB80034027C /* FLTheaterViewController.h */,
+				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
+				BB13884A19FBF2290034027C /* FLByLocationViewController.h */,
+				BB13884B19FBF2290034027C /* FLByLocationViewController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BB7A74A319FE966100D71D66 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB13883C19FBE6990034027C /* HomeCellModel.h */,
+				BB13883D19FBE6990034027C /* HomeCellModel.m */,
+				BB13884719FBED7F0034027C /* FLPickerModel.h */,
+				BB13884819FBED7F0034027C /* FLPickerModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		BB7A74A419FE969400D71D66 /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BB13884D19FBFC9B0034027C /* FLCollectionCell.h */,
+				BB13884E19FBFC9B0034027C /* FLCollectionCell.m */,
+				BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */,
+			);
+			name = "Custom Cell";
+			sourceTree = "<group>";
+		};
+		BB7A74A519FE96A700D71D66 /* Custom Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB13885219FC068B0034027C /* FLAlert.h */,
+				BB13885319FC068B0034027C /* FLAlert.m */,
+				BB13883719FBE1BB0034027C /* FLNavigationBar.h */,
+				BB13883819FBE1BB0034027C /* FLNavigationBar.m */,
+				BB13883919FBE1BB0034027C /* FLNavigationBar.xib */,
+				BB13884219FBEB5B0034027C /* FLPicker.h */,
+				BB13884319FBEB5B0034027C /* FLPicker.m */,
+				BB13884419FBEB5B0034027C /* FLPicker.xib */,
+			);
+			name = "Custom Controllers";
+			sourceTree = "<group>";
+		};
+		BB7A74A619FE96C400D71D66 /* Category */ = {
 			isa = PBXGroup;
 			children = (
 				BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */,
 				BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */,
+				BB13885819FC1EC30034027C /* UIView+FLView.h */,
+				BB13885919FC1EC30034027C /* UIView+FLView.m */,
+			);
+			name = Category;
+			sourceTree = "<group>";
+		};
+		BB7C320419FAB82500A5EFCF = {
+			isa = PBXGroup;
+			children = (
 				BB7C320F19FAB82500A5EFCF /* FootLight */,
 				BB7C322919FAB82500A5EFCF /* FootLightTests */,
 				BB7C320E19FAB82500A5EFCF /* Products */,
@@ -181,37 +246,12 @@
 			children = (
 				BBDA3E8219FBD6FB0077CFD9 /* Images */,
 				BB7C323619FAB8FB00A5EFCF /* FootLight */,
-				BB7C321419FAB82500A5EFCF /* AppDelegate.h */,
-				BB7C321519FAB82500A5EFCF /* AppDelegate.m */,
-				BB7C321719FAB82500A5EFCF /* ViewController.h */,
-				BB7C321819FAB82500A5EFCF /* ViewController.m */,
-				BB13883C19FBE6990034027C /* HomeCellModel.h */,
-				BB13883D19FBE6990034027C /* HomeCellModel.m */,
-				BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */,
-				BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */,
-				BB13883F19FBEAB80034027C /* FLTheaterViewController.h */,
-				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
-				BB13884A19FBF2290034027C /* FLByLocationViewController.h */,
-				BB13884B19FBF2290034027C /* FLByLocationViewController.m */,
-				BB13883719FBE1BB0034027C /* FLNavigationBar.h */,
-				BB13883819FBE1BB0034027C /* FLNavigationBar.m */,
-				BB13883919FBE1BB0034027C /* FLNavigationBar.xib */,
-				BB13884219FBEB5B0034027C /* FLPicker.h */,
-				BB13884319FBEB5B0034027C /* FLPicker.m */,
-				BB13884419FBEB5B0034027C /* FLPicker.xib */,
-				BB13884719FBED7F0034027C /* FLPickerModel.h */,
-				BB13884819FBED7F0034027C /* FLPickerModel.m */,
-				BB7C321A19FAB82500A5EFCF /* Main.storyboard */,
-				BBDA3E7B19FB4F470077CFD9 /* HomeCell.h */,
-				BB13884D19FBFC9B0034027C /* FLCollectionCell.h */,
-				BB13884E19FBFC9B0034027C /* FLCollectionCell.m */,
-				BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */,
-				BBDA3E7C19FB4F470077CFD9 /* HomeCell.m */,
-				BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */,
-				BB13885219FC068B0034027C /* FLAlert.h */,
-				BB13885319FC068B0034027C /* FLAlert.m */,
-				BB13885819FC1EC30034027C /* UIView+FLView.h */,
-				BB13885919FC1EC30034027C /* UIView+FLView.m */,
+				BB7A74A119FE95D300D71D66 /* AppDelegate */,
+				BB7A74A219FE95F400D71D66 /* View Controllers */,
+				BB7A74A319FE966100D71D66 /* Models */,
+				BB7A74A519FE96A700D71D66 /* Custom Controllers */,
+				BB7A74A419FE969400D71D66 /* Custom Cell */,
+				BB7A74A619FE96C400D71D66 /* Category */,
 				BB7C321D19FAB82500A5EFCF /* Images.xcassets */,
 				BB7C321F19FAB82500A5EFCF /* LaunchScreen.xib */,
 				BB7C321019FAB82500A5EFCF /* Supporting Files */,
@@ -375,7 +415,6 @@
 				BB7C322119FAB82500A5EFCF /* LaunchScreen.xib in Resources */,
 				BBDA3E9619FBD7230077CFD9 /* ic_drawer.png in Resources */,
 				BB7C324819FAB8FB00A5EFCF /* Category_Music.png in Resources */,
-				BBDA3E7F19FB4F470077CFD9 /* HomeCell.xib in Resources */,
 				BB13885119FBFC9B0034027C /* FLCollectionCell.xib in Resources */,
 				BB13883B19FBE1BB0034027C /* FLNavigationBar.xib in Resources */,
 				BBDA3E8119FB587B0077CFD9 /* Home_location.png in Resources */,
@@ -427,7 +466,6 @@
 				BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */,
 				BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */,
 				BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */,
-				BBDA3E7E19FB4F470077CFD9 /* HomeCell.m in Sources */,
 				BB7C321319FAB82500A5EFCF /* main.m in Sources */,
 				BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */,
 				BB13884C19FBF2290034027C /* FLByLocationViewController.m in Sources */,

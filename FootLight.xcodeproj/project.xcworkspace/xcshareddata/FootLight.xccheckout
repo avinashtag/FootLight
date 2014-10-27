@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>2E18B567-34D8-4BF0-92EA-97B27C7B71CF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FootLight</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9D8368C27777820353F5979352C4A896521729A3</key>
+		<string>https://github.com/avinashtag/FootLight.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FootLight.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9D8368C27777820353F5979352C4A896521729A3</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/avinashtag/FootLight.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9D8368C27777820353F5979352C4A896521729A3</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9D8368C27777820353F5979352C4A896521729A3</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FootLight</string>
+		</dict>
+	</array>
+</dict>
+</plist>
