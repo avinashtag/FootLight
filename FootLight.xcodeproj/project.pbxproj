@@ -21,6 +21,13 @@
 		BB13885419FC068C0034027C /* FLAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885319FC068B0034027C /* FLAlert.m */; };
 		BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */; };
 		BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885919FC1EC30034027C /* UIView+FLView.m */; };
+		BB7A74AD19FE98AD00D71D66 /* FLListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74AB19FE98AD00D71D66 /* FLListCell.m */; };
+		BB7A74AE19FE98AD00D71D66 /* FLListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74AC19FE98AD00D71D66 /* FLListCell.xib */; };
+		BB7A74B119FE9DE000D71D66 /* rightArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74AF19FE9DE000D71D66 /* rightArrow.png */; };
+		BB7A74B219FE9DE000D71D66 /* rightArrow@2x copy.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74B019FE9DE000D71D66 /* rightArrow@2x copy.png */; };
+		BB7A74B519FEA2A200D71D66 /* FLListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74B419FEA2A200D71D66 /* FLListViewController.m */; };
+		BB7A74B819FEA69500D71D66 /* FLProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */; };
+		BB7A74BA19FEA83600D71D66 /* black_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74B919FEA83600D71D66 /* black_heart.png */; };
 		BB7C321319FAB82500A5EFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321219FAB82500A5EFCF /* main.m */; };
 		BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321519FAB82500A5EFCF /* AppDelegate.m */; };
 		BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321819FAB82500A5EFCF /* ViewController.m */; };
@@ -92,6 +99,16 @@
 		BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIViewController+ShowModalFromView.h"; path = "../UIViewController+ShowModalFromView.h"; sourceTree = "<group>"; };
 		BB13885819FC1EC30034027C /* UIView+FLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLView.h"; sourceTree = "<group>"; };
 		BB13885919FC1EC30034027C /* UIView+FLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLView.m"; sourceTree = "<group>"; };
+		BB7A74AA19FE98AD00D71D66 /* FLListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLListCell.h; sourceTree = "<group>"; };
+		BB7A74AB19FE98AD00D71D66 /* FLListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLListCell.m; sourceTree = "<group>"; };
+		BB7A74AC19FE98AD00D71D66 /* FLListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLListCell.xib; sourceTree = "<group>"; };
+		BB7A74AF19FE9DE000D71D66 /* rightArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightArrow.png; sourceTree = "<group>"; };
+		BB7A74B019FE9DE000D71D66 /* rightArrow@2x copy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rightArrow@2x copy.png"; sourceTree = "<group>"; };
+		BB7A74B319FEA2A200D71D66 /* FLListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLListViewController.h; sourceTree = "<group>"; };
+		BB7A74B419FEA2A200D71D66 /* FLListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLListViewController.m; sourceTree = "<group>"; };
+		BB7A74B619FEA69500D71D66 /* FLProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLProductDetailViewController.h; sourceTree = "<group>"; };
+		BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLProductDetailViewController.m; sourceTree = "<group>"; };
+		BB7A74B919FEA83600D71D66 /* black_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_heart.png; sourceTree = "<group>"; };
 		BB7C320D19FAB82500A5EFCF /* FootLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7C321119FAB82500A5EFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7C321219FAB82500A5EFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -172,6 +189,10 @@
 				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
 				BB13884A19FBF2290034027C /* FLByLocationViewController.h */,
 				BB13884B19FBF2290034027C /* FLByLocationViewController.m */,
+				BB7A74B319FEA2A200D71D66 /* FLListViewController.h */,
+				BB7A74B419FEA2A200D71D66 /* FLListViewController.m */,
+				BB7A74B619FEA69500D71D66 /* FLProductDetailViewController.h */,
+				BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -193,6 +214,9 @@
 				BB13884D19FBFC9B0034027C /* FLCollectionCell.h */,
 				BB13884E19FBFC9B0034027C /* FLCollectionCell.m */,
 				BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */,
+				BB7A74AA19FE98AD00D71D66 /* FLListCell.h */,
+				BB7A74AB19FE98AD00D71D66 /* FLListCell.m */,
+				BB7A74AC19FE98AD00D71D66 /* FLListCell.xib */,
 			);
 			name = "Custom Cell";
 			sourceTree = "<group>";
@@ -307,6 +331,8 @@
 		BBDA3E8219FBD6FB0077CFD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				BB7A74AF19FE9DE000D71D66 /* rightArrow.png */,
+				BB7A74B019FE9DE000D71D66 /* rightArrow@2x copy.png */,
 				BBDA3E8319FBD7230077CFD9 /* critic.png */,
 				BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */,
 				BBDA3E8519FBD7230077CFD9 /* fail.png */,
@@ -319,6 +345,7 @@
 				BBDA3E8C19FBD7230077CFD9 /* list.png */,
 				BBDA3E8D19FBD7230077CFD9 /* location.png */,
 				BBDA3E8E19FBD7230077CFD9 /* red_heart.png */,
+				BB7A74B919FEA83600D71D66 /* black_heart.png */,
 				BBDA3E8F19FBD7230077CFD9 /* success.png */,
 				BBDA3E9019FBD7230077CFD9 /* wait.png */,
 			);
@@ -413,6 +440,8 @@
 				BB7C324719FAB8FB00A5EFCF /* Home_Listings.png in Resources */,
 				BBDA3E9519FBD7230077CFD9 /* home.png in Resources */,
 				BB7C322119FAB82500A5EFCF /* LaunchScreen.xib in Resources */,
+				BB7A74B219FE9DE000D71D66 /* rightArrow@2x copy.png in Resources */,
+				BB7A74BA19FEA83600D71D66 /* black_heart.png in Resources */,
 				BBDA3E9619FBD7230077CFD9 /* ic_drawer.png in Resources */,
 				BB7C324819FAB8FB00A5EFCF /* Category_Music.png in Resources */,
 				BB13885119FBFC9B0034027C /* FLCollectionCell.xib in Resources */,
@@ -426,6 +455,7 @@
 				BB7C321E19FAB82500A5EFCF /* Images.xcassets in Resources */,
 				BBDA3E9819FBD7230077CFD9 /* image_back.png in Resources */,
 				BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */,
+				BB7A74B119FE9DE000D71D66 /* rightArrow.png in Resources */,
 				BB7C324919FAB8FB00A5EFCF /* Category_Museum.png in Resources */,
 				BBDA3E9419FBD7230077CFD9 /* favorite.png in Resources */,
 				BBDA3E9719FBD7230077CFD9 /* ic_launcher.jpg in Resources */,
@@ -438,6 +468,7 @@
 				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
 				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
 				BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */,
+				BB7A74AE19FE98AD00D71D66 /* FLListCell.xib in Resources */,
 				BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */,
 				BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */,
 			);
@@ -461,6 +492,7 @@
 				BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */,
 				BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */,
 				BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */,
+				BB7A74AD19FE98AD00D71D66 /* FLListCell.m in Sources */,
 				BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */,
 				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
 				BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */,
@@ -468,8 +500,10 @@
 				BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */,
 				BB7C321319FAB82500A5EFCF /* main.m in Sources */,
 				BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */,
+				BB7A74B819FEA69500D71D66 /* FLProductDetailViewController.m in Sources */,
 				BB13884C19FBF2290034027C /* FLByLocationViewController.m in Sources */,
 				BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */,
+				BB7A74B519FEA2A200D71D66 /* FLListViewController.m in Sources */,
 				BB13885419FC068C0034027C /* FLAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
