@@ -28,6 +28,10 @@
 		BB7A74B519FEA2A200D71D66 /* FLListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74B419FEA2A200D71D66 /* FLListViewController.m */; };
 		BB7A74B819FEA69500D71D66 /* FLProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */; };
 		BB7A74BA19FEA83600D71D66 /* black_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74B919FEA83600D71D66 /* black_heart.png */; };
+		BB7A74BE19FEB1B600D71D66 /* FLLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74BC19FEB1B600D71D66 /* FLLeftMenuViewController.m */; };
+		BB7A74BF19FEB1B600D71D66 /* FLLeftMenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74BD19FEB1B600D71D66 /* FLLeftMenuViewController.xib */; };
+		BB7A74C319FEB36A00D71D66 /* FLLeftMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7A74C119FEB36A00D71D66 /* FLLeftMenuCell.m */; };
+		BB7A74C419FEB36A00D71D66 /* FLLeftMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7A74C219FEB36A00D71D66 /* FLLeftMenuCell.xib */; };
 		BB7C321319FAB82500A5EFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321219FAB82500A5EFCF /* main.m */; };
 		BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321519FAB82500A5EFCF /* AppDelegate.m */; };
 		BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321819FAB82500A5EFCF /* ViewController.m */; };
@@ -109,6 +113,12 @@
 		BB7A74B619FEA69500D71D66 /* FLProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLProductDetailViewController.h; sourceTree = "<group>"; };
 		BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLProductDetailViewController.m; sourceTree = "<group>"; };
 		BB7A74B919FEA83600D71D66 /* black_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = black_heart.png; sourceTree = "<group>"; };
+		BB7A74BB19FEB1B600D71D66 /* FLLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLeftMenuViewController.h; sourceTree = "<group>"; };
+		BB7A74BC19FEB1B600D71D66 /* FLLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLeftMenuViewController.m; sourceTree = "<group>"; };
+		BB7A74BD19FEB1B600D71D66 /* FLLeftMenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLLeftMenuViewController.xib; sourceTree = "<group>"; };
+		BB7A74C019FEB36A00D71D66 /* FLLeftMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLLeftMenuCell.h; sourceTree = "<group>"; };
+		BB7A74C119FEB36A00D71D66 /* FLLeftMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLLeftMenuCell.m; sourceTree = "<group>"; };
+		BB7A74C219FEB36A00D71D66 /* FLLeftMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLLeftMenuCell.xib; sourceTree = "<group>"; };
 		BB7C320D19FAB82500A5EFCF /* FootLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7C321119FAB82500A5EFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7C321219FAB82500A5EFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -232,6 +242,12 @@
 				BB13884219FBEB5B0034027C /* FLPicker.h */,
 				BB13884319FBEB5B0034027C /* FLPicker.m */,
 				BB13884419FBEB5B0034027C /* FLPicker.xib */,
+				BB7A74BB19FEB1B600D71D66 /* FLLeftMenuViewController.h */,
+				BB7A74BC19FEB1B600D71D66 /* FLLeftMenuViewController.m */,
+				BB7A74BD19FEB1B600D71D66 /* FLLeftMenuViewController.xib */,
+				BB7A74C019FEB36A00D71D66 /* FLLeftMenuCell.h */,
+				BB7A74C119FEB36A00D71D66 /* FLLeftMenuCell.m */,
+				BB7A74C219FEB36A00D71D66 /* FLLeftMenuCell.xib */,
 			);
 			name = "Custom Controllers";
 			sourceTree = "<group>";
@@ -462,9 +478,11 @@
 				BBDA3E9A19FBD7230077CFD9 /* list.png in Resources */,
 				BB7C324319FAB8FB00A5EFCF /* Category_Cabaret.png in Resources */,
 				BBDA3E9319FBD7230077CFD9 /* fail.png in Resources */,
+				BB7A74BF19FEB1B600D71D66 /* FLLeftMenuViewController.xib in Resources */,
 				BB7C324619FAB8FB00A5EFCF /* Home_Favourites.png in Resources */,
 				BB7C324219FAB8FB00A5EFCF /* default.png in Resources */,
 				BBDA3E9B19FBD7230077CFD9 /* location.png in Resources */,
+				BB7A74C419FEB36A00D71D66 /* FLLeftMenuCell.xib in Resources */,
 				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
 				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
 				BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */,
@@ -492,6 +510,7 @@
 				BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */,
 				BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */,
 				BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */,
+				BB7A74BE19FEB1B600D71D66 /* FLLeftMenuViewController.m in Sources */,
 				BB7A74AD19FE98AD00D71D66 /* FLListCell.m in Sources */,
 				BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */,
 				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
@@ -499,6 +518,7 @@
 				BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */,
 				BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */,
 				BB7C321319FAB82500A5EFCF /* main.m in Sources */,
+				BB7A74C319FEB36A00D71D66 /* FLLeftMenuCell.m in Sources */,
 				BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */,
 				BB7A74B819FEA69500D71D66 /* FLProductDetailViewController.m in Sources */,
 				BB13884C19FBF2290034027C /* FLByLocationViewController.m in Sources */,

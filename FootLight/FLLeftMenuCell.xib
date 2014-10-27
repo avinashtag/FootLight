@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Xzf-mH-J8c" customClass="FLLeftMenuCell">
+            <rect key="frame" x="0.0" y="0.0" width="250" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xzf-mH-J8c" id="fPP-nF-uYm">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="critic.png" translatesAutoresizingMaskIntoConstraints="NO" id="dNE-Lv-08o">
+                        <rect key="frame" x="6" y="6" width="32" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="6DP-gi-Rgk"/>
+                            <constraint firstAttribute="height" constant="32" id="gE8-Rw-ThT"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSB-do-kNs">
+                        <rect key="frame" x="44" y="12" width="198" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="7IC-lb-Jpn"/>
+                            <constraint firstAttribute="width" constant="198" id="gH0-Vt-Pbr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="dNE-Lv-08o" secondAttribute="centerY" constant="-0.5" id="8eY-At-teY"/>
+                    <constraint firstItem="tSB-do-kNs" firstAttribute="leading" secondItem="dNE-Lv-08o" secondAttribute="trailing" constant="6" id="ADo-kc-sEA"/>
+                    <constraint firstAttribute="centerY" secondItem="tSB-do-kNs" secondAttribute="centerY" constant="-1" id="Eq2-CY-mAx"/>
+                    <constraint firstItem="dNE-Lv-08o" firstAttribute="leading" secondItem="fPP-nF-uYm" secondAttribute="leadingMargin" constant="-2" id="Req-vo-Pgi"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="imageMenu" destination="dNE-Lv-08o" id="whq-yH-68e"/>
+                <outlet property="titleMenu" destination="tSB-do-kNs" id="NJO-vC-qTW"/>
+            </connections>
+            <point key="canvasLocation" x="253" y="204"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="critic.png" width="48" height="48"/>
+    </resources>
+</document>

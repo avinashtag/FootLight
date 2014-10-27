@@ -7,8 +7,12 @@
 //
 
 #import "FLNavigationBar.h"
+#import "FLLeftMenuViewController.h"
+#import "AppDelegate.h"
 
-@interface FLNavigationBar ()
+@interface FLNavigationBar (){
+    FLLeftMenuViewController *leftmenuController ;
+}
 
 @end
 
@@ -46,5 +50,34 @@
 */
 
 - (IBAction)homeButtonPressed:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    
+    id tt = [AppDelegate SharedApplication];
+    tt = [AppDelegate SharedApplication].window;
+    if (sender.selected) {
+        leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
+        CGRect frameMenu = leftmenuController.view.frame;
+        [leftmenuController.view setFrame:CGRectMake(-frameMenu.size.width, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
+        [self.view.superview addSubview:leftmenuController.view];
+        [UIView animateWithDuration:0.30 animations:^{
+            [leftmenuController.view setFrame:CGRectMake(0, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
+  
+            
+        } completion:^(BOOL finished) {
+            
+        }];
+    }
+    else{
+        CGRect frameMenu = leftmenuController.view.frame;
+        [UIView animateWithDuration:0.30 animations:^{
+            [leftmenuController.view setFrame:CGRectMake(-frameMenu.size.width, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
+            
+            
+        } completion:^(BOOL finished) {
+            [leftmenuController.view removeFromSuperview];
+        }];
+
+    }
+
 }
 @end
