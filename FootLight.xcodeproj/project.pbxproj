@@ -19,6 +19,8 @@
 		BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13884E19FBFC9B0034027C /* FLCollectionCell.m */; };
 		BB13885119FBFC9B0034027C /* FLCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */; };
 		BB13885419FC068C0034027C /* FLAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885319FC068B0034027C /* FLAlert.m */; };
+		BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */; };
+		BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13885919FC1EC30034027C /* UIView+FLView.m */; };
 		BB7C321319FAB82500A5EFCF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321219FAB82500A5EFCF /* main.m */; };
 		BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321519FAB82500A5EFCF /* AppDelegate.m */; };
 		BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C321819FAB82500A5EFCF /* ViewController.m */; };
@@ -88,6 +90,10 @@
 		BB13884F19FBFC9B0034027C /* FLCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLCollectionCell.xib; sourceTree = "<group>"; };
 		BB13885219FC068B0034027C /* FLAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAlert.h; sourceTree = "<group>"; };
 		BB13885319FC068B0034027C /* FLAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAlert.m; sourceTree = "<group>"; };
+		BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowModalFromView.m"; sourceTree = "<group>"; };
+		BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowModalFromView.h"; sourceTree = "<group>"; };
+		BB13885819FC1EC30034027C /* UIView+FLView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+FLView.h"; sourceTree = "<group>"; };
+		BB13885919FC1EC30034027C /* UIView+FLView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+FLView.m"; sourceTree = "<group>"; };
 		BB7C320D19FAB82500A5EFCF /* FootLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB7C321119FAB82500A5EFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB7C321219FAB82500A5EFCF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -153,6 +159,8 @@
 		BB7C320419FAB82500A5EFCF = {
 			isa = PBXGroup;
 			children = (
+				BB13885719FC144C0034027C /* UIViewController+ShowModalFromView.h */,
+				BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */,
 				BB7C320F19FAB82500A5EFCF /* FootLight */,
 				BB7C322919FAB82500A5EFCF /* FootLightTests */,
 				BB7C320E19FAB82500A5EFCF /* Products */,
@@ -202,6 +210,8 @@
 				BBDA3E7D19FB4F470077CFD9 /* HomeCell.xib */,
 				BB13885219FC068B0034027C /* FLAlert.h */,
 				BB13885319FC068B0034027C /* FLAlert.m */,
+				BB13885819FC1EC30034027C /* UIView+FLView.h */,
+				BB13885919FC1EC30034027C /* UIView+FLView.m */,
 				BB7C321D19FAB82500A5EFCF /* Images.xcassets */,
 				BB7C321F19FAB82500A5EFCF /* LaunchScreen.xib */,
 				BB7C321019FAB82500A5EFCF /* Supporting Files */,
@@ -412,8 +422,10 @@
 				BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */,
 				BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */,
 				BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */,
+				BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */,
 				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
 				BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */,
+				BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */,
 				BB7C321619FAB82500A5EFCF /* AppDelegate.m in Sources */,
 				BBDA3E7E19FB4F470077CFD9 /* HomeCell.m in Sources */,
 				BB7C321319FAB82500A5EFCF /* main.m in Sources */,

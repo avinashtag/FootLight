@@ -13,7 +13,8 @@
 #import "FootLightCategoryViewController.h"
 #import "FLAlert.h"
 #import "FLByLocationViewController.h"
-
+#import "FLNavigationBar.h"
+#import "UIView+FLView.h"
 
 @interface ViewController (){
     NSArray *datasource;
@@ -26,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+
+    [self.view addNavigationBarWithTitle:@"Home"];
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
 //    [self.CategoryCollection registerClass:[HomeCell class] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
