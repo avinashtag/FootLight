@@ -14,4 +14,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *navTitle;
 @property (strong, nonatomic) IBOutlet UITableView *productsTable;
 @property (strong, nonatomic) NSMutableArray *products;
+
+-(void)zipCallNormal:(NSString*)url;
 @end

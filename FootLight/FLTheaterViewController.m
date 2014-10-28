@@ -14,6 +14,7 @@
 #import "ATWebService.h"
 #import "FLProductDetailViewController.h"
 #import "FLProductListViewController.h"
+#import "AppDelegate.h"
 
 @interface FLTheaterViewController (){
     FLNavigationBar *navBar;
@@ -171,18 +172,25 @@
 
 -(void)callWebservice{
 
+    CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
+    product = [[FLProductListViewController alloc]initWithNibName:@"FLProductListViewController" bundle:nil];
+    [self.navigationController pushViewController:product animated:YES];
     if (islocation) {
         NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
-        [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                product = [[FLProductListViewController alloc]initWithNibName:@"FLProductListViewController" bundle:nil];
-                product.products = [response mutableCopy];
-                [self.navigationController pushViewController:product animated:YES];
-            });
-        } withFailHandler:^(id response, NSString *message, NSError *error) {
-            
-        }];
+        [product zipCallNormal:url];
+//        NSString *url = [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",@"91502",@"25"];
+//        NSString *url = [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",@"91502",@"25"];
 
+    }
+    else{
+        
+//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
     }
 }
 @end

@@ -9,6 +9,9 @@
 #import "FLProductListViewController.h"
 #import "FLListCell.h"
 #import "FLZipResponseModel.h"
+#import "ATWebService.h"
+#import "UIImageView+WebCache.h"
+#import "MBProgressHUD.h"
 
 @interface FLProductListViewController ()
 
@@ -16,8 +19,10 @@
 
 @implementation FLProductListViewController
 
+UIImage *placeholderImage ;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    placeholderImage = [UIImage imageNamed:@"image_back"];
     [[self productsTable] reloadData];
     // Do any additional setup after loading the view.
 }
@@ -62,7 +67,7 @@
     frame.size.height = [zipModel.cellCreated doubleValue];
     [cell.timeFrom setFrame:frame ];
     cell.timeFrom.text = zipModel.cellTimings;
-    
+    [cell.productImage setImageWithURL:[NSURL URLWithString:zipModel.imagename] placeholderImage:placeholderImage];
     return cell;
 }
 
@@ -76,6 +81,19 @@
     
     FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
     return 63+21 + [zipModel.cellCreated doubleValue];
+}
+
+-(void)zipCallNormal:(NSString*)url{
+    MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.products = [response mutableCopy];
+            [self.productsTable reloadData];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    } withFailHandler:^(id response, NSString *message, NSError *error) {
+        
+    }];
 }
 
 @end
