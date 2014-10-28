@@ -10,4 +10,6 @@
 
 @interface UIView (FLView)
 -(void)addNavigationBarWithTitle:(NSString*)title;
+-(void)addNavigationBarWithTitle:(NSString*)title navigation:(UINavigationController*)navController;
+-(void)setNavigationTitle:(NSString*)title;
 @end

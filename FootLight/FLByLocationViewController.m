@@ -7,7 +7,7 @@
 //
 
 #import "FLByLocationViewController.h"
-
+#import "ATWebService.h"
 @interface FLByLocationViewController ()
 
 @end
@@ -22,6 +22,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)search:(UIButton *)sender {
+    NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",_zipCode.text];
+//    [[[ATWebService alloc]init] callOnUrlZip:<#(NSString *)#> withSuccessHandler:<#^(id response, NSString *message)success#> withFailHandler:<#^(id response, NSString *message, NSError *error)fail#>]
 }
 
 /*

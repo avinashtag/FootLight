@@ -8,8 +8,15 @@
 
 #import "FLLeftMenuViewController.h"
 #import "FLLeftMenuCell.h"
+#import "UIView+FLView.h"
+#import "FootLightCategoryViewController.h"
+#import "ViewController.h"
+#import "FLAlert.h"
+#import "FLByLocationViewController.h"
 
-@interface FLLeftMenuCellModel()
+@interface FLLeftMenuCellModel(){
+    NSString*    previousTitle;
+}
 
 
 @end
@@ -33,6 +40,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    CGRect frameMenu = self.leftMenu.frame;
+    frameMenu.origin.x = -frameMenu.size.width;
+    [self.leftMenu setFrame:frameMenu];
+
     self.products = [[NSMutableArray alloc]init];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home"]]];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"Listing" image:[UIImage imageNamed:@"list"]]];
@@ -81,15 +92,78 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //    ******* navigate to detailView
     
-    
     [UIView animateWithDuration:0.30 animations:^{
         
         [self.view setFrame:CGRectMake(-self.view.frame.size.width, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
     } completion:^(BOOL finished) {
-        
+        switch (indexPath.row) {
+            case 0://Home
+                [self.navigation popToRootViewControllerAnimated:NO];
+                break;
+                
+            case 1://listing
+            {
+                [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
+                    BOOL popOut = NO;
+                    if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
+                        popOut = YES;
+                        [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
+                    }
+                    else if(!popOut){
+                        ViewController *Vc = [ViewController sharedViewController];
+                        [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+                    }
+                }];
+            }
+                break;
+            case 2://location
+            {
+                [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
+                    BOOL popOut = NO;
+                    if ([viewControl isKindOfClass:[FLByLocationViewController class]]) {
+                        popOut = YES;
+                        [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
+                    }
+                    else if(!popOut){
+                        ViewController *Vc = [ViewController sharedViewController];
+                        [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+                    }
+                }];
+            }
+                break;
+            default:{
+                FLAlert *alert = [[FLAlert alloc]initWithTitle:@"FootLight" message:@"Coming Soon" cancelButtonTitle:@"Cancel" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
+            }
+                break;
+        }
         [self.view removeFromSuperview];
     }];
     
+}
+
+-(void)animateViewIn:(NSString*)navigationTitleText{
+    [UIView animateWithDuration:0.30 animations:^{
+        CGRect leftFrame = self.leftMenu.frame;
+        leftFrame.origin.x = 0;
+        [self.leftMenu setFrame:leftFrame];
+        [self.view setNavigationTitle:navigationTitleText];
+        
+    } completion:^(BOOL finished) {
+        
+    }];
+    
+}
+-(void)animateViewOut:(NSString*)navigationTitleText{
+   
+    [UIView animateWithDuration:0.30 animations:^{
+        CGRect leftFrame = self.leftMenu.frame;
+        leftFrame.origin.x = -leftFrame.size.width;
+        [self.leftMenu setFrame:leftFrame];
+        [self.view setNavigationTitle:navigationTitleText];
+        
+    } completion:^(BOOL finished) {
+        [self.view removeFromSuperview];
+    }];
 }
 
 

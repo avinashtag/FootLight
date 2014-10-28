@@ -1,64 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FLPicker">
-            <connections>
-                <outlet property="picker" destination="k4v-JK-st7" id="X6t-iW-TpD"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pickerId" id="sKN-Cy-lW2" customClass="FLPicker">
             <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
-            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4v-JK-st7">
-                    <rect key="frame" x="0.0" y="44" width="320" height="162"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="kJ9-Js-yh7"/>
-                        <outlet property="delegate" destination="-1" id="Kyd-UO-bMK"/>
-                    </connections>
-                </pickerView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-8f-t8x">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIU-8f-V7C">
-                            <rect key="frame" x="269" y="10" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <state key="normal" title="Done">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="selectedPicker:" destination="-1" eventType="touchUpInside" id="Vga-JW-oRZ"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-fC-gi9">
-                            <rect key="frame" x="5" y="10" width="46" height="30"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                            <state key="normal" title="Cancel">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="cancelClicked:" destination="-1" eventType="touchUpInside" id="aR9-ao-Ugf"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                </view>
-            </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <nil key="simulatedStatusBarMetrics"/>
-            <nil key="simulatedTopBarMetrics"/>
-            <nil key="simulatedBottomBarMetrics"/>
-            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="424" y="113"/>
-        </view>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sKN-Cy-lW2" id="YhH-uh-xK4">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-8f-t8x" userLabel="ToolBar">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIU-8f-V7C">
+                                <rect key="frame" x="269" y="10" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="M0M-jx-nM9"/>
+                                    <constraint firstAttribute="height" constant="30" id="naa-c9-d69"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancelClicked:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="grI-rU-9aC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-fC-gi9">
+                                <rect key="frame" x="5" y="10" width="46" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="f5x-2a-NyK"/>
+                                    <constraint firstAttribute="width" constant="46" id="nhs-WC-qam"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectedPicker:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="qbr-h3-hlW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="XIU-8f-V7C" secondAttribute="centerY" constant="-3" id="DbC-NB-1gc"/>
+                            <constraint firstItem="wYE-fC-gi9" firstAttribute="leading" secondItem="cA1-8f-t8x" secondAttribute="leading" constant="5" id="N8Y-Oe-MLI"/>
+                            <constraint firstAttribute="centerY" secondItem="wYE-fC-gi9" secondAttribute="centerY" constant="-3" id="P51-Gs-LLn"/>
+                            <constraint firstAttribute="height" constant="44" id="RC1-CP-zcM"/>
+                            <constraint firstAttribute="trailing" secondItem="XIU-8f-V7C" secondAttribute="trailing" constant="5" id="Rxe-sh-w5Y"/>
+                            <constraint firstAttribute="width" constant="320" id="wbx-Ku-vCI"/>
+                        </constraints>
+                    </view>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4v-JK-st7">
+                        <rect key="frame" x="0.0" y="44" width="320" height="162"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="162" id="EcP-Jh-4tR"/>
+                            <constraint firstAttribute="width" constant="320" id="fv2-UO-y55"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="dataSource" destination="sKN-Cy-lW2" id="8tq-IM-SwU"/>
+                            <outlet property="delegate" destination="sKN-Cy-lW2" id="gdq-dl-ggw"/>
+                        </connections>
+                    </pickerView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="k4v-JK-st7" firstAttribute="top" secondItem="cA1-8f-t8x" secondAttribute="bottom" id="1WJ-5g-n63"/>
+                    <constraint firstAttribute="centerX" secondItem="k4v-JK-st7" secondAttribute="centerX" id="Neb-CT-nWP"/>
+                    <constraint firstAttribute="centerX" secondItem="cA1-8f-t8x" secondAttribute="centerX" id="h5Y-Ng-L2q"/>
+                    <constraint firstItem="cA1-8f-t8x" firstAttribute="top" secondItem="YhH-uh-xK4" secondAttribute="topMargin" constant="-8" id="xRs-Un-0dr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="picker" destination="k4v-JK-st7" id="f0U-Bh-fH0"/>
+            </connections>
+            <point key="canvasLocation" x="471" y="245"/>
+        </tableViewCell>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="3vh-FT-1SQ" customClass="FLPicker">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3vh-FT-1SQ" id="sDA-iZ-mGs">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="drop_down.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sl2-Cd-QNP">
+                        <rect key="frame" x="266" y="8" width="30" height="30"/>
+                    </imageView>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gyt-Aj-Qdd">
+                        <rect key="frame" x="23" y="8" width="274" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                </subviews>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="textField" destination="Gyt-Aj-Qdd" id="e9h-CU-viL"/>
+            </connections>
+            <point key="canvasLocation" x="400" y="440"/>
+        </tableViewCell>
     </objects>
+    <resources>
+        <image name="drop_down.jpg" width="30" height="30"/>
+    </resources>
 </document>

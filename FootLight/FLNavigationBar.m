@@ -12,6 +12,7 @@
 
 @interface FLNavigationBar (){
     FLLeftMenuViewController *leftmenuController ;
+    NSString* previousTitle;
 }
 
 @end
@@ -21,6 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    previousTitle = @"Home";
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -56,28 +58,18 @@
     tt = [AppDelegate SharedApplication].window;
     if (sender.selected) {
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
-        CGRect frameMenu = leftmenuController.view.frame;
-        [leftmenuController.view setFrame:CGRectMake(-frameMenu.size.width, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
-        [self.view.superview addSubview:leftmenuController.view];
-        [UIView animateWithDuration:0.30 animations:^{
-            [leftmenuController.view setFrame:CGRectMake(0, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
-  
-            
-        } completion:^(BOOL finished) {
-            
-        }];
+        leftmenuController.navigation = self.navigationController;
+        [self.navigation.topViewController.view addSubview:leftmenuController.view];
+        previousTitle = self.navigationTitle.text;
+        [leftmenuController animateViewIn:@"Foot Light"];
     }
     else{
-        CGRect frameMenu = leftmenuController.view.frame;
-        [UIView animateWithDuration:0.30 animations:^{
-            [leftmenuController.view setFrame:CGRectMake(-frameMenu.size.width, self.view.frame.size.height, frameMenu.size.width, self.view.superview.frame.size.height)];
-            
-            
-        } completion:^(BOOL finished) {
-            [leftmenuController.view removeFromSuperview];
-        }];
-
+        [leftmenuController animateViewOut:previousTitle];
     }
 
 }
+
+
+
+
 @end

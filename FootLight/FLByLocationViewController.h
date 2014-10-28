@@ -10,4 +10,7 @@
 
 @interface FLByLocationViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITextField *zipCode;
+@property (strong, nonatomic) IBOutlet UITextField *cityState;
+@property (strong, nonatomic) IBOutlet UITextField *radius;
 @end

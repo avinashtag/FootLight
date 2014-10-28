@@ -17,7 +17,12 @@
 -(instancetype)initWithTitle:(NSString*)title image:(UIImage*)imageLocal;
 @end
 @interface FLLeftMenuViewController : UIViewController
+@property (strong, nonatomic) UINavigationController *navigation;
 
 @property (nonatomic, strong)NSMutableArray *products;
 @property (nonatomic, strong) IBOutlet UITableView *leftMenu;
+
+
+-(void)animateViewIn:(NSString*)navigationTitleText;
+-(void)animateViewOut:(NSString*)navigationTitleText;
 @end

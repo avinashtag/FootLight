@@ -15,17 +15,34 @@
 
 @implementation FLPicker
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+
+
+/*-(void)showPickerWithPopIn{
+    
+    self.pickerView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.pickerView.transform = CGAffineTransformIdentity;
+    } completion:^(BOOL finished){
+        // do something once the animation finishes, put it here
+    }];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)hidePickerWithPopOut{
+    
+    self.pickerView.transform = CGAffineTransformIdentity;
+    [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.pickerView.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    } completion:^(BOOL finished){
+    }];
+}*/
+
+
+-(void)callBackPickerSelected:(selectedFLPicker)selectedPick cancelPicker:(cancelFLPicker)pickCancel{
+    
+    _pickerCancel = pickCancel;
+    _pickerSelected = selectedPick;
 }
-
-
 -(NSArray*)statusDatasource{
     NSMutableArray *datasource = [[NSMutableArray alloc]init];
     NSArray *temp = @[@"Now Playing", @"Opening Soon", @"Closing Soon"];
@@ -59,9 +76,16 @@
 */
 
 - (IBAction)cancelClicked:(UIButton *)sender {
+    if (_pickerCancel != nil) {
+        _pickerCancel(sender);
+    }
 }
 
 - (IBAction)selectedPicker:(UIButton *)sender {
+    if (_pickerSelected != nil) {
+        NSString* seletedValue = [_pickerDatasource objectAtIndex:[self.picker selectedRowInComponent:0]];
+        _pickerSelected(seletedValue);
+    }
 }
 
 // returns the number of 'columns' to display.
@@ -73,11 +97,11 @@
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component{
     
-    return 1;
+    return _pickerDatasource.count;
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    return @"testing Picker";
+    return [_pickerDatasource objectAtIndex:row];
 }
 @end

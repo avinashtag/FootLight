@@ -8,10 +8,10 @@
 
 #import "ViewController.h"
 
-@interface FLTheaterViewController : ViewController
+@interface FLTheaterViewController : ViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *titlenavigation;
-@property (strong, nonatomic) IBOutlet UITextField *showStatus;
-@property (strong, nonatomic) IBOutlet UITextField *genere;
-- (IBAction)submit:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet UITableView *tablePicker;
+
+@property (strong, nonatomic) NSMutableArray *cellsList ;
 @end

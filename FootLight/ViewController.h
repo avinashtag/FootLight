@@ -12,5 +12,6 @@
 
 
 @property (strong, nonatomic) IBOutlet UICollectionView *CategoryCollection;
++(ViewController*)sharedViewController;
 @end
 

@@ -11,6 +11,7 @@
 @interface FLNavigationBar : UIViewController
 
 @property (strong, nonatomic) IBOutlet UILabel *navigationTitle;
+@property (strong, nonatomic) UINavigationController *navigation;
 - (IBAction)homeButtonPressed:(UIButton *)sender;
 
 -(UIView*)NavigationBarWithTitle:(NSString*)title;

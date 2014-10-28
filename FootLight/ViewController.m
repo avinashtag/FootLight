@@ -23,15 +23,22 @@
 
 @implementation ViewController
 
+static ViewController *sharedInstance = nil;
+
++(ViewController*)sharedViewController{
+    return sharedInstance;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self.view addNavigationBarWithTitle:@"Home"];
+    [self.view addNavigationBarWithTitle:@"Home" navigation:self.navigationController];
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
 //    [self.CategoryCollection registerClass:[HomeCell class] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
     [self.CategoryCollection reloadData];
+    sharedInstance = self;
 }
 
 - (void)didReceiveMemoryWarning {
