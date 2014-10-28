@@ -18,4 +18,5 @@
 - (IBAction)favorite:(UIButton *)sender;
 - (IBAction)direction:(UIButton *)sender;
 - (IBAction)voteDone:(UIButton *)sender;
+
 @end

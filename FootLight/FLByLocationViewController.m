@@ -8,6 +8,7 @@
 
 #import "FLByLocationViewController.h"
 #import "ATWebService.h"
+#import "FLTheaterViewController.h"
 @interface FLByLocationViewController ()
 
 @end
@@ -26,7 +27,8 @@
 
 - (IBAction)search:(UIButton *)sender {
     NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",_zipCode.text];
-//    [[[ATWebService alloc]init] callOnUrlZip:<#(NSString *)#> withSuccessHandler:<#^(id response, NSString *message)success#> withFailHandler:<#^(id response, NSString *message, NSError *error)fail#>]
+    FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+    [self.navigationController pushViewController:selectionVC animated:YES];
 }
 
 /*

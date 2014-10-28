@@ -40,6 +40,8 @@ NSString *const kFLZipResponseModelGenre = @"Genre";
 NSString *const kFLZipResponseModelVenueTheatreCity = @"VenueTheatreCity";
 NSString *const kFLZipResponseModelBoxOfficePhone = @"boxOfficePhone";
 NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast";
+NSString *const kFLZipResponseModelCellCreated = @"CellCreated";
+NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
 
 
 @interface FLZipResponseModel ()
@@ -82,6 +84,8 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
 @synthesize venueTheatreCity = _venueTheatreCity;
 @synthesize boxOfficePhone = _boxOfficePhone;
 @synthesize weeklyPassportEblast = _weeklyPassportEblast;
+@synthesize cellCreated = _cellCreated;;
+@synthesize cellTimings = _cellTimings;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -129,6 +133,10 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
             self.boxOfficePhone = [self objectOrNilForKey:kFLZipResponseModelBoxOfficePhone fromDictionary:dict];
             self.weeklyPassportEblast = [self objectOrNilForKey:kFLZipResponseModelWeeklyPassportEblast fromDictionary:dict];
 
+        self.cellTimings = [self showTimings:self];
+        self.cellCreated = [NSNumber numberWithDouble:ceil([self.cellTimings sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}].height)];
+
+
     }
     
     return self;
@@ -170,6 +178,8 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
     [mutableDict setValue:self.venueTheatreCity forKey:kFLZipResponseModelVenueTheatreCity];
     [mutableDict setValue:self.boxOfficePhone forKey:kFLZipResponseModelBoxOfficePhone];
     [mutableDict setValue:self.weeklyPassportEblast forKey:kFLZipResponseModelWeeklyPassportEblast];
+    [mutableDict setValue:self.cellCreated forKey:kFLZipResponseModelCellCreated];
+    [mutableDict setValue:self.cellTimings forKey:kFLZipResponseModelCellTimings];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -225,6 +235,8 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
     self.venueTheatreCity = [aDecoder decodeObjectForKey:kFLZipResponseModelVenueTheatreCity];
     self.boxOfficePhone = [aDecoder decodeObjectForKey:kFLZipResponseModelBoxOfficePhone];
     self.weeklyPassportEblast = [aDecoder decodeObjectForKey:kFLZipResponseModelWeeklyPassportEblast];
+    self.cellCreated = [aDecoder decodeObjectForKey:kFLZipResponseModelCellCreated];
+    self.cellTimings = [aDecoder decodeObjectForKey:kFLZipResponseModelCellTimings];
     return self;
 }
 
@@ -263,6 +275,9 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
     [aCoder encodeObject:_venueTheatreCity forKey:kFLZipResponseModelVenueTheatreCity];
     [aCoder encodeObject:_boxOfficePhone forKey:kFLZipResponseModelBoxOfficePhone];
     [aCoder encodeObject:_weeklyPassportEblast forKey:kFLZipResponseModelWeeklyPassportEblast];
+    [aCoder encodeObject:[NSNumber numberWithBool:_cellCreated] forKey:kFLZipResponseModelCellCreated];
+    [aCoder encodeObject:_cellTimings forKey:kFLZipResponseModelCellTimings];
+    
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -303,10 +318,26 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
         copy.venueTheatreCity = [self.venueTheatreCity copyWithZone:zone];
         copy.boxOfficePhone = [self.boxOfficePhone copyWithZone:zone];
         copy.weeklyPassportEblast = [self.weeklyPassportEblast copyWithZone:zone];
+        copy.cellTimings = [self.cellTimings copyWithZone:zone];
+        copy.cellCreated = [self.cellCreated copyWithZone:zone];
     }
     
     return copy;
 }
 
+-(NSString*)showTimings:(FLZipResponseModel*)model{
+    
+    NSString *noShow = @"No Show";
+    NSMutableArray *timings = [[NSMutableArray alloc]init];
+    [model.friday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Friday: %@",model.friday]] : NSLog(@"");
+    [model.saturday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Saturday: %@",model.saturday]] : NSLog(@"");
+    [model.sunday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Sunday: %@",model.sunday]] : NSLog(@"");
+    [model.monday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Monday: %@",model.monday]] : NSLog(@"");
+    [model.tuesday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Tuesday: %@",model.tuesday]] : NSLog(@"");
+    [model.wednesday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
+    [model.thursday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
+    return [timings componentsJoinedByString:@"\n"];
+    
+}
 
 @end

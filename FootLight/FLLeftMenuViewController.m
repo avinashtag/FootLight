@@ -96,9 +96,10 @@
         
         [self.view setFrame:CGRectMake(-self.view.frame.size.width, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
     } completion:^(BOOL finished) {
+        
         switch (indexPath.row) {
             case 0://Home
-                [self.navigation popToRootViewControllerAnimated:NO];
+                [[ViewController sharedViewController].navigationController popToRootViewControllerAnimated:NO];
                 break;
                 
             case 1://listing

@@ -1,22 +1,24 @@
 //
-//  FLListViewController.m
+//  FLProductListViewController.m
 //  FootLight
 //
-//  Created by Avinash Tag on 27/10/2014.
+//  Created by Avinash Tag on 28/10/2014.
 //  Copyright (c) 2014 Avinash Tag. All rights reserved.
 //
 
-#import "FLListViewController.h"
+#import "FLProductListViewController.h"
 #import "FLListCell.h"
+#import "FLZipResponseModel.h"
 
-@interface FLListViewController ()
+@interface FLProductListViewController ()
 
 @end
 
-@implementation FLListViewController
+@implementation FLProductListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[self productsTable] reloadData];
     // Do any additional setup after loading the view.
 }
 
@@ -26,14 +28,14 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.products.count;
@@ -52,14 +54,28 @@
     [cell atNavigatePdf:^(id tag) {
         [tableView.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }];
+    FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
+    cell.productName.text = zipModel.title;
+    cell.productType.text = zipModel.venueTheatreName;
+    
+    CGRect frame = cell.timeFrom.frame;
+    frame.size.height = [zipModel.cellCreated doubleValue];
+    [cell.timeFrom setFrame:frame ];
+    cell.timeFrom.text = zipModel.cellTimings;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-//    ******* navigate to detailView
+    //    ******* navigate to detailView
     
     
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
+    return 63+21 + [zipModel.cellCreated doubleValue];
 }
 
 @end

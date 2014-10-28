@@ -43,6 +43,8 @@
 @property (nonatomic, strong) NSString *venueTheatreCity;
 @property (nonatomic, strong) NSString *boxOfficePhone;
 @property (nonatomic, strong) NSString *weeklyPassportEblast;
+@property (nonatomic, strong) NSString *cellTimings;
+@property (nonatomic, strong) NSNumber *cellCreated;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

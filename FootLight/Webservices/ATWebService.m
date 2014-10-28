@@ -35,7 +35,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
 -(void)callOnUrlZip:(NSString*)srl withSuccessHandler:(ATResponseSuccess)success withFailHandler:(ATResponseFail)fail{
     self.atResponseFail = fail;
     self.atResponseSuccess = success;
-
+    self.queue = [[NSOperationQueue alloc]init];
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {

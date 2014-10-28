@@ -10,9 +10,16 @@
 #import "UIViewController+ShowModalFromView.h"
 #import "FLPicker.h"
 #import "FLNavigationBar.h"
+#import "FLByLocationViewController.h"
+#import "ATWebService.h"
+#import "FLProductDetailViewController.h"
+#import "FLProductListViewController.h"
 
 @interface FLTheaterViewController (){
     FLNavigationBar *navBar;
+    BOOL islocation;
+    UIView *footer;
+    FLProductListViewController *product;
 }
 
 @end
@@ -34,13 +41,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+-(void)setServiceType{
+    
+    NSArray *viewControllers = [[ViewController sharedViewController].navigationController viewControllers];
+    id controller = [viewControllers objectAtIndex:viewControllers.count-2];
+    islocation = [controller isKindOfClass:[FLByLocationViewController class]];
+}
+
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
 
     //******* Open Picker ******//
     UITableViewCell *flPicker = [self.tablePicker cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
     flPicker.hidden = NO;
     [self.tablePicker reloadData];
-    self.tablePicker
+//    self.tablePicker
     return NO;
 }
 
@@ -55,6 +70,8 @@
 */
 
 - (IBAction)submit:(UIButton *)sender {
+    [self setServiceType];
+    [self callWebservice];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
@@ -90,6 +107,19 @@
     
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (!footer) {
+        footer = [[[NSBundle mainBundle] loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:2];
+    }
+    UIButton *button = (UIButton*)[footer viewWithTag:100];
+    [button addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
+    return footer;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 44;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row == 1 || indexPath.row == 3) {
         @try {
@@ -137,5 +167,22 @@
     theaterTypePicker.hidden = YES;
     [self.cellsList addObject:theaterTypePicker];
     [self.tablePicker reloadData];
+}
+
+-(void)callWebservice{
+
+    if (islocation) {
+        NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
+        [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                product = [[FLProductListViewController alloc]initWithNibName:@"FLProductListViewController" bundle:nil];
+                product.products = [response mutableCopy];
+                [self.navigationController pushViewController:product animated:YES];
+            });
+        } withFailHandler:^(id response, NSString *message, NSError *error) {
+            
+        }];
+
+    }
 }
 @end

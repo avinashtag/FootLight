@@ -7,6 +7,8 @@
 //
 
 #import "FLProductDetailViewController.h"
+#import "ATWebService.h"
+#import "FLZipResponseModel.h"
 
 @interface FLProductDetailViewController ()
 
@@ -41,4 +43,6 @@
 
 - (IBAction)voteDone:(UIButton *)sender {
 }
+
+
 @end
