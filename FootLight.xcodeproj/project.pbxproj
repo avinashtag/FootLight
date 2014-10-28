@@ -89,6 +89,8 @@
 		BBF937B21A00160A000BF603 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937A91A00160A000BF603 /* SDWebImagePrefetcher.m */; };
 		BBF937B31A00160A000BF603 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937AB1A00160A000BF603 /* UIButton+WebCache.m */; };
 		BBF937B41A00160A000BF603 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937AD1A00160A000BF603 /* UIImageView+WebCache.m */; };
+		BBF937B81A001B48000BF603 /* ATPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937B61A001B48000BF603 /* ATPicker.m */; };
+		BBF937B91A001B48000BF603 /* ATPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF937B71A001B48000BF603 /* ATPicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -235,6 +237,9 @@
 		BBF937AB1A00160A000BF603 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		BBF937AC1A00160A000BF603 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		BBF937AD1A00160A000BF603 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		BBF937B51A001B48000BF603 /* ATPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPicker.h; sourceTree = "<group>"; };
+		BBF937B61A001B48000BF603 /* ATPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPicker.m; sourceTree = "<group>"; };
+		BBF937B71A001B48000BF603 /* ATPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATPicker.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -380,6 +385,9 @@
 				BB7A74C019FEB36A00D71D66 /* FLLeftMenuCell.h */,
 				BB7A74C119FEB36A00D71D66 /* FLLeftMenuCell.m */,
 				BB7A74C219FEB36A00D71D66 /* FLLeftMenuCell.xib */,
+				BBF937B51A001B48000BF603 /* ATPicker.h */,
+				BBF937B61A001B48000BF603 /* ATPicker.m */,
+				BBF937B71A001B48000BF603 /* ATPicker.xib */,
 			);
 			name = "Custom Controllers";
 			sourceTree = "<group>";
@@ -645,6 +653,7 @@
 				BB7C324219FAB8FB00A5EFCF /* default.png in Resources */,
 				BBDA3E9B19FBD7230077CFD9 /* location.png in Resources */,
 				BB7A74C419FEB36A00D71D66 /* FLLeftMenuCell.xib in Resources */,
+				BBF937B91A001B48000BF603 /* ATPicker.xib in Resources */,
 				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
 				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
 				BBF9379A1A000C48000BF603 /* FLProductListViewController.xib in Resources */,
@@ -688,6 +697,7 @@
 				BBF937AF1A00160A000BF603 /* SDWebImageDecoder.m in Sources */,
 				BB13884919FBED7F0034027C /* FLPickerModel.m in Sources */,
 				B98743AC19FF6D1600136AA7 /* SBJsonTokeniser.m in Sources */,
+				BBF937B81A001B48000BF603 /* ATPicker.m in Sources */,
 				BBF937B11A00160A000BF603 /* SDWebImageManager.m in Sources */,
 				BB13885A19FC1EC30034027C /* UIView+FLView.m in Sources */,
 				B987443119FF785400136AA7 /* FLZipResponseModel.m in Sources */,

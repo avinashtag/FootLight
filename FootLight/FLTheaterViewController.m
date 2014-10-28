@@ -15,12 +15,15 @@
 #import "FLProductDetailViewController.h"
 #import "FLProductListViewController.h"
 #import "AppDelegate.h"
+#import "ATPicker.h"
+#import "FLPickerModel.h"
 
 @interface FLTheaterViewController (){
     FLNavigationBar *navBar;
     BOOL islocation;
     UIView *footer;
     FLProductListViewController *product;
+    ATPicker *pick;
 }
 
 @end
@@ -32,7 +35,6 @@
     
     navBar = [[FLNavigationBar alloc] initWithNibName:@"FLNavigationBar" bundle:nil];
     [self.view addSubview:navBar.view];
-    [self.tablePicker reloadData];
 //    [self fillDatasource];
     // Do any additional setup after loading the view.
 }
@@ -53,10 +55,18 @@
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
 
     //******* Open Picker ******//
-    UITableViewCell *flPicker = [self.tablePicker cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]];
-    flPicker.hidden = NO;
-    [self.tablePicker reloadData];
-//    self.tablePicker
+    CGPoint center = textField.center;
+    pick = [[ATPicker alloc]initWithNibName:@"ATPicker" bundle:nil];
+    pick.pickerDatasource =  (textField == self.showStatus) ? [pick statusDatasource] : [pick theaterTypeDatasource];
+    pick.view.center = center;
+    [self.view addSubview:pick.view];
+    [pick showPickerWithPopIn];
+    [pick callBackPickerSelected:^(FLPickerModel* value) {
+        
+        textField.text = value.pickerTitle;
+    } cancelPicker:^(id value) {
+        
+    }];
     return NO;
 }
 
@@ -75,115 +85,25 @@
     [self callWebservice];
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 4;
-}
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    FLPicker *cell;
-    if (indexPath.row == 0 || indexPath.row == 2) {
-        static NSString *cellIdentifier =  @"PickerCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"FLPicker" owner:self options:nil] objectAtIndex:1];
-        cell.textField.delegate = self;
-    }
-    else{
-        static NSString *cellIdentifier =  @"ConfigCell";
-        cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"FLPicker" owner:self options:nil] objectAtIndex:1];
-        cell.pickerDatasource =  indexPath.row == 1? [cell statusDatasource]:[cell theaterTypeDatasource];
-        cell.hidden = YES;
-    }
-    
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //    ******* navigate to detailView
-    
-    
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    if (!footer) {
-        footer = [[[NSBundle mainBundle] loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:2];
-    }
-    UIButton *button = (UIButton*)[footer viewWithTag:100];
-    [button addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
-    return footer;
-    
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 44;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 1 || indexPath.row == 3) {
-        @try {
-//            UITableViewCell *model = [tableView cellForRowAtIndexPath:indexPath];
-            return 0;//(model.isHidden) ? 0 : 206;
-        }
-        @catch (NSException *exception) {
-            return 0;
-        }
-    }
-    return 44;
-}
 
 
--(void)fillDatasource{
-    
-    self.cellsList = [[NSMutableArray alloc]init];
-    
-    FLPicker *timingCell = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:1];
-    [timingCell.textField setDelegate:self];
-    [self.cellsList addObject:timingCell];
-    
-    FLPicker *timingCellPicker = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:0];
-    timingCellPicker.pickerDatasource =    [timingCellPicker statusDatasource];
-    [timingCellPicker callBackPickerSelected:^(id value) {
-        
-    } cancelPicker:^(id value) {
-        
-    }];
-    timingCellPicker.hidden = YES;
-    [self.cellsList addObject:timingCellPicker];
 
 
-    FLPicker *theaterType = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:1];
-    [theaterType.textField setDelegate:self];
-    [self.cellsList addObject:theaterType];
-    
-    FLPicker *theaterTypePicker = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:0];
-    theaterTypePicker.pickerDatasource =    [theaterTypePicker statusDatasource];
-    [theaterTypePicker callBackPickerSelected:^(id value) {
-        
-    } cancelPicker:^(id value) {
-        
-    }];
-    theaterTypePicker.hidden = YES;
-    [self.cellsList addObject:theaterTypePicker];
-    [self.tablePicker reloadData];
-}
 
 -(void)callWebservice{
 
     CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
     product = [[FLProductListViewController alloc]initWithNibName:@"FLProductListViewController" bundle:nil];
     [self.navigationController pushViewController:product animated:YES];
-    if (islocation) {
+//    if (islocation) {
         NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
         [product zipCallNormal:url];
 //        NSString *url = [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",@"91502",@"25"];
 //        NSString *url = [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",@"91502",@"25"];
 
-    }
-    else{
-        
+//    }
+//    else{
+    
 //        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 //        NSString *url = [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 //        NSString *url = [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
@@ -191,6 +111,6 @@
 //        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 //        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 //        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-    }
+//    }
 }
 @end

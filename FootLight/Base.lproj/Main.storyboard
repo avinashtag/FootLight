@@ -168,20 +168,47 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wT6-1H-w7j">
-                                <rect key="frame" x="0.0" y="136" width="320" height="432"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="drop_down.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ebO-Ps-OtK">
+                                <rect key="frame" x="274" y="190" width="30" height="30"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Radius" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aUa-ef-jnM">
+                                <rect key="frame" x="14" y="190" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="sfT-Y0-dRw" id="ahU-lT-sjz"/>
-                                    <outlet property="delegate" destination="sfT-Y0-dRw" id="Bgw-g8-b2e"/>
+                                    <outlet property="delegate" destination="sfT-Y0-dRw" id="c9c-c7-JMm"/>
                                 </connections>
-                            </tableView>
+                            </textField>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="drop_down.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="1Tn-SW-eEp">
+                                <rect key="frame" x="274" y="250" width="30" height="30"/>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Radius" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KjS-6w-zns">
+                                <rect key="frame" x="14" y="250" width="290" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="sfT-Y0-dRw" id="VIN-eZ-G8C"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cqz-he-qdd">
+                                <rect key="frame" x="114" y="314" width="91" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submit:" destination="sfT-Y0-dRw" eventType="touchUpInside" id="nlv-wB-XGS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="tablePicker" destination="wT6-1H-w7j" id="f1b-Wv-csZ"/>
+                        <outlet property="showStatus" destination="aUa-ef-jnM" id="7Yv-Cw-DwV"/>
+                        <outlet property="theaterType" destination="KjS-6w-zns" id="1m6-zl-cMl"/>
                         <outlet property="titlenavigation" destination="291-8P-KEu" id="7xS-mW-aJ2"/>
                     </connections>
                 </viewController>

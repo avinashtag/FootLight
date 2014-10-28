@@ -12,7 +12,7 @@
 @interface FLPickerModel : NSObject
 
 
-@property(nonatomic,strong) NSString* title;
+@property(nonatomic,strong) NSString* pickerTitle;
 @property(nonatomic,strong) UILabel* titleLabel;
 @property(nonatomic,strong) id model;
 

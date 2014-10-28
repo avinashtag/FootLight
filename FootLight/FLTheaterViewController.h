@@ -11,7 +11,7 @@
 @interface FLTheaterViewController : ViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *titlenavigation;
-@property (strong, nonatomic) IBOutlet UITableView *tablePicker;
 
-@property (strong, nonatomic) NSMutableArray *cellsList ;
+@property (strong, nonatomic) IBOutlet UITextField *theaterType;
+@property (strong, nonatomic) IBOutlet UITextField *showStatus;
 @end

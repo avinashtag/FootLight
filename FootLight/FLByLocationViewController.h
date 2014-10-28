@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FLByLocationViewController : UIViewController
+@interface FLByLocationViewController : UIViewController<UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *zipCode;
 @property (strong, nonatomic) IBOutlet UITextField *cityState;

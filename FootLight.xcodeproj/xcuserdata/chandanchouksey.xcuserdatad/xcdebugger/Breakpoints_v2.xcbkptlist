@@ -52,22 +52,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FootLight/FLLeftMenuViewController.m"
-            timestampString = "436212033.530356"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FootLight/FLLeftMenuViewController.m"
             timestampString = "436212114.383097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"

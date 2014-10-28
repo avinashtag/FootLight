@@ -9,8 +9,12 @@
 #import "FLByLocationViewController.h"
 #import "ATWebService.h"
 #import "FLTheaterViewController.h"
+#import "ATPicker.h"
+#import "FLPickerModel.h"
 @interface FLByLocationViewController ()
-
+{
+    ATPicker *pick;
+}
 @end
 
 @implementation FLByLocationViewController
@@ -29,6 +33,26 @@
     NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",_zipCode.text];
     FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
     [self.navigationController pushViewController:selectionVC animated:YES];
+}
+
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField == self.radius) {
+        //Open Picker
+        CGPoint center = textField.center;
+        pick = [[ATPicker alloc]initWithNibName:@"ATPicker" bundle:nil];
+        pick.pickerDatasource = [pick radiusFill];
+        pick.view.center = center;
+        [self.view addSubview:pick.view];
+        [pick showPickerWithPopIn];
+        [pick callBackPickerSelected:^(FLPickerModel* value) {
+            
+            self.radius.text = value.pickerTitle;
+        } cancelPicker:^(id value) {
+            
+        }];
+        return NO;
+    }
+    return YES;
 }
 
 /*

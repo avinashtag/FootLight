@@ -48,7 +48,7 @@
     NSArray *temp = @[@"Now Playing", @"Opening Soon", @"Closing Soon"];
     for (NSString* value in temp) {
         FLPickerModel *model = [[FLPickerModel alloc]init];
-        model.title = value;
+        model.pickerTitle = value;
         [datasource addObject:model];
     }
     return datasource;
@@ -60,7 +60,7 @@
     NSArray *temp = @[@"All", @"Musical", @"Drama",@"Comedy", @"Classic", @"Opera", @"Fringe"];
     for (NSString* value in temp) {
         FLPickerModel *model = [[FLPickerModel alloc]init];
-        model.title = value;
+        model.pickerTitle = value;
         [datasource addObject:model];
     }
     return datasource;

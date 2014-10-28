@@ -15,8 +15,6 @@ typedef void(^selectedFLPicker)(id value);
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 @property (strong, nonatomic) IBOutlet UITextField *textField;
-@property (strong, nonatomic)  cancelFLPicker flCancelFLPicker;
-@property (strong, nonatomic)  selectedFLPicker flSelectedFLPicker;
 @property (strong, nonatomic) NSArray *pickerDatasource;
 
 
