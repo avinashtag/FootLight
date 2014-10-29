@@ -63,7 +63,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 
     [self.description setAttributedText:description];
 //    [self.description sizeThatFits:self.description.contentSize];
-    [self.description sizeToFit];
+//    [self.description sizeToFit];
     [self.productImage setImageWithURL:[NSURL URLWithString:_details.imagename] placeholderImage:[UIImage imageNamed:@"wait.png"]];
     CGSize size = self.productScroll.frame.size;
     size.height = 1000;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
