@@ -38,7 +38,7 @@
     Home_location.image = [HomeCellModel imageByName:@"Category_Museum"];
     
     HomeCellModel *Home_TopPicks = [[HomeCellModel alloc]init];
-    Home_TopPicks.title = @"Art Gallery";
+    Home_TopPicks.title = @"Cabaret";
     Home_TopPicks.image = [HomeCellModel imageByName:@"Category_Cabaret"];
     HomeCellModel *Home_Favourites = [[HomeCellModel alloc]init];
     Home_Favourites.title = @"Dance Veneues";

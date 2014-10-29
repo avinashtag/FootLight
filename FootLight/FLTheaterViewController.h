@@ -14,4 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UITextField *theaterType;
 @property (strong, nonatomic) IBOutlet UITextField *showStatus;
+@property (strong, nonatomic)  NSString *zip;
+@property (strong, nonatomic)  NSString *radius;
+@property (strong, nonatomic)  NSString *city;
 @end

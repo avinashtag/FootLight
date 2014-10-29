@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "ATPicker.h"
 #import "FLPickerModel.h"
+#import "FLAlert.h"
 
 @interface FLTheaterViewController (){
     FLNavigationBar *navBar;
@@ -81,36 +82,82 @@
 */
 
 - (IBAction)submit:(UIButton *)sender {
-    [self setServiceType];
-    [self callWebservice];
+    
+    if ([self validation]) {
+        [self setServiceType];
+        [self callWebservice];
+
+    }
+}
+
+-(BOOL)validation{
+    if ([self.theaterType.text isEqualToString:@""]) {
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a genere." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+            
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
+        return NO;
+    }
+    else if ([self.showStatus.text isEqualToString:@""]) {
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a play status." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+            
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
+        return NO;
+    }
+    return YES;
+}
+
+-(NSString*)locationServices{
+    
+    CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
+    if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
+        
+        return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+   }
+    else  if ([self.showStatus.text isEqualToString:@"Opening Soon"]) {
+        
+        return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+    }
+    else  if ([self.showStatus.text isEqualToString:@"Closing Soon"]) {
+        
+        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+    }
+    return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 }
 
 
+-(NSString*)zipcallservice{
+    
+    if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
+        
+        return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",self.zip,self.radius];
+    }
+    else  if ([self.showStatus.text isEqualToString:@"Opening Soon"]) {
+        
+        return [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",self.zip,self.radius];
+    }
+    else  if ([self.showStatus.text isEqualToString:@"Closing Soon"]) {
+        
+        return [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",self.zip,self.radius];
+    }
+    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
 
+}
 
 
 
 -(void)callWebservice{
 
-    CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
     product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
     [self.navigationController pushViewController:product animated:YES];
-//    if (islocation) {
-        NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
-        [product zipCallNormal:url];
-//        NSString *url = [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",@"91502",@"25"];
-//        NSString *url = [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",@"91502",@"25"];
-
-//    }
-//    else{
-    
-//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//        NSString *url = [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
-//    }
+    if (islocation) {
+        [product zipCallNormal:[self zipcallservice] filterGenere:self.theaterType.text];
+    }
+    else{
+        [product statusFilter:[self locationServices] filterGenere:self.theaterType.text];
+    }
 }
 @end

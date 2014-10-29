@@ -88,7 +88,7 @@ UIImage *placeholderImage ;
     return 63+21 + [zipModel.cellCreated doubleValue];
 }
 
--(void)zipCallNormal:(NSString*)url{
+-(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere{
     MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -109,6 +109,19 @@ UIImage *placeholderImage ;
         [_products addObject:model];
     }];
     [self.productsTable reloadData];
+}
+
+-(void)statusFilter:(NSString*)url filterGenere:(NSString*)genere{
+    MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.products = [response mutableCopy];
+            [self.productsTable reloadData];
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        });
+    } withFailHandler:^(id response, NSString *message, NSError *error) {
+        
+    }];
 }
 
 

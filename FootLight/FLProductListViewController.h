@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *productsTable;
 @property (strong, nonatomic) NSMutableArray *products;
 
--(void)zipCallNormal:(NSString*)url;
+-(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere;
 -(void)loadFavourite;
+-(void)statusFilter:(NSString*)url filterGenere:(NSString*)genere;
 @end

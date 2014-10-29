@@ -11,6 +11,9 @@
 #import "FLTheaterViewController.h"
 #import "ATPicker.h"
 #import "FLPickerModel.h"
+#import "FLAlert.h"
+
+
 @interface FLByLocationViewController ()
 {
     ATPicker *pick;
@@ -30,9 +33,10 @@
 }
 
 - (IBAction)search:(UIButton *)sender {
-    NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",_zipCode.text];
-    FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
-    [self.navigationController pushViewController:selectionVC animated:YES];
+    if ([self validation]) {
+        FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+        [self.navigationController pushViewController:selectionVC animated:YES];
+    }
 }
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
@@ -64,5 +68,25 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(BOOL)validation{
+    if ([self.zipCode.text isEqualToString:@""]) {
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a zipcode/city." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+            
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
+        return NO;
+    }
+    else if ([self.radius.text isEqualToString:@""]) {
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a radius." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+            
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
+        return NO;
+    }
+    return YES;
+}
 
 @end
