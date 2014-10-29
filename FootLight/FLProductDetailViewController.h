@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FLZipResponseModel.h"
+#import "ASStarRatingView.h"
 
 @interface FLProductDetailViewController : UIViewController
 
@@ -20,5 +21,6 @@
 - (IBAction)favorite:(UIButton *)sender;
 - (IBAction)direction:(UIButton *)sender;
 - (IBAction)voteDone:(UIButton *)sender;
+@property (strong, nonatomic) IBOutlet ASStarRatingView *startRatingView;
 
 @end

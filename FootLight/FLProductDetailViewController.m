@@ -11,6 +11,7 @@
 #import "FLZipResponseModel.h"
 #import "UIImageView+WebCache.h"
 #import "FlLoadPdf.h"
+#import "FLAlert.h"
 
 @interface FLProductDetailViewController ()
 
@@ -68,9 +69,31 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     size.height = 1000;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
     [self.productScroll setContentSize:size];
     [self.productScroll setScrollEnabled:YES];
-    
+
+    _startRatingView.canEdit = YES;
+    _startRatingView.maxRating = 5;
+    _startRatingView.rating = 0;
+    [self.startRatingView rateChange:^(float rate) {
+       FLAlert* alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Do you Want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+            
+        } otherHandler:^(NSUInteger other) {
+            
+            NSString* url = [NSString stringWithFormat:@"rating.php?rid=%@&rating=%f",_details.recordID, rate];
+            [[[ATWebService alloc] init] callOnUrlrating:url withSuccessHandler:^(NSArray* response, NSString *message) {
+            } withFailHandler:^(id response, NSString *message, NSError *error) {
+                
+            }];
+            
+        } otherButtonTitles:@"Yes"];
+    }];
+
     [self checkFavourite];
 }
+
+-(void)rateWebservice{
+    
+}
+
 
 -(void)checkFavourite{
     
@@ -113,17 +136,14 @@ static NSString *footLightFavourite = @"FootLightFavorite";
                     *stop = YES;
                 }
             }];
-
         }
-        
     }
 
 }
 - (IBAction)direction:(UIButton *)sender {
 }
 
-- (IBAction)voteDone:(UIButton *)sender {
-}
+
 
 - (IBAction)loadPdf:(UITapGestureRecognizer *)sender {
     FlLoadPdf *pdf = [self.storyboard instantiateViewControllerWithIdentifier:@"FlLoadPdf"];

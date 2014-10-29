@@ -17,4 +17,5 @@ typedef void(^ATResponseFail)(id response, NSString* message , NSError *error);
 @property (nonatomic, strong)ATResponseFail atResponseFail;
 
 -(void)callOnUrlZip:(NSString*)srl withSuccessHandler:(ATResponseSuccess)success withFailHandler:(ATResponseFail)fail;
+-(void)callOnUrlrating:(NSString*)srl withSuccessHandler:(ATResponseSuccess)success withFailHandler:(ATResponseFail)fail;
 @end

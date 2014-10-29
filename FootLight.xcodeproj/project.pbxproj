@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B913F1C11A00EE4500DD984A /* FlLoadPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = B913F1C01A00EE4500DD984A /* FlLoadPdf.m */; };
+		B913F1C41A01112800DD984A /* ASStarRatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = B913F1C31A01112800DD984A /* ASStarRatingView.m */; };
+		B913F1CC1A0112FD00DD984A /* half_selected_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1C61A0112FD00DD984A /* half_selected_star.png */; };
+		B913F1CD1A0112FD00DD984A /* half_selected_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1C71A0112FD00DD984A /* half_selected_star@2x.png */; };
+		B913F1CE1A0112FD00DD984A /* not_selected_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1C81A0112FD00DD984A /* not_selected_star.png */; };
+		B913F1CF1A0112FD00DD984A /* not_selected_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1C91A0112FD00DD984A /* not_selected_star@2x.png */; };
+		B913F1D01A0112FD00DD984A /* selected_star.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1CA1A0112FD00DD984A /* selected_star.png */; };
+		B913F1D11A0112FD00DD984A /* selected_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B913F1CB1A0112FD00DD984A /* selected_star@2x.png */; };
 		B98743A319FF6D1600136AA7 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438819FF6D1600136AA7 /* NSObject+SBJson.m */; };
 		B98743A419FF6D1600136AA7 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438B19FF6D1600136AA7 /* SBJsonParser.m */; };
 		B98743A519FF6D1600136AA7 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438D19FF6D1600136AA7 /* SBJsonStreamParser.m */; };
@@ -106,6 +113,14 @@
 /* Begin PBXFileReference section */
 		B913F1BF1A00EE4500DD984A /* FlLoadPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlLoadPdf.h; sourceTree = "<group>"; };
 		B913F1C01A00EE4500DD984A /* FlLoadPdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlLoadPdf.m; sourceTree = "<group>"; };
+		B913F1C21A01112800DD984A /* ASStarRatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASStarRatingView.h; sourceTree = "<group>"; };
+		B913F1C31A01112800DD984A /* ASStarRatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASStarRatingView.m; sourceTree = "<group>"; };
+		B913F1C61A0112FD00DD984A /* half_selected_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = half_selected_star.png; sourceTree = "<group>"; };
+		B913F1C71A0112FD00DD984A /* half_selected_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "half_selected_star@2x.png"; sourceTree = "<group>"; };
+		B913F1C81A0112FD00DD984A /* not_selected_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = not_selected_star.png; sourceTree = "<group>"; };
+		B913F1C91A0112FD00DD984A /* not_selected_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "not_selected_star@2x.png"; sourceTree = "<group>"; };
+		B913F1CA1A0112FD00DD984A /* selected_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_star.png; sourceTree = "<group>"; };
+		B913F1CB1A0112FD00DD984A /* selected_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected_star@2x.png"; sourceTree = "<group>"; };
 		B987438719FF6D1600136AA7 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		B987438819FF6D1600136AA7 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		B987438919FF6D1600136AA7 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -261,6 +276,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B913F1C51A0112FD00DD984A /* stars */ = {
+			isa = PBXGroup;
+			children = (
+				B913F1C61A0112FD00DD984A /* half_selected_star.png */,
+				B913F1C71A0112FD00DD984A /* half_selected_star@2x.png */,
+				B913F1C81A0112FD00DD984A /* not_selected_star.png */,
+				B913F1C91A0112FD00DD984A /* not_selected_star@2x.png */,
+				B913F1CA1A0112FD00DD984A /* selected_star.png */,
+				B913F1CB1A0112FD00DD984A /* selected_star@2x.png */,
+			);
+			path = stars;
+			sourceTree = "<group>";
+		};
 		B987438619FF6D1600136AA7 /* SBJSON Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -328,6 +356,8 @@
 		BB7A74A219FE95F400D71D66 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B913F1C21A01112800DD984A /* ASStarRatingView.h */,
+				B913F1C31A01112800DD984A /* ASStarRatingView.m */,
 				BB7C321719FAB82500A5EFCF /* ViewController.h */,
 				BB7C321819FAB82500A5EFCF /* ViewController.m */,
 				BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */,
@@ -494,6 +524,7 @@
 		BBDA3E8219FBD6FB0077CFD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B913F1C51A0112FD00DD984A /* stars */,
 				BB7A74AF19FE9DE000D71D66 /* rightArrow.png */,
 				BB7A74B019FE9DE000D71D66 /* rightArrow@2x copy.png */,
 				BBDA3E8319FBD7230077CFD9 /* critic.png */,
@@ -627,6 +658,7 @@
 				BBDA3E9919FBD7230077CFD9 /* knob.png in Resources */,
 				BB7C324719FAB8FB00A5EFCF /* Home_Listings.png in Resources */,
 				BBDA3E9519FBD7230077CFD9 /* home.png in Resources */,
+				B913F1CE1A0112FD00DD984A /* not_selected_star.png in Resources */,
 				BB7C322119FAB82500A5EFCF /* LaunchScreen.xib in Resources */,
 				BB7A74B219FE9DE000D71D66 /* rightArrow@2x copy.png in Resources */,
 				BB7A74BA19FEA83600D71D66 /* black_heart.png in Resources */,
@@ -640,12 +672,15 @@
 				BB7C324A19FAB8FB00A5EFCF /* Category_Theatre.png in Resources */,
 				BB13884619FBEB5B0034027C /* FLPicker.xib in Resources */,
 				BB7C324B19FAB8FB00A5EFCF /* Home_TopPicks.png in Resources */,
+				B913F1CF1A0112FD00DD984A /* not_selected_star@2x.png in Resources */,
 				BB7C321E19FAB82500A5EFCF /* Images.xcassets in Resources */,
 				BBDA3E9819FBD7230077CFD9 /* image_back.png in Resources */,
 				BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */,
 				BB7A74B119FE9DE000D71D66 /* rightArrow.png in Resources */,
 				BB7C324919FAB8FB00A5EFCF /* Category_Museum.png in Resources */,
 				BBDA3E9419FBD7230077CFD9 /* favorite.png in Resources */,
+				B913F1CD1A0112FD00DD984A /* half_selected_star@2x.png in Resources */,
+				B913F1D11A0112FD00DD984A /* selected_star@2x.png in Resources */,
 				BBDA3E9719FBD7230077CFD9 /* ic_launcher.jpg in Resources */,
 				BBDA3E9A19FBD7230077CFD9 /* list.png in Resources */,
 				BB7C324319FAB8FB00A5EFCF /* Category_Cabaret.png in Resources */,
@@ -654,12 +689,14 @@
 				BB7C324619FAB8FB00A5EFCF /* Home_Favourites.png in Resources */,
 				BB7C324219FAB8FB00A5EFCF /* default.png in Resources */,
 				BBDA3E9B19FBD7230077CFD9 /* location.png in Resources */,
+				B913F1D01A0112FD00DD984A /* selected_star.png in Resources */,
 				BB7A74C419FEB36A00D71D66 /* FLLeftMenuCell.xib in Resources */,
 				BBF937B91A001B48000BF603 /* ATPicker.xib in Resources */,
 				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
 				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
 				BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */,
 				BB7A74AE19FE98AD00D71D66 /* FLListCell.xib in Resources */,
+				B913F1CC1A0112FD00DD984A /* half_selected_star.png in Resources */,
 				BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */,
 				BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */,
 			);
@@ -714,6 +751,7 @@
 				B98743AD19FF6D1600136AA7 /* SBJsonUTF8Stream.m in Sources */,
 				BBF937B41A00160A000BF603 /* UIImageView+WebCache.m in Sources */,
 				BBF937B31A00160A000BF603 /* UIButton+WebCache.m in Sources */,
+				B913F1C41A01112800DD984A /* ASStarRatingView.m in Sources */,
 				BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */,
 				B98743A419FF6D1600136AA7 /* SBJsonParser.m in Sources */,
 				B987442E19FF703600136AA7 /* ATWebService.m in Sources */,

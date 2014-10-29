@@ -78,6 +78,7 @@ UIImage *placeholderImage ;
     //    ******* navigate to detailView
     detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductDetailViewController"];
     detailVC.details = (FLZipResponseModel*)[self.products objectAtIndex:indexPath.row];
+
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
@@ -109,5 +110,6 @@ UIImage *placeholderImage ;
     }];
     [self.productsTable reloadData];
 }
+
 
 @end
