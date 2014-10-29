@@ -106,13 +106,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T9t-3Z-1ji" userLabel="View - Nav">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T9t-3Z-1ji" userLabel="View - Nav">
                                 <rect key="frame" x="0.0" y="64" width="360" height="72"/>
                                 <subviews>
-                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="NavigationBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="6DR-ln-rAH">
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="NavigationBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="6DR-ln-rAH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Listing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-GN-CMf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHB-GN-CMf">
                                         <rect key="frame" x="0.0" y="51" width="320" height="21"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -121,8 +121,19 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SHB-GN-CMf" secondAttribute="trailing" constant="40" id="Cz3-De-W5I"/>
+                                    <constraint firstItem="6DR-ln-rAH" firstAttribute="top" secondItem="T9t-3Z-1ji" secondAttribute="top" id="Ehv-uz-vP2"/>
+                                    <constraint firstItem="SHB-GN-CMf" firstAttribute="leading" secondItem="T9t-3Z-1ji" secondAttribute="leading" id="I2L-Ih-sWa"/>
+                                    <constraint firstAttribute="trailing" secondItem="6DR-ln-rAH" secondAttribute="trailing" constant="40" id="PYR-04-jio"/>
+                                    <constraint firstAttribute="bottom" secondItem="SHB-GN-CMf" secondAttribute="bottom" id="VKe-Ya-9fO"/>
+                                    <constraint firstItem="6DR-ln-rAH" firstAttribute="leading" secondItem="T9t-3Z-1ji" secondAttribute="leading" id="VjW-IB-czi"/>
+                                    <constraint firstItem="SHB-GN-CMf" firstAttribute="top" secondItem="6DR-ln-rAH" secondAttribute="bottom" constant="-3" id="c68-fN-wI9"/>
+                                    <constraint firstAttribute="height" constant="72" id="oB5-rT-Asc"/>
+                                    <constraint firstAttribute="bottom" secondItem="6DR-ln-rAH" secondAttribute="bottom" constant="18" id="psJ-Ei-EV2"/>
+                                </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aIV-Zk-UhL">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aIV-Zk-UhL">
                                 <rect key="frame" x="19" y="136" width="282" height="432"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="19" minimumInteritemSpacing="19" id="zq3-SL-vQ8">
@@ -150,6 +161,16 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="aIV-Zk-UhL" secondAttribute="trailing" constant="3" id="6Qd-7U-87H"/>
+                            <constraint firstItem="T9t-3Z-1ji" firstAttribute="top" secondItem="aub-aH-R8e" secondAttribute="bottom" constant="44" id="DN0-Ye-oVp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="T9t-3Z-1ji" secondAttribute="trailing" constant="-56" id="Efh-XG-oUD"/>
+                            <constraint firstAttribute="centerX" secondItem="T9t-3Z-1ji" secondAttribute="centerX" constant="-20" id="KBP-oQ-wxV"/>
+                            <constraint firstItem="aIV-Zk-UhL" firstAttribute="leading" secondItem="Be8-h9-456" secondAttribute="leadingMargin" constant="3" id="WQa-vr-L4u"/>
+                            <constraint firstItem="SNs-2A-NRx" firstAttribute="top" secondItem="aIV-Zk-UhL" secondAttribute="bottom" id="ZDv-o3-9ri"/>
+                            <constraint firstItem="aIV-Zk-UhL" firstAttribute="top" secondItem="T9t-3Z-1ji" secondAttribute="bottom" id="gFO-j7-ggJ"/>
+                            <constraint firstItem="T9t-3Z-1ji" firstAttribute="leading" secondItem="Be8-h9-456" secondAttribute="leadingMargin" constant="-16" id="knq-ze-kAM"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="eEa-wk-ilA"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
