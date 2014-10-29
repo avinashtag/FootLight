@@ -39,6 +39,10 @@ static ViewController *sharedInstance = nil;
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
     [self.CategoryCollection reloadData];
+}
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
     sharedInstance = self;
 }
 
