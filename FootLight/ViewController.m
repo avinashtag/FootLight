@@ -35,7 +35,6 @@ static ViewController *sharedInstance = nil;
 
     [self.view addNavigationBarWithTitle:@"Home" navigation:self.navigationController];
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
-//    [self.CategoryCollection registerClass:[HomeCell class] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
     [self.CategoryCollection reloadData];
     sharedInstance = self;

@@ -99,37 +99,34 @@
         
         switch (indexPath.row) {
             case 0://Home
+                [self.view setNavigationTitle:@"Home"];
                 [[ViewController sharedViewController].navigationController popToRootViewControllerAnimated:NO];
                 break;
                 
             case 1://listing
             {
+                [self.view setNavigationTitle:@"Home"];
                 [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
-                    BOOL popOut = NO;
                     if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
-                        popOut = YES;
                         [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
-                    }
-                    else if(!popOut){
-                        ViewController *Vc = [ViewController sharedViewController];
-                        [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+                        return ;
                     }
                 }];
+                ViewController *Vc = [ViewController sharedViewController];
+                [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
             }
                 break;
             case 2://location
             {
+                [self.view setNavigationTitle:@"Home"];
                 [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
-                    BOOL popOut = NO;
                     if ([viewControl isKindOfClass:[FLByLocationViewController class]]) {
-                        popOut = YES;
                         [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
-                    }
-                    else if(!popOut){
-                        ViewController *Vc = [ViewController sharedViewController];
-                        [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+                        return ;
                     }
                 }];
+                ViewController *Vc = [ViewController sharedViewController];
+                [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
             }
                 break;
             default:{
@@ -163,6 +160,7 @@
         [self.view setNavigationTitle:navigationTitleText];
         
     } completion:^(BOOL finished) {
+        [self.view setNavigationTitle:navigationTitleText];
         [self.view removeFromSuperview];
     }];
 }

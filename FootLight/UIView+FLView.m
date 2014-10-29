@@ -17,7 +17,6 @@ FLNavigationBar* navBar = nil;
     if (navBar==nil) {
         navBar = [[FLNavigationBar alloc] initWithNibName:@"FLNavigationBar" bundle:nil];
     }
-//    [self addSubview:navBar.view];
     navBar.navigation = navController;
     [navController.view addSubview:navBar.view];
     title!=nil ? [navBar.navigationTitle setText:title]: NSLog(@"");

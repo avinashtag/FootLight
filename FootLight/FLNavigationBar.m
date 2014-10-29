@@ -9,6 +9,8 @@
 #import "FLNavigationBar.h"
 #import "FLLeftMenuViewController.h"
 #import "AppDelegate.h"
+#import "UIView+FLView.h"
+#import "ViewController.h"
 
 @interface FLNavigationBar (){
     FLLeftMenuViewController *leftmenuController ;
@@ -50,24 +52,21 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (IBAction)homeButtonPressed:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    
-    id tt = [AppDelegate SharedApplication];
-    tt = [AppDelegate SharedApplication].window;
-    if (sender.selected) {
+- (IBAction)sidePanel:(UITapGestureRecognizer *)sender {
+    if ([self.navigationTitle.text isEqual:@"Home"]) {
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
-        leftmenuController.navigation = self.navigationController;
-        [self.navigation.topViewController.view addSubview:leftmenuController.view];
+        UIViewController *VC = [[ViewController sharedViewController].navigationController.viewControllers lastObject];
+        
+        [VC.view addSubview:leftmenuController.view];
         previousTitle = self.navigationTitle.text;
         [leftmenuController animateViewIn:@"Foot Light"];
     }
     else{
-        [leftmenuController animateViewOut:previousTitle];
+        [leftmenuController animateViewOut:@"Home"];
     }
-
+    
 }
+
 
 
 

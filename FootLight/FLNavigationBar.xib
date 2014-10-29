@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FLNavigationBar">
@@ -17,19 +17,18 @@
             <subviews>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="ic_drawer.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kpb-Fn-qBY">
                     <rect key="frame" x="5" y="34" width="24" height="24"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="ur1-84-O4D" appends="YES" id="o6t-h6-aVm"/>
+                    </connections>
                 </imageView>
                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" image="ic_launcher.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="g0t-tu-FTO">
                     <rect key="frame" x="22" y="30" width="32" height="32"/>
-                </imageView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCy-T4-smw">
-                    <rect key="frame" x="5" y="30" width="46" height="30"/>
-                    <state key="normal">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                    <gestureRecognizers/>
                     <connections>
-                        <action selector="homeButtonPressed:" destination="-1" eventType="touchUpInside" id="Uhk-Fu-nSW"/>
+                        <outletCollection property="gestureRecognizers" destination="F9L-2O-8Qr" appends="YES" id="4kv-Bz-Oo8"/>
                     </connections>
-                </button>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zk-Ds-TmG">
                     <rect key="frame" x="59" y="35" width="253" height="21"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -41,6 +40,18 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="88" y="129"/>
         </view>
+        <tapGestureRecognizer id="ur1-84-O4D">
+            <connections>
+                <action selector="sidePanel:" destination="-1" id="HPR-eM-qT4"/>
+                <outlet property="delegate" destination="-1" id="vmD-ag-Ed0"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="F9L-2O-8Qr">
+            <connections>
+                <action selector="sidePanel:" destination="-1" id="Ews-Du-Q8t"/>
+                <outlet property="delegate" destination="-1" id="gyS-sl-Nsb"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="ic_drawer.png" width="24" height="24"/>
