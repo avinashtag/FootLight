@@ -334,6 +334,36 @@
             </objects>
             <point key="canvasLocation" x="2664" y="325"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="rLo-kd-mJZ">
+            <objects>
+                <viewController storyboardIdentifier="FLMapViewController" id="9on-h5-h7s" customClass="FLMapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="PGE-At-73o"/>
+                        <viewControllerLayoutGuide type="bottom" id="RGI-or-02d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ziy-FH-ZUI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOD-UC-y55">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <connections>
+                                    <outlet property="delegate" destination="9on-h5-h7s" id="JDY-dW-S6h"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="mapView" destination="UOD-UC-y55" id="RWe-QG-7Sv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dti-rJ-0eP" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2342" y="952"/>
+        </scene>
         <!--Product Detail View Controller-->
         <scene sceneID="mzI-bh-uzV">
             <objects>

@@ -98,6 +98,9 @@
 		BBF937B41A00160A000BF603 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937AD1A00160A000BF603 /* UIImageView+WebCache.m */; };
 		BBF937B81A001B48000BF603 /* ATPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937B61A001B48000BF603 /* ATPicker.m */; };
 		BBF937B91A001B48000BF603 /* ATPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF937B71A001B48000BF603 /* ATPicker.xib */; };
+		BBF937BC1A014C7C000BF603 /* FLMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937BB1A014C7C000BF603 /* FLMapViewController.m */; };
+		BBF937BE1A014D34000BF603 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF937BD1A014D34000BF603 /* MapKit.framework */; };
+		BBF937C11A015010000BF603 /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937C01A015010000BF603 /* CustomAnnotation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +259,11 @@
 		BBF937B51A001B48000BF603 /* ATPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATPicker.h; sourceTree = "<group>"; };
 		BBF937B61A001B48000BF603 /* ATPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATPicker.m; sourceTree = "<group>"; };
 		BBF937B71A001B48000BF603 /* ATPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ATPicker.xib; sourceTree = "<group>"; };
+		BBF937BA1A014C7B000BF603 /* FLMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLMapViewController.h; sourceTree = "<group>"; };
+		BBF937BB1A014C7C000BF603 /* FLMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLMapViewController.m; sourceTree = "<group>"; };
+		BBF937BD1A014D34000BF603 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		BBF937BF1A015010000BF603 /* CustomAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		BBF937C01A015010000BF603 /* CustomAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -263,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF937BE1A014D34000BF603 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +381,10 @@
 				BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */,
 				B913F1BF1A00EE4500DD984A /* FlLoadPdf.h */,
 				B913F1C01A00EE4500DD984A /* FlLoadPdf.m */,
+				BBF937BA1A014C7B000BF603 /* FLMapViewController.h */,
+				BBF937BB1A014C7C000BF603 /* FLMapViewController.m */,
+				BBF937BF1A015010000BF603 /* CustomAnnotation.h */,
+				BBF937C01A015010000BF603 /* CustomAnnotation.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -438,6 +451,7 @@
 		BB7C320419FAB82500A5EFCF = {
 			isa = PBXGroup;
 			children = (
+				BBF937BD1A014D34000BF603 /* MapKit.framework */,
 				B987440B19FF6E5900136AA7 /* PrefixHeader.pch */,
 				BB7C320F19FAB82500A5EFCF /* FootLight */,
 				BB7C322919FAB82500A5EFCF /* FootLightTests */,
@@ -729,6 +743,7 @@
 				BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */,
 				B98743A719FF6D1600136AA7 /* SBJsonStreamParserAdapter.m in Sources */,
 				B98743A819FF6D1600136AA7 /* SBJsonStreamParserState.m in Sources */,
+				BBF937BC1A014C7C000BF603 /* FLMapViewController.m in Sources */,
 				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
 				B98743A619FF6D1600136AA7 /* SBJsonStreamParserAccumulator.m in Sources */,
 				BBF937B01A00160A000BF603 /* SDWebImageDownloader.m in Sources */,
@@ -759,6 +774,7 @@
 				B98743AA19FF6D1600136AA7 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				B987440919FF6D8500136AA7 /* MBProgressHUD.m in Sources */,
 				BB13885419FC068C0034027C /* FLAlert.m in Sources */,
+				BBF937C11A015010000BF603 /* CustomAnnotation.m in Sources */,
 				B98743A919FF6D1600136AA7 /* SBJsonStreamWriter.m in Sources */,
 				B98743AE19FF6D1600136AA7 /* SBJsonWriter.m in Sources */,
 			);
