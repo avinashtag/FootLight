@@ -34,8 +34,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    navBar = [[FLNavigationBar alloc] initWithNibName:@"FLNavigationBar" bundle:nil];
-    [self.view addSubview:navBar.view];
+    NSArray *viewControllers = [[ViewController sharedViewController].navigationController viewControllers];
+    if ([[viewControllers objectAtIndex:viewControllers.count-2] isKindOfClass:[FLByLocationViewController class]]) {
+        
+        [self.titlenavigation setText:@"By Location"];
+    }
+    else{
+        [self.titlenavigation setText:@"Listing"];
+    }
 //    [self fillDatasource];
     // Do any additional setup after loading the view.
 }
