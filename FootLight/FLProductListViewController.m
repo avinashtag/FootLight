@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
 #import "FLProductDetailViewController.h"
+#import "FLAlert.h"
 
 @interface FLProductListViewController (){
     FLProductDetailViewController *detailVC;
@@ -93,8 +94,8 @@ UIImage *placeholderImage ;
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.products = [response mutableCopy];
-            [self.productsTable reloadData];
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [self reloadProducts];
+            
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
         
@@ -108,7 +109,7 @@ UIImage *placeholderImage ;
         FLZipResponseModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         [_products addObject:model];
     }];
-    [self.productsTable reloadData];
+    [self reloadProducts];
 }
 
 -(void)statusFilter:(NSString*)url filterGenere:(NSString*)genere{
@@ -116,12 +117,27 @@ UIImage *placeholderImage ;
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.products = [response mutableCopy];
-            [self.productsTable reloadData];
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            [self reloadProducts];
+            
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
         
     }];
+}
+
+-(void)reloadProducts{
+    if (self.products.count) {
+        [self.productsTable reloadData];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    }
+    else{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"No data found" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } otherHandler:^(NSUInteger other) {
+
+        } otherButtonTitles:nil];
+    }
 }
 
 
