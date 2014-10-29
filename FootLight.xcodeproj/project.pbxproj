@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B913F1C11A00EE4500DD984A /* FlLoadPdf.m in Sources */ = {isa = PBXBuildFile; fileRef = B913F1C01A00EE4500DD984A /* FlLoadPdf.m */; };
 		B98743A319FF6D1600136AA7 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438819FF6D1600136AA7 /* NSObject+SBJson.m */; };
 		B98743A419FF6D1600136AA7 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438B19FF6D1600136AA7 /* SBJsonParser.m */; };
 		B98743A519FF6D1600136AA7 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B987438D19FF6D1600136AA7 /* SBJsonStreamParser.m */; };
@@ -81,7 +82,6 @@
 		BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8F19FBD7230077CFD9 /* success.png */; };
 		BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E9019FBD7230077CFD9 /* wait.png */; };
 		BBF937991A000C48000BF603 /* FLProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937971A000C48000BF603 /* FLProductListViewController.m */; };
-		BBF9379A1A000C48000BF603 /* FLProductListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBF937981A000C48000BF603 /* FLProductListViewController.xib */; };
 		BBF937AE1A00160A000BF603 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF9379D1A00160A000BF603 /* SDImageCache.m */; };
 		BBF937AF1A00160A000BF603 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937A11A00160A000BF603 /* SDWebImageDecoder.m */; };
 		BBF937B01A00160A000BF603 /* SDWebImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937A31A00160A000BF603 /* SDWebImageDownloader.m */; };
@@ -104,6 +104,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B913F1BF1A00EE4500DD984A /* FlLoadPdf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlLoadPdf.h; sourceTree = "<group>"; };
+		B913F1C01A00EE4500DD984A /* FlLoadPdf.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlLoadPdf.m; sourceTree = "<group>"; };
 		B987438719FF6D1600136AA7 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
 		B987438819FF6D1600136AA7 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
 		B987438919FF6D1600136AA7 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
@@ -218,7 +220,6 @@
 		BBDA3E9019FBD7230077CFD9 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
 		BBF937961A000C48000BF603 /* FLProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLProductListViewController.h; sourceTree = "<group>"; };
 		BBF937971A000C48000BF603 /* FLProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLProductListViewController.m; sourceTree = "<group>"; };
-		BBF937981A000C48000BF603 /* FLProductListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FLProductListViewController.xib; sourceTree = "<group>"; };
 		BBF9379C1A00160A000BF603 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
 		BBF9379D1A00160A000BF603 /* SDImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDImageCache.m; sourceTree = "<group>"; };
 		BBF9379E1A00160A000BF603 /* SDImageCacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCacheDelegate.h; sourceTree = "<group>"; };
@@ -337,9 +338,10 @@
 				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
 				BBF937961A000C48000BF603 /* FLProductListViewController.h */,
 				BBF937971A000C48000BF603 /* FLProductListViewController.m */,
-				BBF937981A000C48000BF603 /* FLProductListViewController.xib */,
 				BB7A74B619FEA69500D71D66 /* FLProductDetailViewController.h */,
 				BB7A74B719FEA69500D71D66 /* FLProductDetailViewController.m */,
+				B913F1BF1A00EE4500DD984A /* FlLoadPdf.h */,
+				B913F1C01A00EE4500DD984A /* FlLoadPdf.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -656,7 +658,6 @@
 				BBF937B91A001B48000BF603 /* ATPicker.xib in Resources */,
 				BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */,
 				BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */,
-				BBF9379A1A000C48000BF603 /* FLProductListViewController.xib in Resources */,
 				BB7C324519FAB8FB00A5EFCF /* Category_Dance.png in Resources */,
 				BB7A74AE19FE98AD00D71D66 /* FLListCell.xib in Resources */,
 				BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */,
@@ -716,6 +717,7 @@
 				BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */,
 				B98743A419FF6D1600136AA7 /* SBJsonParser.m in Sources */,
 				B987442E19FF703600136AA7 /* ATWebService.m in Sources */,
+				B913F1C11A00EE4500DD984A /* FlLoadPdf.m in Sources */,
 				B98743AA19FF6D1600136AA7 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				B987440919FF6D8500136AA7 /* MBProgressHUD.m in Sources */,
 				BB13885419FC068C0034027C /* FLAlert.m in Sources */,

@@ -12,8 +12,11 @@
 #import "ATWebService.h"
 #import "UIImageView+WebCache.h"
 #import "MBProgressHUD.h"
+#import "FLProductDetailViewController.h"
 
-@interface FLProductListViewController ()
+@interface FLProductListViewController (){
+    FLProductDetailViewController *detailVC;
+}
 
 @end
 
@@ -73,8 +76,9 @@ UIImage *placeholderImage ;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     //    ******* navigate to detailView
-    
-    
+    detailVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductDetailViewController"];
+    detailVC.details = (FLZipResponseModel*)[self.products objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

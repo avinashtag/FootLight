@@ -136,7 +136,6 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
         self.cellTimings = [self showTimings:self];
         self.cellCreated = [NSNumber numberWithDouble:ceil([self.cellTimings sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}].height)];
 
-
     }
     
     return self;

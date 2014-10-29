@@ -93,7 +93,7 @@
 -(void)callWebservice{
 
     CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
-    product = [[FLProductListViewController alloc]initWithNibName:@"FLProductListViewController" bundle:nil];
+    product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
     [self.navigationController pushViewController:product animated:YES];
 //    if (islocation) {
         NSString *url = [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
