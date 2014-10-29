@@ -16,4 +16,5 @@
 @property (strong, nonatomic) NSMutableArray *products;
 
 -(void)zipCallNormal:(NSString*)url;
+-(void)loadFavourite;
 @end

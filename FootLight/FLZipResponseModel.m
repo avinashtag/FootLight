@@ -42,6 +42,7 @@ NSString *const kFLZipResponseModelBoxOfficePhone = @"boxOfficePhone";
 NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast";
 NSString *const kFLZipResponseModelCellCreated = @"CellCreated";
 NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
+NSString *const kFLZipResponseModelFavourite = @"Favourite";
 
 
 @interface FLZipResponseModel ()
@@ -86,6 +87,7 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
 @synthesize weeklyPassportEblast = _weeklyPassportEblast;
 @synthesize cellCreated = _cellCreated;;
 @synthesize cellTimings = _cellTimings;
+@synthesize favourite = _favourite;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -135,6 +137,7 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
 
         self.cellTimings = [self showTimings:self];
         self.cellCreated = [NSNumber numberWithDouble:ceil([self.cellTimings sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}].height)];
+        self.favourite = [NSNumber numberWithBool:NO];
 
     }
     
@@ -179,6 +182,7 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
     [mutableDict setValue:self.weeklyPassportEblast forKey:kFLZipResponseModelWeeklyPassportEblast];
     [mutableDict setValue:self.cellCreated forKey:kFLZipResponseModelCellCreated];
     [mutableDict setValue:self.cellTimings forKey:kFLZipResponseModelCellTimings];
+    [mutableDict setValue:self.favourite forKey:kFLZipResponseModelFavourite];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -236,6 +240,7 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
     self.weeklyPassportEblast = [aDecoder decodeObjectForKey:kFLZipResponseModelWeeklyPassportEblast];
     self.cellCreated = [aDecoder decodeObjectForKey:kFLZipResponseModelCellCreated];
     self.cellTimings = [aDecoder decodeObjectForKey:kFLZipResponseModelCellTimings];
+    self.favourite = [aDecoder decodeObjectForKey:kFLZipResponseModelFavourite];
     return self;
 }
 
@@ -274,8 +279,9 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
     [aCoder encodeObject:_venueTheatreCity forKey:kFLZipResponseModelVenueTheatreCity];
     [aCoder encodeObject:_boxOfficePhone forKey:kFLZipResponseModelBoxOfficePhone];
     [aCoder encodeObject:_weeklyPassportEblast forKey:kFLZipResponseModelWeeklyPassportEblast];
-    [aCoder encodeObject:[NSNumber numberWithBool:_cellCreated] forKey:kFLZipResponseModelCellCreated];
+    [aCoder encodeObject:_cellCreated forKey:kFLZipResponseModelCellCreated];
     [aCoder encodeObject:_cellTimings forKey:kFLZipResponseModelCellTimings];
+    [aCoder encodeObject:_favourite forKey:kFLZipResponseModelFavourite];
     
 }
 
@@ -319,6 +325,7 @@ NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
         copy.weeklyPassportEblast = [self.weeklyPassportEblast copyWithZone:zone];
         copy.cellTimings = [self.cellTimings copyWithZone:zone];
         copy.cellCreated = [self.cellCreated copyWithZone:zone];
+        copy.favourite = [self.favourite copyWithZone:zone];
     }
     
     return copy;

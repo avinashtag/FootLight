@@ -468,6 +468,7 @@
                     <connections>
                         <outlet property="ProductName" destination="zMO-MK-Cws" id="k8d-d7-eWS"/>
                         <outlet property="description" destination="ooj-kz-dmX" id="3p5-3E-SIy"/>
+                        <outlet property="favouriteButton" destination="o1a-b1-g2V" id="XWA-jj-6bm"/>
                         <outlet property="productImage" destination="oG8-oa-RZL" id="U5b-Kh-Gxc"/>
                         <outlet property="productScroll" destination="q2v-yT-qky" id="w4e-1a-FPD"/>
                     </connections>

@@ -18,6 +18,7 @@
 
 @implementation FLProductDetailViewController
 
+static NSString *footLightFavourite = @"FootLightFavorite";
 @synthesize description = _description;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -67,9 +68,56 @@
     size.height = 1000;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
     [self.productScroll setContentSize:size];
     [self.productScroll setScrollEnabled:YES];
+    
+    [self checkFavourite];
+}
+
+-(void)checkFavourite{
+    
+    NSMutableArray *fav = [[NSUserDefaults standardUserDefaults]valueForKey:footLightFavourite];
+    if (fav.count) {
+        [fav enumerateObjectsUsingBlock:^(NSData* data, NSUInteger idx, BOOL *stop) {
+           
+            FLZipResponseModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            if ([model.recordID isEqualToString:self.details.recordID]){
+                //** set fav
+                self.favouriteButton.selected = YES;
+                *stop = YES;
+            }
+        }];
+    }
 }
 
 - (IBAction)favorite:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if (sender.selected) {
+        self.details.favourite = [NSNumber numberWithBool:sender.selected];
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.details];
+        NSMutableArray *fav = [[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite];
+        if (!fav) {
+            fav = [[NSMutableArray alloc]init];
+        }
+        [fav addObject:data];
+        [[NSUserDefaults standardUserDefaults]setValue:fav forKey:footLightFavourite];
+    }
+    else{
+        NSMutableArray *fav = [[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite];
+        if (fav.count) {
+            [fav enumerateObjectsUsingBlock:^(NSData* data, NSUInteger idx, BOOL *stop) {
+                
+                FLZipResponseModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+                if ([model.recordID isEqualToString:self.details.recordID]){
+                    //** set fav
+                    [fav removeObject:data];
+                    [[NSUserDefaults standardUserDefaults]setValue:fav forKey:footLightFavourite];
+                    *stop = YES;
+                }
+            }];
+
+        }
+        
+    }
+
 }
 - (IBAction)direction:(UIButton *)sender {
 }

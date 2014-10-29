@@ -45,6 +45,7 @@
 @property (nonatomic, strong) NSString *weeklyPassportEblast;
 @property (nonatomic, strong) NSString *cellTimings;
 @property (nonatomic, strong) NSNumber *cellCreated;
+@property (nonatomic, strong) NSNumber *favourite;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

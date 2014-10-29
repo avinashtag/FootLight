@@ -14,9 +14,11 @@
 #import "FLByLocationViewController.h"
 #import "FLNavigationBar.h"
 #import "UIView+FLView.h"
+#import "FLProductListViewController.h"
 
 @interface ViewController (){
     NSArray *datasource;
+    FLProductListViewController *product;
 }
 
 @end
@@ -70,6 +72,12 @@ static ViewController *sharedInstance = nil;
         case 1:{
             FLByLocationViewController *LocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FLByLocationViewController"];
             [self.navigationController pushViewController:LocationViewController animated:YES];
+        }
+            break;
+        case 3:{
+            product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
+            [self.navigationController pushViewController:product animated:YES];
+            [product loadFavourite];
         }
             break;
             

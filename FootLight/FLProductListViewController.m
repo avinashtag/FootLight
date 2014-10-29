@@ -100,4 +100,14 @@ UIImage *placeholderImage ;
     }];
 }
 
+-(void)loadFavourite{
+    _products = [[NSMutableArray alloc]init];
+    NSMutableArray *fav = [[NSUserDefaults standardUserDefaults]valueForKey:@"FootLightFavorite"];
+    [fav enumerateObjectsUsingBlock:^(NSData* data, NSUInteger idx, BOOL *stop) {
+        FLZipResponseModel *model = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        [_products addObject:model];
+    }];
+    [self.productsTable reloadData];
+}
+
 @end
