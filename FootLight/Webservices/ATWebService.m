@@ -37,6 +37,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     self.atResponseSuccess = success;
     self.queue = [[NSOperationQueue alloc]init];
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
+    NSLog(@"url : %@\n",url);
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
@@ -48,7 +49,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
             [result enumerateObjectsUsingBlock:^(NSDictionary* dictionary, NSUInteger idx, BOOL *stop) {
                 [zipResult addObject:[[FLZipResponseModel alloc]initWithDictionary:dictionary]];
             }];
-            
+            NSLog(@"response : %@\n",zipResult);
             self.atResponseSuccess!= nil ? self.atResponseSuccess(zipResult, @"") : NSLog(@"");
         }
     }];

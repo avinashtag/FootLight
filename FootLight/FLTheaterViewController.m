@@ -136,7 +136,8 @@
 
 
 -(NSString*)zipcallservice{
-    
+    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
+
     if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
         
         return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",self.zip,self.radius];
