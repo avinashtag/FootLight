@@ -460,7 +460,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-nt-QtZ">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TLa-nt-QtZ">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -469,6 +469,12 @@
                             </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TLa-nt-QtZ" firstAttribute="leading" secondItem="25r-V6-JG9" secondAttribute="leadingMargin" constant="-16" id="Nfk-b4-PRU"/>
+                            <constraint firstItem="TLa-nt-QtZ" firstAttribute="top" secondItem="ZlB-tn-jeX" secondAttribute="bottom" constant="44" id="nvG-ec-4MB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TLa-nt-QtZ" secondAttribute="trailing" constant="-16" id="o5p-5G-fvp"/>
+                            <constraint firstItem="ciP-NU-F58" firstAttribute="top" secondItem="TLa-nt-QtZ" secondAttribute="bottom" id="pQi-m3-lCG"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
