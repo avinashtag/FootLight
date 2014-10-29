@@ -75,7 +75,8 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     _startRatingView.rating = 0;
     [self.startRatingView rateChange:^(float rate) {
        FLAlert* alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Do you Want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
-            
+           _startRatingView.rating = 0;
+
         } otherHandler:^(NSUInteger other) {
             
             NSString* url = [NSString stringWithFormat:@"rating.php?rid=%@&rating=%f",_details.recordID, rate];
@@ -90,9 +91,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [self checkFavourite];
 }
 
--(void)rateWebservice{
-    
-}
+
 
 
 -(void)checkFavourite{
