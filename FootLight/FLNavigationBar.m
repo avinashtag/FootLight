@@ -57,6 +57,8 @@
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
         UIViewController *VC = [[ViewController sharedViewController].navigationController.viewControllers lastObject];
         
+        CGRect frame = VC.view.frame;
+        [leftmenuController.view setFrame:frame];
         [VC.view addSubview:leftmenuController.view];
         previousTitle = self.navigationTitle.text;
         [leftmenuController animateViewIn:@"Foot Light"];
