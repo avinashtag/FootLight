@@ -23,7 +23,7 @@
     CLLocationCoordinate2D cord =[AppDelegate SharedApplication].locationManager.location.coordinate;
  
     CustomAnnotation *item = [[CustomAnnotation alloc] init];
-    item.place = @"Tea Garden";
+    item.place = self.model.title;
     item.imageName = @"teagarden";
     item.coordinate = CLLocationCoordinate2DMake(cord.latitude, cord.longitude);
     

@@ -98,7 +98,12 @@ UIImage *placeholderImage ;
             
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
     }];
 }
 
@@ -121,7 +126,13 @@ UIImage *placeholderImage ;
             
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+            [self.navigationController popViewControllerAnimated:YES];
+        } otherHandler:^(NSUInteger other) {
+            
+        } otherButtonTitles:nil];
+
     }];
 }
 

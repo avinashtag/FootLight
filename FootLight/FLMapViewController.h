@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import "FLZipResponseModel.h"
 
 @interface FLMapViewController : UIViewController<MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSMutableArray *mapAnnotations;
+@property (nonatomic, strong) FLZipResponseModel *model;
 
 @end

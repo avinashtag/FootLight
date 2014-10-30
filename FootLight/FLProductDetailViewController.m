@@ -12,6 +12,7 @@
 #import "UIImageView+WebCache.h"
 #import "FlLoadPdf.h"
 #import "FLAlert.h"
+#import "FLMapViewController.h"
 
 @interface FLProductDetailViewController ()
 
@@ -140,6 +141,9 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 
 }
 - (IBAction)direction:(UIButton *)sender {
+    FLMapViewController *map = [self.storyboard instantiateViewControllerWithIdentifier:@"FLMapViewController"];
+    map.model = self.details;
+    [self.navigationController pushViewController:map animated:YES];
 }
 
 
