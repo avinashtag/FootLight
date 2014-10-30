@@ -37,10 +37,10 @@
     NSArray *viewControllers = [[ViewController sharedViewController].navigationController viewControllers];
     if ([[viewControllers objectAtIndex:viewControllers.count-2] isKindOfClass:[FLByLocationViewController class]]) {
         
-        [self.titlenavigation setText:@"By Location"];
+        [self.titlenavigation setText:FLByLocation];
     }
     else{
-        [self.titlenavigation setText:@"Listing"];
+        [self.titlenavigation setText:FlListing];
     }
 //    [self fillDatasource];
     // Do any additional setup after loading the view.

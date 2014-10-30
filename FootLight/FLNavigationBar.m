@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    previousTitle = @"Home";
+    previousTitle = FlHome;
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -53,7 +53,7 @@
 }
 */
 - (IBAction)sidePanel:(UITapGestureRecognizer *)sender {
-    if ([self.navigationTitle.text isEqual:@"Home"]) {
+    if ([self.navigationTitle.text isEqual:FlHome]) {
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
         UIViewController *VC = [[ViewController sharedViewController].navigationController.viewControllers lastObject];
         
@@ -64,7 +64,7 @@
         [leftmenuController animateViewIn:@"Foot Light"];
     }
     else{
-        [leftmenuController animateViewOut:@"Home"];
+        [leftmenuController animateViewOut:FlHome];
     }
     
 }

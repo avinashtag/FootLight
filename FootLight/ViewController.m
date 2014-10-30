@@ -35,7 +35,7 @@ static ViewController *sharedInstance = nil;
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    [self.view addNavigationBarWithTitle:@"Home" navigation:self.navigationController];
+    [self.view addNavigationBarWithTitle:FlHome navigation:self.navigationController];
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
     [self.CategoryCollection reloadData];
@@ -70,7 +70,7 @@ static ViewController *sharedInstance = nil;
         case 0:{
             FootLightCategoryViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FootLightCategoryViewController"];
             [self.navigationController pushViewController:selectionVC animated:YES];
-            
+            self.navigationController.title = FlListing;
         }
             break;
         case 1:{

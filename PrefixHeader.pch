@@ -20,4 +20,19 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #endif
+//***** Main List *****//
+NSString *FlListing = @"Listing";
+NSString *FlHome = @"Home";
+NSString *FlCriticsPick = @"Critics Picks";
+NSString *FLByLocation = @"By Location";
+NSString *FLMyFavorites = @"My Favorites";
+
+//******* Category *****//
+NSString *FlTheater = @"Theatre";
+NSString *FlMuseums = @"Museums";
+NSString *FlCabaret = @"Cabaret";
+NSString *FLDanceVeneues = @"Dance Veneues";
+NSString *FLComedyClub = @"Comedy Club";
+
+
 #endif

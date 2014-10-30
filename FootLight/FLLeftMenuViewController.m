@@ -48,11 +48,11 @@
     [self.leftMenu setFrame:frameMenu];
 
     self.products = [[NSMutableArray alloc]init];
-    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"Home" image:[UIImage imageNamed:@"home"]]];
-    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"Listing" image:[UIImage imageNamed:@"list"]]];
-    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"By Location" image:[UIImage imageNamed:@"location"]]];
-    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"Critics Picks" image:[UIImage imageNamed:@"critic"]]];
-    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:@"My Favorites" image:[UIImage imageNamed:@"favorite"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FlHome image:[UIImage imageNamed:@"home"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FlListing image:[UIImage imageNamed:@"list"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLByLocation image:[UIImage imageNamed:@"location"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FlCriticsPick image:[UIImage imageNamed:@"critic"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLMyFavorites image:[UIImage imageNamed:@"favorite"]]];
     [self.leftMenu reloadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -102,13 +102,13 @@
         
         switch (indexPath.row) {
             case 0://Home
-                [self.view setNavigationTitle:@"Home"];
+                [self.view setNavigationTitle:FlHome];
                 [[ViewController sharedViewController].navigationController popToRootViewControllerAnimated:NO];
                 break;
                 
             case 1://listing
             {
-                [self.view setNavigationTitle:@"Home"];
+                [self.view setNavigationTitle:FlHome];
                 [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
                     if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
                         [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
@@ -121,7 +121,7 @@
                 break;
             case 2://location
             {
-                [self.view setNavigationTitle:@"Home"];
+                [self.view setNavigationTitle:FlHome];
                 [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
                     if ([viewControl isKindOfClass:[FLByLocationViewController class]]) {
                         [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
