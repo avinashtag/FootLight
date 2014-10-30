@@ -14,7 +14,7 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *productScroll;
 @property (strong, nonatomic) IBOutlet UILabel *ProductName;
-@property (strong, nonatomic) IBOutlet UITextView *description;
+@property (strong, nonatomic) IBOutlet UILabel *description;
 @property (strong, nonatomic) IBOutlet UIButton *favouriteButton;
 @property (strong, nonatomic) IBOutlet UIImageView *productImage;
 @property (strong, nonatomic) FLZipResponseModel *details;

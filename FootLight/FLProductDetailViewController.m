@@ -66,9 +66,9 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 //    [self.description sizeThatFits:self.description.contentSize];
 //    [self.description sizeToFit];
     [self.productImage setImageWithURL:[NSURL URLWithString:_details.imagename] placeholderImage:[UIImage imageNamed:@"wait.png"]];
-    CGSize size = self.productScroll.frame.size;
-    size.height = 1000;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
-    [self.productScroll setContentSize:size];
+//    CGSize size = self.productScroll.frame.size;
+//    size.height = 1;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
+//    [self.productScroll setContentSize:size];
     [self.productScroll setScrollEnabled:YES];
 
     _startRatingView.canEdit = YES;
