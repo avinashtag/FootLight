@@ -56,19 +56,16 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [pragraphWebsite setAlignment:NSTextAlignmentCenter];
     [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:websiteRange];
     
-    NSRange timingsRange = [fullDescription rangeOfString:_details.productionWebsite];
+    NSRange timingsRange = [fullDescription rangeOfString:_details.cellTimings];
     [description addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:timingsRange];
+    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:timingsRange];
+
     NSMutableParagraphStyle *timingsWebsite = [[NSMutableParagraphStyle alloc]init];
     [timingsWebsite setAlignment:NSTextAlignmentCenter];
     [description addAttribute:NSParagraphStyleAttributeName value:timingsWebsite range:timingsRange];
 
     [self.description setAttributedText:description];
-//    [self.description sizeThatFits:self.description.contentSize];
-//    [self.description sizeToFit];
     [self.productImage setImageWithURL:[NSURL URLWithString:_details.imagename] placeholderImage:[UIImage imageNamed:@"wait.png"]];
-//    CGSize size = self.productScroll.frame.size;
-//    size.height = 1;// self.showTimings.frame.origin.y + self.showTimings.frame.size.height;
-//    [self.productScroll setContentSize:size];
     [self.productScroll setScrollEnabled:YES];
 
     _startRatingView.canEdit = YES;
