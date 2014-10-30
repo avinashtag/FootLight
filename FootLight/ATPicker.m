@@ -109,11 +109,15 @@
     
     return [(FLPickerModel*)[_pickerDatasource objectAtIndex:row] pickerTitle];
 }
--(void)showPickerWithPopIn{
+-(void)showPickerWithPopInWithCenter:(CGPoint)point{
     
-    self.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+    self.view.frame = [AppDelegate SharedApplication].window.frame;
+    [[AppDelegate SharedApplication].window addSubview:self.view];
+    [[AppDelegate SharedApplication].window bringSubviewToFront:self.view];
+    self.pickerView.center = point;
+    self.pickerView.transform = CGAffineTransformMakeScale(0.01, 0.01);
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.view.transform = CGAffineTransformIdentity;
+        self.pickerView.transform = CGAffineTransformIdentity;
     } completion:^(BOOL finished){
         // do something once the animation finishes, put it here
     }];
@@ -122,9 +126,9 @@
 
 -(void)hidePickerWithPopOut{
     
-    self.view.transform = CGAffineTransformIdentity;
+    self.pickerView.transform = CGAffineTransformIdentity;
     [UIView animateWithDuration:0.2 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.view.transform = CGAffineTransformMakeScale(0.01, 0.01);
+        self.pickerView.transform = CGAffineTransformMakeScale(0.01, 0.01);
     } completion:^(BOOL finished){
         [self.view removeFromSuperview];
     }];

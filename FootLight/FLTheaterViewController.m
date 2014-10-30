@@ -68,9 +68,9 @@
     CGPoint center = textField.center;
     pick = [[ATPicker alloc]initWithNibName:@"ATPicker" bundle:nil];
     pick.pickerDatasource =  (textField == self.showStatus) ? [pick statusDatasource] : [pick theaterTypeDatasource];
-    pick.view.center = center;
-    [self.view addSubview:pick.view];
-    [pick showPickerWithPopIn];
+//    pick.view.center = center;
+//    [self.view addSubview:pick.view];
+    [pick showPickerWithPopInWithCenter:center];
     [pick callBackPickerSelected:^(FLPickerModel* value) {
         
         textField.text = value.pickerTitle;

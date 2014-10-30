@@ -46,9 +46,8 @@
         CGPoint center = textField.center;
         pick = [[ATPicker alloc]initWithNibName:@"ATPicker" bundle:nil];
         pick.pickerDatasource = [pick radiusFill];
-        pick.view.center = center;
-        [self.view addSubview:pick.view];
-        [pick showPickerWithPopIn];
+//        pick.view.center = center;
+        [pick showPickerWithPopInWithCenter:center];
         [pick callBackPickerSelected:^(FLPickerModel* value) {
             
             self.radius.text = value.pickerTitle;

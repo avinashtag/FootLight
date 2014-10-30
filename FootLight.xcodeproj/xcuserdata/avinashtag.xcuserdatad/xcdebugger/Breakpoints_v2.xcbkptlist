@@ -27,36 +27,6 @@
             endingLineNumber = "63"
             landmarkName = "-callOnUrlrating:withSuccessHandler:withFailHandler:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ATWebService callOnUrlrating:withSuccessHandler:withFailHandler:]"
-                  moduleName = "FootLight"
-                  urlString = "file:///Users/avinashtag/GITHUB/FootLight/FootLight/Webservices/ATWebService.m"
-                  timestampString = "436358202.992321"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__67-[ATWebService callOnUrlrating:withSuccessHandler:withFailHandler:]_block_invoke"
-                  moduleName = "FootLight"
-                  urlString = "file:///Users/avinashtag/GITHUB/FootLight/FootLight/Webservices/ATWebService.m"
-                  timestampString = "436358202.992568"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "101">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

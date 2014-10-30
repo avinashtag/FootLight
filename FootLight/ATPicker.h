@@ -15,8 +15,11 @@ typedef void(^selectedATPicker)(id value);
 
 
 @property (nonatomic, strong)IBOutlet UIPickerView *picker;
+@property (nonatomic, strong)IBOutlet UIView *pickerView;
+@property (nonatomic, strong)IBOutlet UIImageView *pickerSuperView;
 @property(nonatomic, strong)cancelATPicker pickerCancel;
 @property(nonatomic, strong)selectedATPicker pickerSelected;
+
 
 @property (strong, nonatomic) NSArray *pickerDatasource;
 
@@ -27,7 +30,7 @@ typedef void(^selectedATPicker)(id value);
 -(NSArray*)statusDatasource;
 -(NSArray*)theaterTypeDatasource;
 
--(void)showPickerWithPopIn;
+-(void)showPickerWithPopInWithCenter:(CGPoint)point;
 
 -(void)hidePickerWithPopOut;
 -(NSArray*)radiusFill;
