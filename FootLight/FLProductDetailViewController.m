@@ -70,11 +70,11 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [self.productScroll setScrollEnabled:YES];
 
     _startRatingView.canEdit = YES;
-    _startRatingView.maxRating = 5;
+    _startRatingView.maxRating = [_details.avg intValue];
     _startRatingView.rating = 0;
     [self.startRatingView rateChange:^(float rate) {
        FLAlert* alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Do you Want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
-           _startRatingView.rating = 0;
+           _startRatingView.maxRating = [_details.avg intValue];
 
         } otherHandler:^(NSUInteger other) {
             

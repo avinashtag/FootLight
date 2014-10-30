@@ -94,8 +94,10 @@ UIImage *placeholderImage ;
 -(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere{
     MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@",genere];
+        NSArray *filtered = [response filteredArrayUsingPredicate:predicate];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.products = [response mutableCopy];
+            self.products = [filtered mutableCopy];
             [self reloadProducts];
             
         });
@@ -122,8 +124,10 @@ UIImage *placeholderImage ;
 -(void)statusFilter:(NSString*)url filterGenere:(NSString*)genere{
     MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@",genere];
+        NSArray *filtered = [response filteredArrayUsingPredicate:predicate];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.products = [response mutableCopy];
+            self.products = [filtered mutableCopy];
             [self reloadProducts];
             
         });
