@@ -9,6 +9,7 @@
 #import "FLMapViewController.h"
 #import "CustomAnnotation.h"
 #import "AppDelegate.h"
+#import "MBProgressHUD.h"
 
 @interface FLMapViewController ()
 
@@ -20,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self openMapForRoutes];
+    /*
     CLLocationCoordinate2D cord =[AppDelegate SharedApplication].locationManager.location.coordinate;
  
     CustomAnnotation *item = [[CustomAnnotation alloc] init];
@@ -39,7 +42,7 @@
     newRegion.span.latitudeDelta = 0.112872;
     newRegion.span.longitudeDelta = 0.109863;
     
-    [self.mapView setRegion:newRegion animated:YES];
+    [self.mapView setRegion:newRegion animated:YES];*/
 
 }
 
@@ -104,4 +107,29 @@
     return returnedAnnotationView;
 }
 
+- (void) openMapForRoutes {
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSString *mapUrl = nil;
+    
+    CLLocationCoordinate2D cordinate = [AppDelegate SharedApplication].locationManager.location.coordinate;
+    // create mapURL string using latitude and longitude of users current location (latitude and longitude) and department latitude and longitude
+    mapUrl = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@,%@",
+              cordinate.latitude,
+              cordinate.longitude,
+              self.model.venueLatitude,
+              self.model.venueLongitude];
+    mapUrl = [mapUrl stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:mapUrl];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
+    
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    NSLog(@"fail to load %@",error.description);
+}
 @end

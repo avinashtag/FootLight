@@ -13,6 +13,7 @@
 @interface FLMapViewController : UIViewController<MKMapViewDelegate>
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UIWebView *webview;
 @property (nonatomic, strong) NSMutableArray *mapAnnotations;
 @property (nonatomic, strong) FLZipResponseModel *model;
 

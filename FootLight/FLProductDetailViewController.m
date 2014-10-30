@@ -13,6 +13,7 @@
 #import "FlLoadPdf.h"
 #import "FLAlert.h"
 #import "FLMapViewController.h"
+#import "AppDelegate.h"
 
 @interface FLProductDetailViewController ()
 
@@ -150,5 +151,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     pdf.model = self.details;
     [self.navigationController pushViewController:pdf animated:YES];
 }
+
+
 
 @end
