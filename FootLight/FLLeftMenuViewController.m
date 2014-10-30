@@ -13,6 +13,7 @@
 #import "ViewController.h"
 #import "FLAlert.h"
 #import "FLByLocationViewController.h"
+#import "FLProductListViewController.h"
 
 @interface FLLeftMenuCellModel(){
     NSString*    previousTitle;
@@ -32,7 +33,9 @@
 
 @end
 
-@interface FLLeftMenuViewController ()
+@interface FLLeftMenuViewController (){
+    FLProductListViewController *productList;
+}
 
 @end
 
@@ -129,6 +132,15 @@
                 [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
             }
                 break;
+                
+            case 4:{
+                productList = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
+                [self.navigationController pushViewController:productList animated:YES];
+                [productList loadFavourite];
+
+            }
+                break;
+                
             default:{
                 FLAlert *alert = [[FLAlert alloc]initWithTitle:@"FootLight" message:@"Coming Soon" cancelButtonTitle:@"Cancel" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
             }
