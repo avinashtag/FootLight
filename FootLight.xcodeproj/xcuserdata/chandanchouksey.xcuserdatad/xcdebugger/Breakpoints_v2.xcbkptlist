@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FootLight/Webservices/ATWebService.m"
-            timestampString = "436328675.417195"
+            filePath = "FootLight/AppDelegate.m"
+            timestampString = "436377109.326213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-callOnUrlZip:withSuccessHandler:withFailHandler:"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "-locationManager:didUpdateLocations:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -67,13 +67,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FootLight/FLProductListViewController.m"
-            timestampString = "436328909.373924"
+            filePath = "FootLight/FLTheaterViewController.m"
+            timestampString = "436377109.326213"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-zipCallNormal:filterGenere:"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "-submit:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FootLight/FLProductListViewController.m"
-            timestampString = "436328915.330282"
+            filePath = "FootLight/AppDelegate.m"
+            timestampString = "436377527.492471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
-            landmarkName = "-statusFilter:filterGenere:"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "-locationManager:didUpdateToLocation:fromLocation:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

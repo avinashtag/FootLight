@@ -63,8 +63,8 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     // here we illustrate how to detect which annotation type was clicked on for its callout
-    id <MKAnnotation> annotation = [view annotation];
-    /*if ([annotation isKindOfClass:[BridgeAnnotation class]])
+    /*id <MKAnnotation> annotation = [view annotation];
+    if ([annotation isKindOfClass:[BridgeAnnotation class]])
     {
         NSLog(@"clicked Golden Gate Bridge annotation");
         

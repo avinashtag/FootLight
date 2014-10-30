@@ -52,6 +52,7 @@
     switch (indexPath.row) {
         case 0:{
             FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+            selectionVC.radius = @"25";
             [self.navigationController pushViewController:selectionVC animated:YES];
         }
             break;

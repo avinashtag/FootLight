@@ -47,6 +47,8 @@
     [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
 //    [self fillDatasource];
     // Do any additional setup after loading the view.
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,22 +126,22 @@
     CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
     if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
         
-        return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+        return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
    }
     else  if ([self.showStatus.text isEqualToString:@"Opening Soon"]) {
         
-        return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+        return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
     else  if ([self.showStatus.text isEqualToString:@"Closing Soon"]) {
         
-        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
     return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
 }
 
 
 -(NSString*)zipcallservice{
-    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
+//    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
 
     if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
         
@@ -170,4 +172,6 @@
         [product statusFilter:[self locationServices] filterGenere:self.theaterType.text];
     }
 }
+
+
 @end

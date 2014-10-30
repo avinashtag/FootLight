@@ -35,6 +35,8 @@
 - (IBAction)search:(UIButton *)sender {
     if ([self validation]) {
         FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+        selectionVC.zip = self.zipCode.text;
+        selectionVC.radius = self.radius.text;
         [self.navigationController pushViewController:selectionVC animated:YES];
         [selectionVC.titlenavigation setText:FLByLocation];
     }

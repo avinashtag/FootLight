@@ -89,6 +89,7 @@
 		BBDA3E9C19FBD7230077CFD9 /* red_heart.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8E19FBD7230077CFD9 /* red_heart.png */; };
 		BBDA3E9D19FBD7230077CFD9 /* success.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8F19FBD7230077CFD9 /* success.png */; };
 		BBDA3E9E19FBD7230077CFD9 /* wait.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E9019FBD7230077CFD9 /* wait.png */; };
+		BBF25E5F1A028C6A00D738AD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBF25E5E1A028C6900D738AD /* CoreLocation.framework */; };
 		BBF937991A000C48000BF603 /* FLProductListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937971A000C48000BF603 /* FLProductListViewController.m */; };
 		BBF937AE1A00160A000BF603 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF9379D1A00160A000BF603 /* SDImageCache.m */; };
 		BBF937AF1A00160A000BF603 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF937A11A00160A000BF603 /* SDWebImageDecoder.m */; };
@@ -239,6 +240,7 @@
 		BBDA3E8E19FBD7230077CFD9 /* red_heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_heart.png; sourceTree = "<group>"; };
 		BBDA3E8F19FBD7230077CFD9 /* success.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = success.png; sourceTree = "<group>"; };
 		BBDA3E9019FBD7230077CFD9 /* wait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wait.png; sourceTree = "<group>"; };
+		BBF25E5E1A028C6900D738AD /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		BBF937961A000C48000BF603 /* FLProductListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLProductListViewController.h; sourceTree = "<group>"; };
 		BBF937971A000C48000BF603 /* FLProductListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLProductListViewController.m; sourceTree = "<group>"; };
 		BBF9379C1A00160A000BF603 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF25E5F1A028C6A00D738AD /* CoreLocation.framework in Frameworks */,
 				BBF937BE1A014D34000BF603 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -456,6 +459,7 @@
 		BB7C320419FAB82500A5EFCF = {
 			isa = PBXGroup;
 			children = (
+				BBF25E5E1A028C6900D738AD /* CoreLocation.framework */,
 				BBF937BD1A014D34000BF603 /* MapKit.framework */,
 				B987440B19FF6E5900136AA7 /* PrefixHeader.pch */,
 				BB7C320F19FAB82500A5EFCF /* FootLight */,
@@ -642,6 +646,11 @@
 				TargetAttributes = {
 					BB7C320C19FAB82500A5EFCF = {
 						CreatedOnToolsVersion = 6.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 					BB7C322519FAB82500A5EFCF = {
 						CreatedOnToolsVersion = 6.1;
