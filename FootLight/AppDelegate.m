@@ -18,7 +18,10 @@
     return (AppDelegate*)[UIApplication sharedApplication].delegate;
 }
 
-
++(UINavigationController *)sharedNavigationController{
+    
+    return (UINavigationController *)[AppDelegate SharedApplication].window.rootViewController;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.

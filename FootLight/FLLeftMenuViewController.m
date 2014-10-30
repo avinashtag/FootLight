@@ -14,6 +14,7 @@
 #import "FLAlert.h"
 #import "FLByLocationViewController.h"
 #import "FLProductListViewController.h"
+#import "UINavigationController+FLNavigationController.h"
 
 @interface FLLeftMenuCellModel(){
     NSString*    previousTitle;
@@ -97,43 +98,57 @@
     
     [UIView animateWithDuration:0.30 animations:^{
         
-        [self.view setFrame:CGRectMake(-self.view.frame.size.width, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height)];
+        CGRect leftFrame = self.leftMenu.frame;
+        leftFrame.origin.x = -leftFrame.size.width;
+        [self.leftMenu setFrame:leftFrame];
     } completion:^(BOOL finished) {
         
         switch (indexPath.row) {
             case 0://Home
-                [self.view setNavigationTitle:FlHome];
-                [[ViewController sharedViewController].navigationController popToRootViewControllerAnimated:NO];
+                
+                [AppDelegate sharedNavigationController].title = FlHome;
+                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
+                [[AppDelegate sharedNavigationController] popToRootViewControllerAnimated:NO];
                 break;
                 
             case 1://listing
             {
-                [self.view setNavigationTitle:FlHome];
-                [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
-                    if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
-                        [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
-                        return ;
-                    }
-                }];
-                ViewController *Vc = [ViewController sharedViewController];
-                [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+                [AppDelegate sharedNavigationController].title = FlListing;
+                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
+                UIViewController *VC = [[AppDelegate sharedNavigationController] currentStackCheckViewController:[FootLightCategoryViewController class]];
+                if ( VC != nil) {
+                    [[AppDelegate sharedNavigationController] popToViewController:VC animated:NO];
+                }
+                else{
+                    ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
+                    [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+                }
+//                [[AppDelegate sharedNavigationController].viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
+//                    if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
+//                        [[AppDelegate sharedNavigationController] popToViewController:viewControl animated:NO];
+//                        return ;
+//                    }
+//                }];
             }
                 break;
             case 2://location
             {
-                [self.view setNavigationTitle:FlHome];
-                [[ViewController sharedViewController].navigationController.viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
+                [AppDelegate sharedNavigationController].title = FLByLocation;
+                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
+                [[AppDelegate sharedNavigationController].viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
                     if ([viewControl isKindOfClass:[FLByLocationViewController class]]) {
-                        [[ViewController sharedViewController].navigationController popToViewController:viewControl animated:NO];
+                        [[AppDelegate sharedNavigationController] popToViewController:viewControl animated:NO];
                         return ;
                     }
                 }];
-                ViewController *Vc = [ViewController sharedViewController];
+                ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
                 [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
             }
                 break;
                 
             case 4:{
+                [AppDelegate sharedNavigationController].title = FLMyFavorites;
+                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
                 productList = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
                 [self.navigationController pushViewController:productList animated:YES];
                 [productList loadFavourite];
@@ -169,10 +184,10 @@
         CGRect leftFrame = self.leftMenu.frame;
         leftFrame.origin.x = -leftFrame.size.width;
         [self.leftMenu setFrame:leftFrame];
-        [self.view setNavigationTitle:navigationTitleText];
+        [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
         
     } completion:^(BOOL finished) {
-        [self.view setNavigationTitle:navigationTitleText];
+        [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
         [self.view removeFromSuperview];
     }];
 }

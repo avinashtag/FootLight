@@ -18,6 +18,7 @@
 #import "ATPicker.h"
 #import "FLPickerModel.h"
 #import "FLAlert.h"
+#import "UIView+FLView.h"
 
 @interface FLTheaterViewController (){
     FLNavigationBar *navBar;
@@ -34,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *viewControllers = [[ViewController sharedViewController].navigationController viewControllers];
+    NSArray *viewControllers = [[AppDelegate sharedNavigationController] viewControllers];
     if ([[viewControllers objectAtIndex:viewControllers.count-2] isKindOfClass:[FLByLocationViewController class]]) {
         
         [self.titlenavigation setText:FLByLocation];
@@ -42,6 +43,8 @@
     else{
         [self.titlenavigation setText:FlListing];
     }
+    [AppDelegate sharedNavigationController].title = self.titlenavigation.text;
+    [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
 //    [self fillDatasource];
     // Do any additional setup after loading the view.
 }
@@ -54,7 +57,7 @@
 
 -(void)setServiceType{
     
-    NSArray *viewControllers = [[ViewController sharedViewController].navigationController viewControllers];
+    NSArray *viewControllers = [[AppDelegate sharedNavigationController] viewControllers];
     id controller = [viewControllers objectAtIndex:viewControllers.count-2];
     islocation = [controller isKindOfClass:[FLByLocationViewController class]];
 }

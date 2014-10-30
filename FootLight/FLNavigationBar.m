@@ -29,6 +29,7 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+    [self.navigationTitle setText:[AppDelegate sharedNavigationController].title];
     
 }
 
@@ -53,9 +54,9 @@
 }
 */
 - (IBAction)sidePanel:(UITapGestureRecognizer *)sender {
-    if ([self.navigationTitle.text isEqual:FlHome]) {
+    if (![self.navigationTitle.text isEqual:@"Foot Light"]) {
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
-        UIViewController *VC = [[ViewController sharedViewController].navigationController.viewControllers lastObject];
+        UIViewController *VC = [[AppDelegate sharedNavigationController].viewControllers lastObject];
         
         CGRect frame = VC.view.frame;
         [leftmenuController.view setFrame:frame];

@@ -14,6 +14,7 @@
 #import "MBProgressHUD.h"
 #import "FLProductDetailViewController.h"
 #import "FLAlert.h"
+#import "ViewController.h"
 
 @interface FLProductListViewController (){
     FLProductDetailViewController *detailVC;
@@ -26,6 +27,7 @@
 UIImage *placeholderImage ;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.navTitle setText:[AppDelegate sharedNavigationController].title];
     placeholderImage = [UIImage imageNamed:@"image_back"];
     [[self productsTable] reloadData];
     // Do any additional setup after loading the view.

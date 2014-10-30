@@ -31,6 +31,7 @@
 		B987442B19FF700D00136AA7 /* ATWebServiceConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442A19FF700D00136AA7 /* ATWebServiceConstant.m */; };
 		B987442E19FF703600136AA7 /* ATWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442D19FF703600136AA7 /* ATWebService.m */; };
 		B987443119FF785400136AA7 /* FLZipResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442F19FF785400136AA7 /* FLZipResponseModel.m */; };
+		B9C5A6271A023F7900F5F22C /* UINavigationController+FLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */; };
 		BB13883619FBE07E0034027C /* FootLightCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */; };
 		BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883819FBE1BB0034027C /* FLNavigationBar.m */; };
 		BB13883B19FBE1BB0034027C /* FLNavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB13883919FBE1BB0034027C /* FLNavigationBar.xib */; };
@@ -158,6 +159,8 @@
 		B987442D19FF703600136AA7 /* ATWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATWebService.m; path = Webservices/ATWebService.m; sourceTree = "<group>"; };
 		B987442F19FF785400136AA7 /* FLZipResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLZipResponseModel.m; sourceTree = "<group>"; };
 		B987443019FF785400136AA7 /* FLZipResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLZipResponseModel.h; sourceTree = "<group>"; };
+		B9C5A6251A023F7900F5F22C /* UINavigationController+FLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FLNavigationController.h"; sourceTree = "<group>"; };
+		B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FLNavigationController.m"; sourceTree = "<group>"; };
 		BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootLightCategoryViewController.h; sourceTree = "<group>"; };
 		BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FootLightCategoryViewController.m; sourceTree = "<group>"; };
 		BB13883719FBE1BB0034027C /* FLNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLNavigationBar.h; sourceTree = "<group>"; };
@@ -444,6 +447,8 @@
 				BB13885519FC14170034027C /* UIViewController+ShowModalFromView.m */,
 				BB13885819FC1EC30034027C /* UIView+FLView.h */,
 				BB13885919FC1EC30034027C /* UIView+FLView.m */,
+				B9C5A6251A023F7900F5F22C /* UINavigationController+FLNavigationController.h */,
+				B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -743,6 +748,7 @@
 				BB13885619FC14180034027C /* UIViewController+ShowModalFromView.m in Sources */,
 				B98743A719FF6D1600136AA7 /* SBJsonStreamParserAdapter.m in Sources */,
 				B98743A819FF6D1600136AA7 /* SBJsonStreamParserState.m in Sources */,
+				B9C5A6271A023F7900F5F22C /* UINavigationController+FLNavigationController.m in Sources */,
 				BBF937BC1A014C7C000BF603 /* FLMapViewController.m in Sources */,
 				BB13884519FBEB5B0034027C /* FLPicker.m in Sources */,
 				B98743A619FF6D1600136AA7 /* SBJsonStreamParserAccumulator.m in Sources */,

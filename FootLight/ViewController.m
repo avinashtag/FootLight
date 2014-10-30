@@ -27,14 +27,13 @@
 
 static ViewController *sharedInstance = nil;
 
-+(ViewController*)sharedViewController{
-    return sharedInstance;
-}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
+    self.navigationController.title = FlHome;
     [self.view addNavigationBarWithTitle:FlHome navigation:self.navigationController];
     [self.CategoryCollection registerNib:[UINib nibWithNibName:@"FLCollectionCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"CustomIdentifier"];
     datasource = [HomeCellModel dataSourceCollection];
@@ -71,17 +70,21 @@ static ViewController *sharedInstance = nil;
             FootLightCategoryViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FootLightCategoryViewController"];
             [self.navigationController pushViewController:selectionVC animated:YES];
             self.navigationController.title = FlListing;
+            [self.view setNavigationTitle:self.navigationController.title];
         }
             break;
         case 1:{
             FLByLocationViewController *LocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FLByLocationViewController"];
             [self.navigationController pushViewController:LocationViewController animated:YES];
+            self.navigationController.title = FLByLocation;
+            [self.view setNavigationTitle:self.navigationController.title];
         }
             break;
         case 3:{
             product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
             [self.navigationController pushViewController:product animated:YES];
-            [product loadFavourite];
+            self.navigationController.title = FLMyFavorites;
+            [self.view setNavigationTitle:self.navigationController.title];
         }
             break;
             

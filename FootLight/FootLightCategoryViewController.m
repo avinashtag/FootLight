@@ -53,8 +53,6 @@
         case 0:{
             FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
             [self.navigationController pushViewController:selectionVC animated:YES];
-            [selectionVC.titlenavigation setText:FlListing];
-
         }
             break;
             
