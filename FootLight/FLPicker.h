@@ -27,5 +27,5 @@ typedef void(^selectedFLPicker)(id value);
 
 -(NSArray*)statusDatasource;
 -(NSArray*)theaterTypeDatasource;
-
+-(NSArray*)radiusFill;
 @end

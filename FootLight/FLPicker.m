@@ -65,6 +65,18 @@
     }
     return datasource;
 }
+-(NSArray*)radiusFill{
+    @autoreleasepool {
+        NSMutableArray *datasource = [[NSMutableArray alloc]init];
+        NSArray *temp = @[@"1", @"2", @"5", @"10", @"15", @"20", @"25"];
+        for (NSString* value in temp) {
+            FLPickerModel *model = [[FLPickerModel alloc]init];
+            model.pickerTitle = value;
+            [datasource addObject:model];
+        }
+        return datasource;
+    }
+}
 /*
 #pragma mark - Navigation
 
@@ -102,6 +114,6 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    return [_pickerDatasource objectAtIndex:row];
+    return [(FLPickerModel*)[_pickerDatasource objectAtIndex:row] pickerTitle];
 }
 @end

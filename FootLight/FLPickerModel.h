@@ -13,7 +13,7 @@
 
 
 @property(nonatomic,strong) NSString* pickerTitle;
-@property(nonatomic,strong) UILabel* titleLabel;
-@property(nonatomic,strong) id model;
+//@property(nonatomic,strong) UILabel* titleLabel;
+//@property(nonatomic,strong) id model;
 
 @end

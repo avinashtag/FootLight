@@ -70,7 +70,7 @@
 -(NSArray*)radiusFill{
     @autoreleasepool {
         NSMutableArray *datasource = [[NSMutableArray alloc]init];
-        NSArray *temp = @[@"10", @"15", @"20",@"25"];
+        NSArray *temp = @[@"1", @"2", @"5", @"10", @"15", @"20", @"25"];
         for (NSString* value in temp) {
             FLPickerModel *model = [[FLPickerModel alloc]init];
             model.pickerTitle = value;
