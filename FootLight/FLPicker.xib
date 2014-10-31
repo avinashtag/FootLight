@@ -29,7 +29,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="cancelClicked:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="grI-rU-9aC"/>
+                                    <action selector="selectedPicker:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="7cH-cK-RVp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-fC-gi9">
@@ -45,7 +45,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="selectedPicker:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="qbr-h3-hlW"/>
+                                    <action selector="cancelClicked:" destination="sKN-Cy-lW2" eventType="touchUpInside" id="aiC-Qc-NUj"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -81,7 +81,7 @@
             <connections>
                 <outlet property="picker" destination="k4v-JK-st7" id="f0U-Bh-fH0"/>
             </connections>
-            <point key="canvasLocation" x="437" y="195"/>
+            <point key="canvasLocation" x="340" y="185"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickerView" id="3vh-FT-1SQ" customClass="FLPicker">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -144,7 +144,7 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="193" y="225"/>
+            <point key="canvasLocation" x="174" y="210"/>
         </view>
     </objects>
     <resources>
