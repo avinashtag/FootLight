@@ -94,6 +94,7 @@
 
 - (IBAction)submit:(UIButton *)sender {
     
+    [[AppDelegate SharedApplication].locationManager startUpdatingLocation] ;
     if ([self validation]) {
         [self setServiceType];
         [self callWebservice];

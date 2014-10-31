@@ -37,23 +37,14 @@
     return YES;
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-    
-    
-}
+
 - (void)locationManager:(CLLocationManager *)manager
      didUpdateLocations:(NSArray *)locations{
     
-    self.locationManager = manager;
-    CLLocation* loc = [locations lastObject]; // locations is guaranteed to have at least one object
-    float latitude = loc.coordinate.latitude;
-    float longitude = loc.coordinate.longitude;
-    NSLog(@"%.8f",latitude);
-    NSLog(@"%.8f",longitude);
-    
+    [self.locationManager stopUpdatingLocation];
 }
 
-- (void)locationManager:(CLLocationManager *)manager
+/*- (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
     FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
         
@@ -61,7 +52,7 @@
         
     } otherButtonTitles:nil];
     
-}
+}*/
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
