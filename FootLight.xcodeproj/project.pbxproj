@@ -31,6 +31,8 @@
 		B987442B19FF700D00136AA7 /* ATWebServiceConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442A19FF700D00136AA7 /* ATWebServiceConstant.m */; };
 		B987442E19FF703600136AA7 /* ATWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442D19FF703600136AA7 /* ATWebService.m */; };
 		B987443119FF785400136AA7 /* FLZipResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B987442F19FF785400136AA7 /* FLZipResponseModel.m */; };
+		B999DB571A0376500053390D /* FLBack.png in Resources */ = {isa = PBXBuildFile; fileRef = B999DB551A0376500053390D /* FLBack.png */; };
+		B999DB581A0376500053390D /* FLBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B999DB561A0376500053390D /* FLBack@2x.png */; };
 		B9C5A6271A023F7900F5F22C /* UINavigationController+FLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */; };
 		BB13883619FBE07E0034027C /* FootLightCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */; };
 		BB13883A19FBE1BB0034027C /* FLNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13883819FBE1BB0034027C /* FLNavigationBar.m */; };
@@ -160,6 +162,8 @@
 		B987442D19FF703600136AA7 /* ATWebService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ATWebService.m; path = Webservices/ATWebService.m; sourceTree = "<group>"; };
 		B987442F19FF785400136AA7 /* FLZipResponseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLZipResponseModel.m; sourceTree = "<group>"; };
 		B987443019FF785400136AA7 /* FLZipResponseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLZipResponseModel.h; sourceTree = "<group>"; };
+		B999DB551A0376500053390D /* FLBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FLBack.png; sourceTree = "<group>"; };
+		B999DB561A0376500053390D /* FLBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FLBack@2x.png"; sourceTree = "<group>"; };
 		B9C5A6251A023F7900F5F22C /* UINavigationController+FLNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FLNavigationController.h"; sourceTree = "<group>"; };
 		B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FLNavigationController.m"; sourceTree = "<group>"; };
 		BB13883419FBE07E0034027C /* FootLightCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FootLightCategoryViewController.h; sourceTree = "<group>"; };
@@ -547,6 +551,8 @@
 		BBDA3E8219FBD6FB0077CFD9 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B999DB551A0376500053390D /* FLBack.png */,
+				B999DB561A0376500053390D /* FLBack@2x.png */,
 				B913F1C51A0112FD00DD984A /* stars */,
 				BB7A74AF19FE9DE000D71D66 /* rightArrow.png */,
 				BB7A74B019FE9DE000D71D66 /* rightArrow@2x copy.png */,
@@ -684,6 +690,8 @@
 			files = (
 				BB7C321C19FAB82500A5EFCF /* Main.storyboard in Resources */,
 				BBDA3E9919FBD7230077CFD9 /* knob.png in Resources */,
+				B999DB571A0376500053390D /* FLBack.png in Resources */,
+				B999DB581A0376500053390D /* FLBack@2x.png in Resources */,
 				BB7C324719FAB8FB00A5EFCF /* Home_Listings.png in Resources */,
 				BBDA3E9519FBD7230077CFD9 /* home.png in Resources */,
 				B913F1CE1A0112FD00DD984A /* not_selected_star.png in Resources */,

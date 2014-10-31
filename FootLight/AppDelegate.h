@@ -15,6 +15,7 @@
 #define FlCriticsPick   @"Critics Picks"
 #define FLByLocation   @"By Location"
 #define FLMyFavorites   @"My Favorites"
+#define FLBack   @"Back"
 
 #define FlTheater   @"Theatre"
 #define FlMuseums   @"Museums"

@@ -54,6 +54,7 @@
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLByLocation image:[UIImage imageNamed:@"location"]]];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FlCriticsPick image:[UIImage imageNamed:@"critic"]]];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLMyFavorites image:[UIImage imageNamed:@"favorite"]]];
+    [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLBack image:[UIImage imageNamed:@"FLBack"]]];
     [self.leftMenu reloadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -159,7 +160,12 @@
 
             }
                 break;
-                
+            case 5:{
+////                [AppDelegate sharedNavigationController].title = FLMyFavorites;
+//                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
+                [self.navigationController popViewControllerAnimated:YES];                
+            }
+                break;
             default:{
                 FLAlert *alert = [[FLAlert alloc]initWithTitle:@"FootLight" message:@"Coming Soon" cancelButtonTitle:@"Cancel" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
             }
