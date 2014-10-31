@@ -7,17 +7,17 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickerId" id="sKN-Cy-lW2" customClass="FLPicker">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="174"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickerId" rowHeight="192" id="sKN-Cy-lW2" customClass="FLPicker">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="192"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sKN-Cy-lW2" id="YhH-uh-xK4">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cA1-8f-t8x" userLabel="ToolBar">
-                        <rect key="frame" x="15" y="0.0" width="290" height="44"/>
+                        <rect key="frame" x="15" y="0.0" width="290" height="30"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIU-8f-V7C">
-                                <rect key="frame" x="239" y="10" width="46" height="30"/>
+                                <rect key="frame" x="239" y="0.0" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="7Jt-Oc-EvN"/>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wYE-fC-gi9">
-                                <rect key="frame" x="5" y="10" width="46" height="30"/>
+                                <rect key="frame" x="5" y="0.0" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="AaO-YZ-D85"/>
@@ -53,14 +53,14 @@
                         <constraints>
                             <constraint firstAttribute="width" constant="290" id="4bP-HN-ZNj"/>
                             <constraint firstItem="wYE-fC-gi9" firstAttribute="leading" secondItem="cA1-8f-t8x" secondAttribute="leading" constant="5" id="4hi-4o-E1u"/>
-                            <constraint firstAttribute="centerY" secondItem="XIU-8f-V7C" secondAttribute="centerY" constant="-3" id="5O3-x9-dfD"/>
+                            <constraint firstAttribute="centerY" secondItem="XIU-8f-V7C" secondAttribute="centerY" id="5O3-x9-dfD"/>
                             <constraint firstAttribute="trailing" secondItem="XIU-8f-V7C" secondAttribute="trailing" constant="5" id="CKM-2g-QlH"/>
-                            <constraint firstAttribute="centerY" secondItem="wYE-fC-gi9" secondAttribute="centerY" constant="-3" id="JNv-QS-ntA"/>
-                            <constraint firstAttribute="height" constant="44" id="k6g-Ow-XPm"/>
+                            <constraint firstAttribute="centerY" secondItem="wYE-fC-gi9" secondAttribute="centerY" id="JNv-QS-ntA"/>
+                            <constraint firstAttribute="height" constant="30" id="k6g-Ow-XPm"/>
                         </constraints>
                     </view>
-                    <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4v-JK-st7">
-                        <rect key="frame" x="15" y="44" width="290" height="130"/>
+                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k4v-JK-st7">
+                        <rect key="frame" x="15" y="28" width="290" height="162"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="130" id="Eod-sx-TPz"/>
                             <constraint firstAttribute="width" constant="290" id="VdD-Lq-O4o"/>
@@ -81,7 +81,7 @@
             <connections>
                 <outlet property="picker" destination="k4v-JK-st7" id="f0U-Bh-fH0"/>
             </connections>
-            <point key="canvasLocation" x="437" y="186"/>
+            <point key="canvasLocation" x="437" y="195"/>
         </tableViewCell>
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="pickerView" id="3vh-FT-1SQ" customClass="FLPicker">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -119,11 +119,11 @@
             <point key="canvasLocation" x="437" y="344"/>
         </tableViewCell>
         <view contentMode="scaleToFill" id="YoY-ML-IY1">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l15-Jh-hKY">
-                    <rect key="frame" x="123" y="8" width="75" height="30"/>
+                    <rect key="frame" x="123" y="0.0" width="75" height="30"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="Dsg-Ok-LYu"/>
@@ -137,8 +137,8 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="l15-Jh-hKY" secondAttribute="centerY" constant="-1" id="09c-QF-7L4"/>
-                <constraint firstAttribute="centerX" secondItem="l15-Jh-hKY" secondAttribute="centerX" constant="-0.5" id="GUp-YE-MbI"/>
+                <constraint firstAttribute="centerY" secondItem="l15-Jh-hKY" secondAttribute="centerY" id="09c-QF-7L4"/>
+                <constraint firstAttribute="centerX" secondItem="l15-Jh-hKY" secondAttribute="centerX" id="GUp-YE-MbI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>

@@ -44,37 +44,34 @@
     _pickerSelected = selectedPick;
 }
 -(NSArray*)statusDatasource{
-    NSMutableArray *datasource = [[NSMutableArray alloc]init];
     NSArray *temp = @[@"Now Playing", @"Opening Soon", @"Closing Soon"];
-    for (NSString* value in temp) {
-        FLPickerModel *model = [[FLPickerModel alloc]init];
-        model.pickerTitle = value;
-        [datasource addObject:model];
-    }
-    return datasource;
+//    for (NSString* value in temp) {
+//        FLPickerModel *model = [[FLPickerModel alloc]init];
+//        model.pickerTitle = value;
+//        [datasource addObject:model];
+//    }
+    return temp;
 }
 
 -(NSArray*)theaterTypeDatasource{
     
-    NSMutableArray *datasource = [[NSMutableArray alloc]init];
     NSArray *temp = @[@"All", @"Musical", @"Drama",@"Comedy", @"Classic", @"Opera", @"Fringe"];
-    for (NSString* value in temp) {
-        FLPickerModel *model = [[FLPickerModel alloc]init];
-        model.pickerTitle = value;
-        [datasource addObject:model];
-    }
-    return datasource;
+//    for (NSString* value in temp) {
+//        FLPickerModel *model = [[FLPickerModel alloc]init];
+//        model.pickerTitle = value;
+//        [datasource addObject:model];
+//    }
+    return temp;
 }
 -(NSArray*)radiusFill{
     @autoreleasepool {
-        NSMutableArray *datasource = [[NSMutableArray alloc]init];
         NSArray *temp = @[@"1", @"2", @"5", @"10", @"15", @"20", @"25"];
-        for (NSString* value in temp) {
-            FLPickerModel *model = [[FLPickerModel alloc]init];
-            model.pickerTitle = value;
-            [datasource addObject:model];
-        }
-        return datasource;
+//        for (NSString* value in temp) {
+//            FLPickerModel *model = [[FLPickerModel alloc]init];
+//            model.pickerTitle = value;
+//            [datasource addObject:model];
+//        }
+        return temp;
     }
 }
 /*
@@ -114,6 +111,6 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
     
-    return [(FLPickerModel*)[_pickerDatasource objectAtIndex:row] pickerTitle];
+    return [_pickerDatasource objectAtIndex:row];
 }
 @end

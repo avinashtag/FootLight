@@ -15,4 +15,5 @@
 @property (strong, nonatomic) IBOutlet UITableView *locationTable;
 //@property (strong, nonatomic) IBOutlet UITextField *radius;
 @property (strong, nonatomic) __block NSString *radius;
+@property (strong, nonatomic)  UIView *footer;
 @end

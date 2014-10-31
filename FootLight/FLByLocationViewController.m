@@ -117,13 +117,12 @@
     }
     cell.pickerDatasource = [cell radiusFill];
     [cell.picker reloadAllComponents];
-//    __block FLPicker *previousCell = (FLPicker*)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-//    NSPredicate *fetch = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELf.pickerTitle CONTAINS[cd] %@",previousCell.textField.text]];
-//    FLPickerModel *model = [[cell.pickerDatasource filteredArrayUsingPredicate:fetch] lastObject];
-//    [cell.picker selectRow:[cell.pickerDatasource indexOfObject:model] inComponent:0 animated:YES];
+    __block FLPicker *previousCell = (FLPicker*)[[self.locationTable visibleCells]objectAtIndex:0];
+    [cell.picker selectRow:[cell.pickerDatasource indexOfObject:previousCell.textField.text] inComponent:0 animated:YES];
     [cell callBackPickerSelected:^(NSString* value) {
         _radius = value;
-//        previousCell.selected = NO;
+        previousCell.selected = NO;
+        [tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:[NSIndexPath indexPathForRow:0 inSection:0]] withRowAnimation:UITableViewRowAnimationNone];
     } cancelPicker:^(NSString* value) {
         
     }];
@@ -140,8 +139,20 @@
     if (indexPath.row == 0) {
         return 44;
     }
-    return 205;
+    return 192;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 30.0f;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (!self.footer) {
+        self.footer = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:2];
+        [(UIButton*)[self.footer viewWithTag:100] addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
+    return self.footer;
+}
 
 @end
