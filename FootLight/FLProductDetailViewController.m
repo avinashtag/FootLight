@@ -51,12 +51,15 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 
     NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullDescription];
     [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullDescription.length)];
+    //****** Website *********//
     NSRange websiteRange = [fullDescription rangeOfString:_details.productionWebsite];
+    [description addAttribute:NSLinkAttributeName value:[NSURL URLWithString:_details.productionWebsite] range:websiteRange];
     [description addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:websiteRange];
     NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
     [pragraphWebsite setAlignment:NSTextAlignmentCenter];
     [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:websiteRange];
-    
+  
+    //****** venue *********//
     NSRange timingsRange = [fullDescription rangeOfString:_details.cellTimings];
     [description addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:timingsRange];
     [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:timingsRange];
@@ -70,11 +73,11 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [self.productScroll setScrollEnabled:YES];
 
     _startRatingView.canEdit = YES;
-    _startRatingView.maxRating = [_details.avg intValue];
-    _startRatingView.rating = 0;
+    _startRatingView.maxRating = 5;
+    _startRatingView.rating = [_details.avg intValue];
     [self.startRatingView rateChange:^(float rate) {
        FLAlert* alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Do you Want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
-           _startRatingView.maxRating = [_details.avg intValue];
+           _startRatingView.rating = [_details.avg intValue];
 
         } otherHandler:^(NSUInteger other) {
             

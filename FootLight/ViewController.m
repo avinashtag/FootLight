@@ -85,6 +85,7 @@ static ViewController *sharedInstance = nil;
             [self.navigationController pushViewController:product animated:YES];
             self.navigationController.title = FLMyFavorites;
             [self.view setNavigationTitle:self.navigationController.title];
+            [product loadFavourite];
         }
             break;
             

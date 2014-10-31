@@ -21,6 +21,6 @@
 - (IBAction)favorite:(UIButton *)sender;
 - (IBAction)direction:(UIButton *)sender;
 - (IBAction)voteDone:(UIButton *)sender;
-@property (strong, nonatomic) IBOutlet ASStarRatingView *startRatingView;
+@property (strong, nonatomic) IBOutlet __block ASStarRatingView *startRatingView;
 
 @end

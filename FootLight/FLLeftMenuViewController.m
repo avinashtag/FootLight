@@ -163,7 +163,7 @@
             case 5:{
 ////                [AppDelegate sharedNavigationController].title = FLMyFavorites;
 //                [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
-                [self.navigationController popViewControllerAnimated:YES];                
+                [[AppDelegate sharedNavigationController] popViewControllerAnimated:YES];
             }
                 break;
             default:{
