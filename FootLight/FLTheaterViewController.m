@@ -26,6 +26,7 @@
     UIView *footer;
     FLProductListViewController *product;
     ATPicker *pick;
+    NSArray* rowsCount;
 }
 
 @end
@@ -34,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    rowsCount = @[@(0),@(0)];
     NSArray *viewControllers = [[AppDelegate sharedNavigationController] viewControllers];
     if ([[viewControllers objectAtIndex:viewControllers.count-2] isKindOfClass:[FLByLocationViewController class]]) {
         
@@ -45,10 +46,23 @@
     }
     [AppDelegate sharedNavigationController].title = self.titlenavigation.text;
     [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
-//    [self fillDatasource];
-    // Do any additional setup after loading the view.
     
+    self.theaterTypeHeader = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([FLPicker class]) owner:nil options:nil] objectAtIndex:1];
+    [self.theaterTypeHeader addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openPicker:)]];
 
+    self.showStatusHeader = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([FLPicker class]) owner:nil options:nil] objectAtIndex:2];
+    [self.showStatusHeader addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openPicker:)]];
+    self.footer = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:3];
+    [(UIButton*)[self.footer viewWithTag:100] addTarget:self action:@selector(submit:) forControlEvents:UIControlEventTouchUpInside];
+
+ 
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    [(UITextField*)[self.showStatusHeader viewWithTag:100] setText:@"Now Playing"];
+    [(UITextField*)[self.theaterTypeHeader viewWithTag:100] setText:@"All"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,76 +78,29 @@
     islocation = [controller isKindOfClass:[FLByLocationViewController class]];
 }
 
-- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
-
-    //******* Open Picker ******//
-    CGPoint center = textField.center;
-    pick = [[ATPicker alloc]initWithNibName:@"ATPicker" bundle:nil];
-    pick.pickerDatasource =  (textField == self.showStatus) ? [pick statusDatasource] : [pick theaterTypeDatasource];
-//    pick.view.center = center;
-//    [self.view addSubview:pick.view];
-    [pick showPickerWithPopInWithCenter:center];
-    [pick callBackPickerSelected:^(FLPickerModel* value) {
-        
-        textField.text = value.pickerTitle;
-    } cancelPicker:^(id value) {
-        
-    }];
-    return NO;
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 - (IBAction)submit:(UIButton *)sender {
     
     [[AppDelegate SharedApplication].locationManager startUpdatingLocation] ;
-    if ([self validation]) {
-        [self setServiceType];
-        [self callWebservice];
-
-    }
+    [self setServiceType];
+    [self callWebservice];
+    
 }
 
--(BOOL)validation{
-    if ([self.theaterType.text isEqualToString:@""]) {
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a genere." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
-            
-        } otherHandler:^(NSUInteger other) {
-            
-        } otherButtonTitles:nil];
-        return NO;
-    }
-    else if ([self.showStatus.text isEqualToString:@""]) {
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a play status." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
-            
-        } otherHandler:^(NSUInteger other) {
-            
-        } otherButtonTitles:nil];
-        return NO;
-    }
-    return YES;
-}
 
 -(NSString*)locationServices{
     
+    
     CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
-    if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
+    if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Now Playing"]) {
         
         return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
    }
-    else  if ([self.showStatus.text isEqualToString:@"Opening Soon"]) {
+    else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Opening Soon"]) {
         
         return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
-    else  if ([self.showStatus.text isEqualToString:@"Closing Soon"]) {
+    else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Closing Soon"]) {
         
         return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
@@ -144,15 +111,15 @@
 -(NSString*)zipcallservice{
 //    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
 
-    if ([self.showStatus.text isEqualToString:@"Now Playing"]) {
+    if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Now Playing"]) {
         
         return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",self.zip,self.radius];
     }
-    else  if ([self.showStatus.text isEqualToString:@"Opening Soon"]) {
+    else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Opening Soon"]) {
         
         return [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",self.zip,self.radius];
     }
-    else  if ([self.showStatus.text isEqualToString:@"Closing Soon"]) {
+    else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Closing Soon"]) {
         
         return [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",self.zip,self.radius];
     }
@@ -167,12 +134,78 @@
     product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
     [self.navigationController pushViewController:product animated:YES];
     if (islocation) {
-        [product zipCallNormal:[self zipcallservice] filterGenere:self.theaterType.text];
+        [product zipCallNormal:[self zipcallservice] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
     }
     else{
-        [product statusFilter:[self locationServices] filterGenere:self.theaterType.text];
+        [product statusFilter:[self locationServices] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
     }
 }
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [[rowsCount objectAtIndex:section] integerValue];
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return rowsCount.count;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *identifier = @"pickerId";
+    FLPicker *cell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!cell) {
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:0];
+    }
+    cell.pickerDatasource = indexPath.section == 0 ? [cell statusDatasource] : [cell theaterTypeDatasource];
+    [cell.picker reloadAllComponents];
+    NSString *selectedValue =  indexPath.section == 0 ? [(UITextField*)[self.showStatusHeader viewWithTag:100] text] : [(UITextField*)[self.theaterTypeHeader viewWithTag:100] text];
+    [cell.picker selectRow:[cell.pickerDatasource indexOfObject:selectedValue] inComponent:0 animated:YES];
+    [cell callBackPickerSelected:^(NSString* value) {
+       (indexPath.section == 0) ? [(UITextField*)[self.showStatusHeader viewWithTag:100] setText:value ] : [(UITextField*)[self.theaterTypeHeader viewWithTag:100] setText:value ];
+        rowsCount =  @[@(0),@(0)];
+        [tableView reloadData];
+    } cancelPicker:^(NSString* value) {
+        rowsCount =  @[@(0),@(0)];
+        [tableView reloadData];
+    }];
+    return cell;
+}
+
+
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return  192 ;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return  50 ;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 50;
+}
+
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return self.footer;
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    
+    return (section == 0) ? self.showStatusHeader : self.theaterTypeHeader;
+}
+
+- (void)openPicker:(UITapGestureRecognizer *)recognizer{
+    
+    if (recognizer.view == self.showStatusHeader) {
+        rowsCount = @[@(1),@(0)];
+        [self.theaterTable reloadData];
+    }
+    else if (recognizer.view == self.theaterTypeHeader) {
+        rowsCount = @[@(0),@(1)];
+        [self.theaterTable reloadData];
+    }
+}
+
+
 
 
 @end

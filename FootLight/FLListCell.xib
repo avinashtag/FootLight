@@ -83,7 +83,7 @@
                 <outlet property="productType" destination="Dr4-W8-s8Z" id="gDf-1j-xAt"/>
                 <outlet property="timeFrom" destination="H4j-sg-XzK" id="JAH-ds-YIa"/>
             </connections>
-            <point key="canvasLocation" x="-104" y="309.5"/>
+            <point key="canvasLocation" x="-206" y="208.5"/>
         </tableViewCell>
     </objects>
     <resources>

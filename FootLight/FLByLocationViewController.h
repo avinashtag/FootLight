@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *cityState;
 @property (strong, nonatomic) IBOutlet UITableView *locationTable;
 //@property (strong, nonatomic) IBOutlet UITextField *radius;
-@property (strong, nonatomic) __block NSString *radius;
 @property (strong, nonatomic)  UIView *footer;
+@property (strong, nonatomic)  __block UIView *header;
 @end

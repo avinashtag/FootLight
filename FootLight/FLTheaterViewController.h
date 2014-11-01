@@ -11,10 +11,13 @@
 @interface FLTheaterViewController : ViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *titlenavigation;
+@property (strong, nonatomic) IBOutlet UITableView *theaterTable;
 
-@property (strong, nonatomic) IBOutlet UITextField *theaterType;
-@property (strong, nonatomic) IBOutlet UITextField *showStatus;
 @property (strong, nonatomic)  NSString *zip;
 @property (strong, nonatomic)  NSString *radius;
 @property (strong, nonatomic)  NSString *city;
+@property (strong, nonatomic)  UIView *footer;
+@property (strong, nonatomic)  __block UIView *theaterTypeHeader;
+@property (strong, nonatomic)  __block UIView *showStatusHeader;
+
 @end

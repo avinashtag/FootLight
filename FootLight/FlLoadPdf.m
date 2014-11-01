@@ -30,7 +30,8 @@
 
 -(void)loadPdf{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *url = [NSString stringWithFormat:@"http://gofootlights.com/pdfs/%@",_model.recordID];
+    NSString *url = [NSString stringWithFormat:@"http://gofootlights.com/pdfs/%@.pdf",_model.recordID];
+    NSLog(@"pdf Url : %@",url);
     [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
