@@ -43,6 +43,7 @@ NSString *const kFLZipResponseModelWeeklyPassportEblast = @"WeeklyPassportEblast
 NSString *const kFLZipResponseModelCellCreated = @"CellCreated";
 NSString *const kFLZipResponseModelCellTimings = @"CellTimings";
 NSString *const kFLZipResponseModelFavourite = @"Favourite";
+NSString *const kFLZipResponseModellist = @"List";
 
 
 @interface FLZipResponseModel ()
@@ -87,6 +88,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
 @synthesize weeklyPassportEblast = _weeklyPassportEblast;
 @synthesize cellCreated = _cellCreated;;
 @synthesize cellTimings = _cellTimings;
+@synthesize list = _list;
 @synthesize favourite = _favourite;
 
 
@@ -138,6 +140,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
         self.cellTimings = [self showTimings:self];
         self.cellCreated = [NSNumber numberWithDouble:ceil([self.cellTimings sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}].height)];
         self.favourite = [NSNumber numberWithBool:NO];
+        self.list = [self attributedList:self];
 
     }
     
@@ -183,6 +186,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
     [mutableDict setValue:self.cellCreated forKey:kFLZipResponseModelCellCreated];
     [mutableDict setValue:self.cellTimings forKey:kFLZipResponseModelCellTimings];
     [mutableDict setValue:self.favourite forKey:kFLZipResponseModelFavourite];
+    [mutableDict setValue:self.list forKey:kFLZipResponseModellist];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -241,6 +245,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
     self.cellCreated = [aDecoder decodeObjectForKey:kFLZipResponseModelCellCreated];
     self.cellTimings = [aDecoder decodeObjectForKey:kFLZipResponseModelCellTimings];
     self.favourite = [aDecoder decodeObjectForKey:kFLZipResponseModelFavourite];
+    self.list = [aDecoder decodeObjectForKey:kFLZipResponseModellist];
     return self;
 }
 
@@ -282,6 +287,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
     [aCoder encodeObject:_cellCreated forKey:kFLZipResponseModelCellCreated];
     [aCoder encodeObject:_cellTimings forKey:kFLZipResponseModelCellTimings];
     [aCoder encodeObject:_favourite forKey:kFLZipResponseModelFavourite];
+    [aCoder encodeObject:_list forKey:kFLZipResponseModellist];
     
 }
 
@@ -326,6 +332,7 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
         copy.cellTimings = [self.cellTimings copyWithZone:zone];
         copy.cellCreated = [self.cellCreated copyWithZone:zone];
         copy.favourite = [self.favourite copyWithZone:zone];
+        copy.list = [self.list copyWithZone:zone];
     }
     
     return copy;
@@ -343,6 +350,74 @@ NSString *const kFLZipResponseModelFavourite = @"Favourite";
     [model.wednesday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
     [model.thursday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
     return [timings componentsJoinedByString:@"\n"];
+    
+}
+
+
+-(NSAttributedString *)attributedList:(FLZipResponseModel*)model{
+    
+    NSString *noShow = @"No Show";
+    NSMutableArray *listing = [[NSMutableArray alloc]init];
+    [listing addObject:model.title];
+    [listing addObject:model.venueTheatreName];
+    
+    [model.friday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",model.friday]] : NSLog(@"");
+    [model.saturday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",model.saturday]] : NSLog(@"");
+    [model.sunday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",model.sunday]] : NSLog(@"");
+    [model.monday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",model.monday]] : NSLog(@"");
+    [model.tuesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",model.tuesday]] : NSLog(@"");
+    [model.wednesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
+    [model.thursday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
+    NSString *fullList = [listing componentsJoinedByString:@"\n"];
+    
+    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
+    [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
+
+    NSRange titleRange = [fullList rangeOfString:model.title];
+    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:titleRange];
+
+    
+    NSRange venueRange = [fullList rangeOfString:model.venueTheatreName];
+    [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
+    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
+
+    
+    return description;
+    
+}
+
+-(NSAttributedString *)attributeddetail:(FLZipResponseModel*)model{
+    
+    NSString *noShow = @"No Show";
+    NSMutableArray *listing = [[NSMutableArray alloc]init];
+    [listing addObject:model.playDescription];
+    [listing addObject:model.productionWebsite];
+   
+    [model.saturdayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",model.saturdayMatinee]] : NSLog(@"");
+    [model.sundayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",model.sundayMatinee]] : NSLog(@"");
+
+    [model.friday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",model.friday]] : NSLog(@"");
+    [model.saturday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",model.saturday]] : NSLog(@"");
+    [model.sunday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",model.sunday]] : NSLog(@"");
+    [model.monday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",model.monday]] : NSLog(@"");
+    [model.tuesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",model.tuesday]] : NSLog(@"");
+    [model.wednesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
+    [model.thursday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
+    NSString *fullList = [listing componentsJoinedByString:@"\n"];
+    
+    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
+    [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
+    
+    NSRange titleRange = [fullList rangeOfString:model.title];
+    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:titleRange];
+    
+    
+    NSRange venueRange = [fullList rangeOfString:model.venueTheatreName];
+    [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
+    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
+    
+    
+    return description;
     
 }
 

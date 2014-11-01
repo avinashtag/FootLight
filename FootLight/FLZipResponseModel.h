@@ -44,6 +44,7 @@
 @property (nonatomic, strong) NSString *boxOfficePhone;
 @property (nonatomic, strong) NSString *weeklyPassportEblast;
 @property (nonatomic, strong) NSString *cellTimings;
+@property (nonatomic, strong) NSAttributedString *list;
 @property (nonatomic, strong) NSNumber *cellCreated;
 @property (nonatomic, strong) NSNumber *favourite;
 

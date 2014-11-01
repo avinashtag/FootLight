@@ -38,22 +38,9 @@ UIImage *placeholderImage ;
     // Dispose of any resources that can be recreated.
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.products.count;
 }
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -66,13 +53,12 @@ UIImage *placeholderImage ;
         [tableView.delegate tableView:tableView didSelectRowAtIndexPath:indexPath];
     }];
     FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
-    cell.productName.text = zipModel.title;
-    cell.productType.text = zipModel.venueTheatreName;
+    cell.productName.attributedText = zipModel.list;
     
-    CGRect frame = cell.timeFrom.frame;
-    frame.size.height = [zipModel.cellCreated doubleValue];
-    [cell.timeFrom setFrame:frame ];
-    cell.timeFrom.text = zipModel.cellTimings;
+ //   CGRect frame = cell.productName.frame;
+   // frame.size.height = ceil(cell.productName.attributedText.size.height);
+    //[cell.timeFrom setFrame:frame ];
+//    cell.timeFrom.text = zipModel.cellTimings;
     [cell.productImage setImageWithURL:[NSURL URLWithString:zipModel.imagename] placeholderImage:placeholderImage];
     return cell;
 }
@@ -85,11 +71,11 @@ UIImage *placeholderImage ;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
-    return 63+21 + [zipModel.cellCreated doubleValue];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    
+//    FLZipResponseModel *zipModel = [self.products objectAtIndex:indexPath.row];
+//    return 63+21 + [zipModel.cellCreated doubleValue];
+//}
 
 -(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere{
     MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
