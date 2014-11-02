@@ -530,25 +530,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K05-Ci-CcD">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ybo-ri-9fJ">
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="delegate" destination="9on-h5-h7s" id="wmp-BN-3XJ"/>
+                                    <outlet property="delegate" destination="9on-h5-h7s" id="imE-iM-nmE"/>
                                 </connections>
-                            </webView>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="K05-Ci-CcD" firstAttribute="top" secondItem="PGE-At-73o" secondAttribute="bottom" constant="44" id="F7k-ub-fmV"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="K05-Ci-CcD" secondAttribute="trailing" constant="-16" id="MIb-Ko-QLl"/>
-                            <constraint firstItem="K05-Ci-CcD" firstAttribute="leading" secondItem="Ziy-FH-ZUI" secondAttribute="leadingMargin" constant="-16" id="bOw-N9-U9f"/>
-                            <constraint firstItem="RGI-or-02d" firstAttribute="top" secondItem="K05-Ci-CcD" secondAttribute="bottom" id="dPE-hT-NIo"/>
+                            <constraint firstItem="Ybo-ri-9fJ" firstAttribute="top" secondItem="PGE-At-73o" secondAttribute="bottom" constant="44" id="JGm-EQ-dV7"/>
+                            <constraint firstItem="Ybo-ri-9fJ" firstAttribute="leading" secondItem="Ziy-FH-ZUI" secondAttribute="leadingMargin" constant="-16" id="U7o-D8-aZf"/>
+                            <constraint firstItem="RGI-or-02d" firstAttribute="top" secondItem="Ybo-ri-9fJ" secondAttribute="bottom" id="aKu-Cc-ywo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ybo-ri-9fJ" secondAttribute="trailing" constant="-16" id="cjX-US-ra8"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="webview" destination="K05-Ci-CcD" id="8B5-mH-YB6"/>
+                        <outlet property="mapView" destination="Ybo-ri-9fJ" id="dhD-ev-OfR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dti-rJ-0eP" sceneMemberID="firstResponder"/>

@@ -133,11 +133,16 @@
 
     product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
     [self.navigationController pushViewController:product animated:YES];
-    if (islocation) {
-        [product zipCallNormal:[self zipcallservice] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
-    }
-    else{
-        [product statusFilter:[self locationServices] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
+    switch (self.serviceType) {
+        case FLLocation:
+            [product statusFilter:[self locationServices] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
+            break;
+        case FLZipService:
+            [product zipCallNormal:[self zipcallservice] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
+            break;
+
+        default:
+            break;
     }
 }
 

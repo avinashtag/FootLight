@@ -76,6 +76,8 @@
 		BB7C324A19FAB8FB00A5EFCF /* Category_Theatre.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */; };
 		BB7C324B19FAB8FB00A5EFCF /* Home_TopPicks.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */; };
 		BB7C324C19FAB8FB00A5EFCF /* NavigationBar.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */; };
+		BB9DF61E1A062F7A00F5E390 /* FLAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9DF61D1A062F7A00F5E390 /* FLAnnotation.m */; };
+		BB9DF6241A067E1600F5E390 /* NSString+FLString.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9DF6231A067E1600F5E390 /* NSString+FLString.m */; };
 		BBDA3E8119FB587B0077CFD9 /* Home_location.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8019FB587B0077CFD9 /* Home_location.png */; };
 		BBDA3E9119FBD7230077CFD9 /* critic.png in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8319FBD7230077CFD9 /* critic.png */; };
 		BBDA3E9219FBD7230077CFD9 /* drop_down.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */; };
@@ -229,6 +231,10 @@
 		BB7C323F19FAB8FB00A5EFCF /* Category_Theatre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Category_Theatre.png; sourceTree = "<group>"; };
 		BB7C324019FAB8FB00A5EFCF /* Home_TopPicks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_TopPicks.png; sourceTree = "<group>"; };
 		BB7C324119FAB8FB00A5EFCF /* NavigationBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NavigationBar.png; sourceTree = "<group>"; };
+		BB9DF61C1A062F7A00F5E390 /* FLAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLAnnotation.h; sourceTree = "<group>"; };
+		BB9DF61D1A062F7A00F5E390 /* FLAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLAnnotation.m; sourceTree = "<group>"; };
+		BB9DF6221A067E1600F5E390 /* NSString+FLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+FLString.h"; sourceTree = "<group>"; };
+		BB9DF6231A067E1600F5E390 /* NSString+FLString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+FLString.m"; sourceTree = "<group>"; };
 		BBDA3E8019FB587B0077CFD9 /* Home_location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Home_location.png; sourceTree = "<group>"; };
 		BBDA3E8319FBD7230077CFD9 /* critic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = critic.png; sourceTree = "<group>"; };
 		BBDA3E8419FBD7230077CFD9 /* drop_down.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = drop_down.jpg; sourceTree = "<group>"; };
@@ -395,6 +401,8 @@
 				BBF937BB1A014C7C000BF603 /* FLMapViewController.m */,
 				BBF937BF1A015010000BF603 /* CustomAnnotation.h */,
 				BBF937C01A015010000BF603 /* CustomAnnotation.m */,
+				BB9DF61C1A062F7A00F5E390 /* FLAnnotation.h */,
+				BB9DF61D1A062F7A00F5E390 /* FLAnnotation.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -456,6 +464,8 @@
 				BB13885919FC1EC30034027C /* UIView+FLView.m */,
 				B9C5A6251A023F7900F5F22C /* UINavigationController+FLNavigationController.h */,
 				B9C5A6261A023F7900F5F22C /* UINavigationController+FLNavigationController.m */,
+				BB9DF6221A067E1600F5E390 /* NSString+FLString.h */,
+				BB9DF6231A067E1600F5E390 /* NSString+FLString.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -759,6 +769,7 @@
 				BB7C321919FAB82500A5EFCF /* ViewController.m in Sources */,
 				B987442B19FF700D00136AA7 /* ATWebServiceConstant.m in Sources */,
 				BB13884119FBEAB80034027C /* FLTheaterViewController.m in Sources */,
+				BB9DF61E1A062F7A00F5E390 /* FLAnnotation.m in Sources */,
 				BB13883E19FBE6990034027C /* HomeCellModel.m in Sources */,
 				BB7A74BE19FEB1B600D71D66 /* FLLeftMenuViewController.m in Sources */,
 				BB7A74AD19FE98AD00D71D66 /* FLListCell.m in Sources */,
@@ -791,6 +802,7 @@
 				BBF937B31A00160A000BF603 /* UIButton+WebCache.m in Sources */,
 				B913F1C41A01112800DD984A /* ASStarRatingView.m in Sources */,
 				BB13885019FBFC9B0034027C /* FLCollectionCell.m in Sources */,
+				BB9DF6241A067E1600F5E390 /* NSString+FLString.m in Sources */,
 				B98743A419FF6D1600136AA7 /* SBJsonParser.m in Sources */,
 				B987442E19FF703600136AA7 /* ATWebService.m in Sources */,
 				B913F1C11A00EE4500DD984A /* FlLoadPdf.m in Sources */,

@@ -361,6 +361,7 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
 }
 
 
+
 -(NSAttributedString *)attributedList:(FLZipResponseModel*)model{
     
     NSString *noShow = @"No Show";
@@ -424,6 +425,7 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     return description;
     
 }
+
 -(NSAttributedString*)timingsAttributed{
     
     NSMutableArray *listing = [[NSMutableArray alloc]init];

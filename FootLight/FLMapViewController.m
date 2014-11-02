@@ -10,6 +10,8 @@
 #import "CustomAnnotation.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "FLAnnotation.h"
+
 
 @interface FLMapViewController ()
 
@@ -17,33 +19,30 @@
 
 @implementation FLMapViewController
 
+CLPlacemark *thePlacemark;
+MKRoute *routeDetails;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self openMapForRoutes];
-    /*
-    CLLocationCoordinate2D cord =[AppDelegate SharedApplication].locationManager.location.coordinate;
- 
-    CustomAnnotation *item = [[CustomAnnotation alloc] init];
-    item.place = self.model.title;
-    item.imageName = @"teagarden";
-    item.coordinate = CLLocationCoordinate2DMake(cord.latitude, cord.longitude);
+//    [self openMapForRoutes];
     
-    [self.mapAnnotations addObject:item];
-
+    FLAnnotation *annotation = [[FLAnnotation alloc]initWithCordinate:CLLocationCoordinate2DMake([_model.venueLatitude doubleValue], [_model.venueLongitude doubleValue]) title:_model.title subtitle:_model.venueTheatreCity];
+//    annotation.title = self.model.title;
+//    annotation.coordinate = CLLocationCoordinate2DMake([self.model.venueLatitude doubleValue], [self.model.venueLongitude doubleValue]);
+    
     [self.mapView removeAnnotations:self.mapView.annotations];
-    
-    // add all 3 annotations
-    [self.mapView addAnnotations:self.mapAnnotations];
+    [self.mapView addAnnotation:annotation];
     MKCoordinateRegion newRegion;
-    newRegion.center.latitude = cord.latitude;
-    newRegion.center.longitude = cord.longitude;
+    newRegion.center.latitude = [_model.venueLatitude doubleValue];
+    newRegion.center.longitude = [_model.venueLongitude doubleValue];
     newRegion.span.latitudeDelta = 0.112872;
     newRegion.span.longitudeDelta = 0.109863;
     
-    [self.mapView setRegion:newRegion animated:YES];*/
-
+    [self.mapView setRegion:newRegion animated:YES];
+    [self.mapView setDelegate:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,58 +50,36 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    // here we illustrate how to detect which annotation type was clicked on for its callout
-    /*id <MKAnnotation> annotation = [view annotation];
-    if ([annotation isKindOfClass:[BridgeAnnotation class]])
-    {
-        NSLog(@"clicked Golden Gate Bridge annotation");
-        
-        DetailViewController *detailViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"DetailViewController"];
-        if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
-        {
-            // for iPad, we use a popover
-            if (self.bridgePopoverController == nil)
-            {
-                _bridgePopoverController = [[UIPopoverController alloc] initWithContentViewController:detailViewController];
-            }
-            [self.bridgePopoverController presentPopoverFromRect:control.bounds
-                                                          inView:control
-                                        permittedArrowDirections:UIPopoverArrowDirectionLeft
-                                                        animated:YES];
-        }
-        else
-        {
-            // for iPhone we navigate to a detail view controller using UINavigationController
-            [self.navigationController pushViewController:detailViewController animated:YES];
-        }
-    }*/
+    [self route];
 }
+
 
 - (MKAnnotationView *)mapView:(MKMapView *)theMapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
-    MKAnnotationView *returnedAnnotationView = nil;
+    static    NSString *reuseId = @"rtd";
+
+    MKPinAnnotationView *returnedAnnotationView = (MKPinAnnotationView*)[theMapView dequeueReusableAnnotationViewWithIdentifier:reuseId];
     
-    // in case it's the user location, we already have an annotation, so just return nil
-    if (![annotation isKindOfClass:[MKUserLocation class]])
-    {
-        // handle our three custom annotations
-        //
-        if ([annotation isKindOfClass:[CustomAnnotation class]])  // for Japanese Tea Garden
-        {
-            returnedAnnotationView = [CustomAnnotation createViewAnnotationForMapView:self.mapView annotation:annotation];
-        }
+    if (returnedAnnotationView) {
+        [returnedAnnotationView prepareForReuse];
+    } else {
+        returnedAnnotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:reuseId];
     }
+    returnedAnnotationView.pinColor = MKPinAnnotationColorRed;
+    returnedAnnotationView.canShowCallout = YES;
+    returnedAnnotationView.animatesDrop = YES;
+    returnedAnnotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    // in case it's the user location, we already have an annotation, so just return nil
+//    if (![annotation isKindOfClass:[MKUserLocation class]])
+//    {
+//        if ([annotation isKindOfClass:[FLAnnotation class]])  // for Japanese Tea Garden
+//        {
+//            returnedAnnotationView = [[MKAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:reuseId];
+//        }
+//    }
     
     return returnedAnnotationView;
 }
@@ -131,5 +108,49 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     NSLog(@"fail to load %@",error.description);
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    MKPolylineRenderer  * routeLineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:routeDetails.polyline];
+    routeLineRenderer.strokeColor = [UIColor redColor];
+    routeLineRenderer.lineWidth = 5;
+    return routeLineRenderer;
+}
+
+-(void)route{
+    
+    
+    CLLocationCoordinate2D destinationLocation = CLLocationCoordinate2DMake([self.model.venueLatitude doubleValue], [self.model.venueLongitude doubleValue]);
+    //*****temp
+    CLLocationCoordinate2D sourceLocation = CLLocationCoordinate2DMake([@(34.1632510) doubleValue], [@(-118.3732890) doubleValue]);
+    MKPlacemark *placemarksource = [[MKPlacemark alloc] initWithCoordinate:sourceLocation addressDictionary:nil];
+//********** temp end
+    
+    MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
+    MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:destinationLocation addressDictionary:nil];
+    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemarksource]];//[MKMapItem mapItemForCurrentLocation]];
+    [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemark]];
+    directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
+    MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];
+    [directions calculateDirectionsWithCompletionHandler:^(MKDirectionsResponse *response, NSError *error) {
+        if (error) {
+            NSLog(@"Error %@", error.description);
+        } else {
+            routeDetails = response.routes.lastObject;
+            [self.mapView addOverlay:routeDetails.polyline];
+//            self.destinationLabel.text = [placemark.addressDictionary objectForKey:@"Street"];
+//            self.distanceLabel.text = [NSString stringWithFormat:@"%0.1f Miles", routeDetails.distance/1609.344];
+//            self.transportLabel.text = [NSString stringWithFormat:@"%u" ,routeDetails.transportType];
+            self.allSteps = @"";
+            for (int i = 0; i < routeDetails.steps.count; i++) {
+                MKRouteStep *step = [routeDetails.steps objectAtIndex:i];
+                NSString *newStep = step.instructions;
+                self.allSteps = [self.allSteps stringByAppendingString:newStep];
+                self.allSteps = [self.allSteps stringByAppendingString:@"\n\n"];
+//                self.steps.text = self.allSteps;
+            }
+        }
+    }];
+
 }
 @end

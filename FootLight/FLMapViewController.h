@@ -16,5 +16,5 @@
 @property (strong, nonatomic) IBOutlet UIWebView *webview;
 @property (nonatomic, strong) NSMutableArray *mapAnnotations;
 @property (nonatomic, strong) FLZipResponseModel *model;
-
+@property (strong, nonatomic) NSString *allSteps;
 @end

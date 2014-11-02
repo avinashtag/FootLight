@@ -14,6 +14,7 @@
 #import "FLAlert.h"
 #import "FLPickerModel.h"
 #import "FLPicker.h"
+#import "NSString+FLString.h"
 
 @interface FLByLocationViewController ()
 {
@@ -23,6 +24,8 @@
 @end
 
 @implementation FLByLocationViewController
+CLPlacemark *thePlacemark;
+FLServiceType serviceType;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,7 +51,9 @@
 - (IBAction)search:(UIButton *)sender {
     if ([self validation]) {
         FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+        selectionVC.serviceType = serviceType;
         selectionVC.zip = self.zipCode.text;
+        selectionVC.placemark = thePlacemark;
         selectionVC.radius = [(UITextField*)[self.header viewWithTag:100] text ];
         [self.navigationController pushViewController:selectionVC animated:YES];
         [selectionVC.titlenavigation setText:FLByLocation];
@@ -60,8 +65,42 @@
     return YES;
 }
 
+- (BOOL)addressSearch:(UITextField *)sender {
+    
+   __block BOOL check = NO;
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error) {
+            thePlacemark = nil;
+            check = NO;
+            FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"No location found ." cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+                
+            } otherHandler:^(NSUInteger other) {
+                
+            } otherButtonTitles:nil];
+        } else {
+            thePlacemark = [placemarks lastObject];
+            check = YES;
+            serviceType = FLLocation;
+//            float spanX = 1.00725;
+//            float spanY = 1.00725;
+//            MKCoordinateRegion region;
+//            region.center.latitude = thePlacemark.location.coordinate.latitude;
+//            region.center.longitude = thePlacemark.location.coordinate.longitude;
+//            region.span = MKCoordinateSpanMake(spanX, spanY);
+//            [self.mapView setRegion:region animated:YES];
+//            [self addAnnotation:thePlacemark];
+        }
+    }];
+    return check;
+}
+
+
 -(BOOL)validation{
-    if ([self.zipCode.text isEqualToString:@""]) {
+    if ([self.zipCode.text isBlankString] && ![self.cityState.text isBlankString]) {
+        return [self addressSearch:self.cityState];
+    }
+    else if ([self.zipCode.text isBlankString]) {
         FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a zipcode/city." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
             
         } otherHandler:^(NSUInteger other) {
@@ -69,6 +108,7 @@
         } otherButtonTitles:nil];
         return NO;
     }
+    serviceType = FLZipService;
     return YES;
 }
 
