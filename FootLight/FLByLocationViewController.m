@@ -15,6 +15,7 @@
 #import "FLPickerModel.h"
 #import "FLPicker.h"
 #import "NSString+FLString.h"
+#import "MBProgressHUD.h"
 
 @interface FLByLocationViewController ()
 {
@@ -33,7 +34,7 @@ FLServiceType serviceType;
     [self.header addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openPicker:)]];
 
     self.footer = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:3];
-    [(UIButton*)[self.footer viewWithTag:100] addTarget:self action:@selector(search:) forControlEvents:UIControlEventTouchUpInside];
+    [(UIButton*)[self.footer viewWithTag:100] addTarget:self action:@selector(validation) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -48,68 +49,59 @@ FLServiceType serviceType;
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)search:(UIButton *)sender {
-    if ([self validation]) {
-        FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
-        selectionVC.serviceType = serviceType;
-        selectionVC.zip = self.zipCode.text;
-        selectionVC.placemark = thePlacemark;
-        selectionVC.radius = [(UITextField*)[self.header viewWithTag:100] text ];
-        [self.navigationController pushViewController:selectionVC animated:YES];
-        [selectionVC.titlenavigation setText:FLByLocation];
-    }
-}
 
+-(void)callWithService:(FLServiceType)srt placemark:(CLPlacemark*)park zipcode:(NSString*)zip{
+    FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
+    selectionVC.serviceType = srt;
+    selectionVC.zip = zip;
+    selectionVC.placemark = park;
+    selectionVC.radius = [(UITextField*)[self.header viewWithTag:100] text ];
+    [self.navigationController pushViewController:selectionVC animated:YES];
+    [selectionVC.titlenavigation setText:FLByLocation];
+
+}
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
 }
 
-- (BOOL)addressSearch:(UITextField *)sender {
+
+
+
+-(void)validation{
+    __block NSString *alertMessage = nil;
     
-   __block BOOL check = NO;
-    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    [geocoder geocodeAddressString:sender.text completionHandler:^(NSArray *placemarks, NSError *error) {
-        if (error) {
-            thePlacemark = nil;
-            check = NO;
-            FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"No location found ." cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
-                
-            } otherHandler:^(NSUInteger other) {
-                
-            } otherButtonTitles:nil];
-        } else {
-            thePlacemark = [placemarks lastObject];
-            check = YES;
-            serviceType = FLLocation;
-//            float spanX = 1.00725;
-//            float spanY = 1.00725;
-//            MKCoordinateRegion region;
-//            region.center.latitude = thePlacemark.location.coordinate.latitude;
-//            region.center.longitude = thePlacemark.location.coordinate.longitude;
-//            region.span = MKCoordinateSpanMake(spanX, spanY);
-//            [self.mapView setRegion:region animated:YES];
-//            [self addAnnotation:thePlacemark];
-        }
-    }];
-    return check;
-}
-
-
--(BOOL)validation{
-    if ([self.zipCode.text isBlankString] && ![self.cityState.text isBlankString]) {
-        return [self addressSearch:self.cityState];
+    if (![self.zipCode.text isBlankString]) {
+        [self callWithService:FLZipService placemark:nil zipcode:self.zipCode.text];
+    }
+    else if (![self.cityState.text isBlankString]) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:self.cityState.text completionHandler:^(NSArray *placemarks, NSError *error) {
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            if (error) {
+                alertMessage = @"No location found.";
+            } else {
+                [self callWithService:FLLocation placemark:[placemarks lastObject] zipcode:nil];
+            }
+        }];
+    }
+    else if ([self.zipCode.text isBlankString] && [self.cityState.text isBlankString]) {
+        alertMessage = @"Please select a zipcode/city.";
     }
     else if ([self.zipCode.text isBlankString]) {
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Please select a zipcode/city." cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+        alertMessage = @"Please select a zipcode.";
+    }
+    else if ([self.cityState.text isBlankString]) {
+        alertMessage = @"Please select a city.";
+    }
+    if (alertMessage != nil) {
+        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:alertMessage cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
             
         } otherHandler:^(NSUInteger other) {
             
         } otherButtonTitles:nil];
-        return NO;
     }
-    serviceType = FLZipService;
-    return YES;
 }
 
 

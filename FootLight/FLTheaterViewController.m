@@ -91,7 +91,7 @@
 -(NSString*)locationServices{
     
     
-    CLLocation *location = [AppDelegate SharedApplication].locationManager.location;
+    CLLocation *location = (self.placemark == nil ) ? [AppDelegate SharedApplication].locationManager.location : self.placemark.location;
     if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Now Playing"]) {
         
         return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
