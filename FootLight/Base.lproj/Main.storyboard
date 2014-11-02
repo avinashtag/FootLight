@@ -614,18 +614,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wait.png" translatesAutoresizingMaskIntoConstraints="NO" id="oG8-oa-RZL">
-                                        <rect key="frame" x="107" y="72" width="160" height="124"/>
+                                        <rect key="frame" x="107" y="72" width="160" height="200"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="160" id="CGG-Xo-ZYP"/>
-                                            <constraint firstAttribute="height" constant="124" id="PUz-yw-w0z"/>
+                                            <constraint firstAttribute="height" constant="200" id="PUz-yw-w0z"/>
                                         </constraints>
                                         <connections>
                                             <outletCollection property="gestureRecognizers" destination="QsM-Bh-gJT" appends="YES" id="0kz-S8-Msv"/>
                                         </connections>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dx7-9o-ZRH" customClass="ASStarRatingView">
-                                        <rect key="frame" x="100" y="206" width="167" height="30"/>
+                                        <rect key="frame" x="100" y="282" width="167" height="30"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="e1U-o2-Xh2"/>
@@ -633,7 +633,7 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zR1-Fu-zWh">
-                                        <rect key="frame" x="104" y="246" width="167" height="30"/>
+                                        <rect key="frame" x="104" y="322" width="167" height="30"/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="167" id="7na-9b-Wdu"/>
@@ -647,7 +647,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jqr-t7-Fq9">
-                                        <rect key="frame" x="5" y="310" width="342" height="18"/>
+                                        <rect key="frame" x="5" y="386" width="342" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>

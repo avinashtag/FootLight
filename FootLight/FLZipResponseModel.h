@@ -47,6 +47,7 @@
 @property (nonatomic, strong) NSAttributedString *list;
 @property (nonatomic, strong) NSNumber *cellCreated;
 @property (nonatomic, strong) NSNumber *favourite;
+@property (nonatomic, strong) NSAttributedString *detailedDescription;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

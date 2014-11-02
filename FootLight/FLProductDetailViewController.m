@@ -47,28 +47,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 -(void)prepareView{
     
     self.ProductName.text = _details.title;
-    NSString *fullDescription = [NSString stringWithFormat:@"%@\n%@\n%@",_details.playDescription,_details.productionWebsite,_details.cellTimings];
-
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullDescription];
-    [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullDescription.length)];
-    //****** Website *********//
-    NSRange websiteRange = [fullDescription rangeOfString:_details.productionWebsite];
-    [description addAttribute:NSLinkAttributeName value:[NSURL URLWithString:_details.productionWebsite] range:websiteRange];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:websiteRange];
-    NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
-    [pragraphWebsite setAlignment:NSTextAlignmentCenter];
-    [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:websiteRange];
-  
-    //****** venue *********//
-    NSRange timingsRange = [fullDescription rangeOfString:_details.cellTimings];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor blueColor] range:timingsRange];
-    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:timingsRange];
-
-    NSMutableParagraphStyle *timingsWebsite = [[NSMutableParagraphStyle alloc]init];
-    [timingsWebsite setAlignment:NSTextAlignmentCenter];
-    [description addAttribute:NSParagraphStyleAttributeName value:timingsWebsite range:timingsRange];
-
-    [self.description setAttributedText:description];
+    self.description.attributedText =    _details.detailedDescription;
     [self.productImage setImageWithURL:[NSURL URLWithString:_details.imagename] placeholderImage:[UIImage imageNamed:@"wait.png"]];
     [self.productScroll setScrollEnabled:YES];
 
@@ -117,7 +96,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     if (sender.selected) {
         self.details.favourite = [NSNumber numberWithBool:sender.selected];
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:self.details];
-        NSMutableArray *fav = [[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite];
+        NSMutableArray *fav = [[[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite] mutableCopy];
         if (!fav) {
             fav = [[NSMutableArray alloc]init];
         }
@@ -125,7 +104,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
         [[NSUserDefaults standardUserDefaults]setValue:fav forKey:footLightFavourite];
     }
     else{
-        NSMutableArray *fav = [[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite];
+        NSMutableArray *fav = [[[NSUserDefaults standardUserDefaults] valueForKey:footLightFavourite] mutableCopy];
         if (fav.count) {
             [fav enumerateObjectsUsingBlock:^(NSData* data, NSUInteger idx, BOOL *stop) {
                 
