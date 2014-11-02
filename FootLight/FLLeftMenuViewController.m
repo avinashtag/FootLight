@@ -128,12 +128,6 @@
                     ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
                     [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
                 }
-//                [[AppDelegate sharedNavigationController].viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
-//                    if ([viewControl isKindOfClass:[FootLightCategoryViewController class]]) {
-//                        [[AppDelegate sharedNavigationController] popToViewController:viewControl animated:NO];
-//                        return ;
-//                    }
-//                }];
             }
                 break;
             case 2://location
