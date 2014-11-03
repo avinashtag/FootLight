@@ -75,7 +75,8 @@
 */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.products.count;
+
+    return  [[AppDelegate sharedNavigationController].topViewController isKindOfClass:[ViewController class]] ? self.products.count-1 : self.products.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -177,6 +178,7 @@
         leftFrame.origin.x = 0;
         [self.leftMenu setFrame:leftFrame];
         [self.view setNavigationTitle:navigationTitleText];
+        [self.leftMenu reloadData];
         
     } completion:^(BOOL finished) {
         
