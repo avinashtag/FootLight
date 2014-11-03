@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self loadPdf];
     // Do any additional setup after loading the view.
 }
 
@@ -34,11 +33,16 @@
     NSLog(@"pdf Url : %@",url);
     [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]]];
 }
+
+-(void)loadWebsite:(NSURL*)url{
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
+}
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     NSLog(@"fail to load %@",error.description);
 }
 /*

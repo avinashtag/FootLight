@@ -14,6 +14,7 @@
 #import "FLAlert.h"
 #import "FLMapViewController.h"
 #import "AppDelegate.h"
+#import "FlLoadPdf.h"
 
 @interface FLProductDetailViewController ()
 
@@ -33,16 +34,25 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewDidAppear:(BOOL)animated{
+    
+    [super viewDidAppear:animated];
+    UITextView *textView = [[UITextView alloc]initWithFrame:self.description.frame];
+    textView.attributedText = self.description.attributedText;
+    [textView sizeToFit];
+    [textView setScrollEnabled:NO];
+    [textView setDelegate:self];
+    [textView setEditable:NO];
+    [self.productScroll addSubview:textView];
 }
-*/
+- (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange{
+
+    FlLoadPdf *web = [self.storyboard instantiateViewControllerWithIdentifier:@"FlLoadPdf"];
+    [self.navigationController pushViewController:web animated:YES];
+    [web loadWebsite:URL];
+    return NO;
+}
+
 
 -(void)prepareView{
     
@@ -129,9 +139,11 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 
 
 - (IBAction)loadPdf:(UITapGestureRecognizer *)sender {
+    NSString *urlstring = [NSString stringWithFormat:@"http://gofootlights.com/pdfs/%@.pdf",self.details.recordID];
+    NSURL *url = [NSURL URLWithString:urlstring];
     FlLoadPdf *pdf = [self.storyboard instantiateViewControllerWithIdentifier:@"FlLoadPdf"];
-    pdf.model = self.details;
     [self.navigationController pushViewController:pdf animated:YES];
+    [pdf loadWebsite:url];
 }
 
 

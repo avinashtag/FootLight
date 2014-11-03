@@ -10,7 +10,7 @@
 #import "FLZipResponseModel.h"
 #import "ASStarRatingView.h"
 
-@interface FLProductDetailViewController : UIViewController
+@interface FLProductDetailViewController : UIViewController<UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *productScroll;
 @property (strong, nonatomic) IBOutlet UILabel *ProductName;

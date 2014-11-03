@@ -431,7 +431,7 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     NSMutableArray *listing = [[NSMutableArray alloc]init];
     NSString *noShow = @"No Show";
 
-    [self.saturdayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : [listing addObject:[NSString stringWithFormat:@"\n"]];
+    [self.saturdayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : [listing addObject:[NSString stringWithFormat:@"   "]];
     [self.sundayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
     
     [self.friday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
