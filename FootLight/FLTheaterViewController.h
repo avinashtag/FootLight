@@ -28,5 +28,6 @@ typedef enum{
 @property (strong, nonatomic)  UIView *footer;
 @property (strong, nonatomic)  __block UIView *theaterTypeHeader;
 @property (strong, nonatomic)  __block UIView *showStatusHeader;
+@property (strong, nonatomic)  NSString *rootTitle;
 
 @end

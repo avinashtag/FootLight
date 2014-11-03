@@ -66,7 +66,7 @@ FLServiceType serviceType;
     selectionVC.zip = zip;
     selectionVC.placemark = park;
     selectionVC.radius = [(UITextField*)[self.header viewWithTag:100] text ];
-    selectionVC.title = self.title;
+    selectionVC.rootTitle = self.title;
     [self.navigationController pushViewController:selectionVC animated:YES];
     [selectionVC.titlenavigation setText:FLByLocation];
 

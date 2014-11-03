@@ -62,8 +62,8 @@
     [super viewWillAppear:animated];
     [(UITextField*)[self.showStatusHeader viewWithTag:100] setText:@"Now Playing"];
     [(UITextField*)[self.theaterTypeHeader viewWithTag:100] setText:@"All"];
-    [self.view setNavigationTitle:self.title];
-    [self.titlenavigation setText:self.title];
+    [self.view setNavigationTitle:self.rootTitle];
+    [self.titlenavigation setText:self.rootTitle];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -133,7 +133,7 @@
 -(void)callWebservice{
 
     FLProductListViewController *product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
-    product.title = self.title;
+    product.title = self.rootTitle;
     [self.navigationController pushViewController:product animated:YES];
     
     switch (self.serviceType) {

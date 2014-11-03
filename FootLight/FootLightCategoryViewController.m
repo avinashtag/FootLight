@@ -60,7 +60,7 @@
             FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
             selectionVC.radius = @"25";
             selectionVC.serviceType = FLLocation;
-            selectionVC.title = self.title;
+            selectionVC.rootTitle = self.title;
             [self.navigationController pushViewController:selectionVC animated:YES];
         }
             break;
