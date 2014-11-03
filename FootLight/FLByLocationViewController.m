@@ -35,27 +35,38 @@ FLServiceType serviceType;
 
     self.footer = [[[NSBundle mainBundle]loadNibNamed:@"FLPicker" owner:nil options:nil] objectAtIndex:3];
     [(UIButton*)[self.footer viewWithTag:100] addTarget:self action:@selector(validation) forControlEvents:UIControlEventTouchUpInside];
+    [self initiateView];
 
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     
-    [(UITextField*)[self.header viewWithTag:100] setText:@"5" ] ;
-    rowsCount = 0;
+    self.title = FLByLocation;
+    [self.view setNavigationTitle:self.title];
+
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)initiateView{
+    self.cityState.text = @"";
+    self.zipCode.text = @"";
+    [(UITextField*)[self.header viewWithTag:100] setText:@"5" ] ;
+    rowsCount = 0;
+}
 
 -(void)callWithService:(FLServiceType)srt placemark:(CLPlacemark*)park zipcode:(NSString*)zip{
+
+    [self initiateView];
     FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
     selectionVC.serviceType = srt;
     selectionVC.zip = zip;
     selectionVC.placemark = park;
     selectionVC.radius = [(UITextField*)[self.header viewWithTag:100] text ];
+    selectionVC.title = self.title;
     [self.navigationController pushViewController:selectionVC animated:YES];
     [selectionVC.titlenavigation setText:FLByLocation];
 

@@ -27,10 +27,16 @@
 UIImage *placeholderImage ;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.navTitle setText:[AppDelegate sharedNavigationController].title];
     placeholderImage = [UIImage imageNamed:@"image_back"];
     [[self productsTable] reloadData];
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:YES];
+    [self.view setNavigationTitle:self.title];
+    [self.navTitle setText:self.title];
 }
 
 - (void)didReceiveMemoryWarning {

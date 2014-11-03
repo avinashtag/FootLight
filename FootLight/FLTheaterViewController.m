@@ -24,7 +24,6 @@
     FLNavigationBar *navBar;
     BOOL islocation;
     UIView *footer;
-    FLProductListViewController *product;
     ATPicker *pick;
     NSArray* rowsCount;
 }
@@ -36,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     rowsCount = @[@(0),@(0)];
-    NSArray *viewControllers = [[AppDelegate sharedNavigationController] viewControllers];
+   /* NSArray *viewControllers = [[AppDelegate sharedNavigationController] viewControllers];
     if ([[viewControllers objectAtIndex:viewControllers.count-2] isKindOfClass:[FLByLocationViewController class]]) {
         
         [self.titlenavigation setText:FLByLocation];
@@ -46,7 +45,7 @@
     }
     [AppDelegate sharedNavigationController].title = self.titlenavigation.text;
     [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
-    
+    */
     self.theaterTypeHeader = [[[NSBundle mainBundle]loadNibNamed:NSStringFromClass([FLPicker class]) owner:nil options:nil] objectAtIndex:1];
     [self.theaterTypeHeader addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(openPicker:)]];
 
@@ -63,6 +62,8 @@
     [super viewWillAppear:animated];
     [(UITextField*)[self.showStatusHeader viewWithTag:100] setText:@"Now Playing"];
     [(UITextField*)[self.theaterTypeHeader viewWithTag:100] setText:@"All"];
+    [self.view setNavigationTitle:self.title];
+    [self.titlenavigation setText:self.title];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -131,8 +132,10 @@
 
 -(void)callWebservice{
 
-    product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
+    FLProductListViewController *product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
+    product.title = self.title;
     [self.navigationController pushViewController:product animated:YES];
+    
     switch (self.serviceType) {
         case FLLocation:
             [product statusFilter:[self locationServices] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];

@@ -18,14 +18,12 @@
 
 @interface ViewController (){
     NSArray *datasource;
-    FLProductListViewController *product;
 }
 
 @end
 
 @implementation ViewController
 
-static ViewController *sharedInstance = nil;
 
 
 
@@ -42,7 +40,9 @@ static ViewController *sharedInstance = nil;
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:animated];
-    sharedInstance = self;
+    self.title = FlHome;
+    [self.view setNavigationTitle:self.title];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,6 +70,7 @@ static ViewController *sharedInstance = nil;
             FootLightCategoryViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FootLightCategoryViewController"];
             [self.navigationController pushViewController:selectionVC animated:YES];
             self.navigationController.title = FlListing;
+            selectionVC.title = FlListing;
             [self.view setNavigationTitle:self.navigationController.title];
         }
             break;
@@ -77,13 +78,15 @@ static ViewController *sharedInstance = nil;
             FLByLocationViewController *LocationViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"FLByLocationViewController"];
             [self.navigationController pushViewController:LocationViewController animated:YES];
             self.navigationController.title = FLByLocation;
+            LocationViewController.title = FLByLocation;
             [self.view setNavigationTitle:self.navigationController.title];
         }
             break;
         case 3:{
-            product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
+            FLProductListViewController *product = [self.storyboard instantiateViewControllerWithIdentifier:@"FLProductListViewController"];
             [self.navigationController pushViewController:product animated:YES];
             self.navigationController.title = FLMyFavorites;
+            product.title = FLMyFavorites;
             [self.view setNavigationTitle:self.navigationController.title];
             [product loadFavourite];
         }

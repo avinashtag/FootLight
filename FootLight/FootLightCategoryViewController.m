@@ -10,6 +10,7 @@
 #import "HomeCellModel.h"
 #import "FLCollectionCell.h"
 #import "FLTheaterViewController.h"
+#import "UIView+FLView.h"
 
 @interface FootLightCategoryViewController (){
     NSArray *    datasource ;
@@ -29,6 +30,11 @@
     [self.collectionView reloadData];
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    self.title = FlListing;
+    [self.view setNavigationTitle:self.title];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -54,6 +60,7 @@
             FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
             selectionVC.radius = @"25";
             selectionVC.serviceType = FLLocation;
+            selectionVC.title = self.title;
             [self.navigationController pushViewController:selectionVC animated:YES];
         }
             break;

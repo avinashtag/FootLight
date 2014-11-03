@@ -65,7 +65,7 @@
         [leftmenuController animateViewIn:@"Foot Light"];
     }
     else{
-        [leftmenuController animateViewOut:FlHome];
+        [leftmenuController animateViewOut:[AppDelegate sharedNavigationController].topViewController.title];
     }
     
 }
