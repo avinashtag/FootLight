@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self loadWebsite:self.Flurl];
     // Do any additional setup after loading the view.
 }
 
@@ -36,7 +37,14 @@
 
 -(void)loadWebsite:(NSURL*)url{
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
+    if (!url.scheme ) {
+        NSString *string = [NSString stringWithFormat:@"http://%@",url.relativeString];
+        [self.webview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:string]]];
+    }
+    else{
+        [self.webview loadRequest:[NSURLRequest requestWithURL:url]];
+    }
+
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];

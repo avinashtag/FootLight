@@ -52,8 +52,8 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 - (BOOL)textView:(UITextView *)textView shouldInteractWithURL:(NSURL *)URL inRange:(NSRange)characterRange{
 
     FlLoadPdf *web = [self.storyboard instantiateViewControllerWithIdentifier:@"FlLoadPdf"];
+    web.Flurl = URL;
     [self.navigationController pushViewController:web animated:YES];
-    [web loadWebsite:URL];
     return NO;
 }
 
@@ -153,8 +153,9 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     NSString *urlstring = [NSString stringWithFormat:@"http://gofootlights.com/pdfs/%@.pdf",self.details.recordID];
     NSURL *url = [NSURL URLWithString:urlstring];
     FlLoadPdf *pdf = [self.storyboard instantiateViewControllerWithIdentifier:@"FlLoadPdf"];
+    pdf.Flurl = url;
     [self.navigationController pushViewController:pdf animated:YES];
-    [pdf loadWebsite:url];
+//    [pdf loadWebsite:url];
 }
 
 

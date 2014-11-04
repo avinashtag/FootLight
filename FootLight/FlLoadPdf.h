@@ -14,5 +14,6 @@
 
 @property(nonatomic, strong)IBOutlet UIWebView *webview;
 @property(nonatomic, strong)FLZipResponseModel *model ;
+@property(nonatomic, strong)NSURL *Flurl ;
 -(void)loadWebsite:(NSURL*)url;
 @end
