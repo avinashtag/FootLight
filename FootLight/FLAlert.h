@@ -11,11 +11,11 @@ typedef void(^FLAlertCancel)(NSUInteger cancel);
 typedef void(^FLAlertOtherPressed)(NSUInteger other);
 
 
-@interface FLAlert : NSObject
+@interface FLAlert : UIViewController<UIAlertViewDelegate>
 
 @property(nonatomic, strong)FLAlertCancel cancel;
 @property(nonatomic, strong)FLAlertOtherPressed OtherPressed;
 
--(id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelHandler:(FLAlertCancel)cancelHandler otherHandler:(FLAlertOtherPressed)otherHandler otherButtonTitles:(NSString *)otherButtonTitles, ...;
+-(void)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelHandler:(FLAlertCancel)cancelHandler otherHandler:(FLAlertOtherPressed)otherHandler otherButtonTitles:(NSString *)otherButtonTitles;
 
 @end

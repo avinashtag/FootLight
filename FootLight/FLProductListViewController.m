@@ -95,7 +95,8 @@ UIImage *placeholderImage ;
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+
+        [[[FLAlert alloc] init]initWithTitle:FLFootLights message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
             [self.navigationController popViewControllerAnimated:YES];
         } otherHandler:^(NSUInteger other) {
             
@@ -126,7 +127,7 @@ UIImage *placeholderImage ;
         });
     } withFailHandler:^(id response, NSString *message, NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+        [[[FLAlert alloc] init]initWithTitle:FLFootLights message:error.localizedDescription cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
             [self.navigationController popViewControllerAnimated:YES];
         } otherHandler:^(NSUInteger other) {
             
@@ -142,7 +143,7 @@ UIImage *placeholderImage ;
     }
     else{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"No data found" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+        [[[FLAlert alloc] init]initWithTitle:FLFootLights message:@"No data found" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
             [self.navigationController popViewControllerAnimated:YES];
         } otherHandler:^(NSUInteger other) {
 

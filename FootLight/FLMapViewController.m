@@ -128,7 +128,8 @@ MKRoute *routeDetails;
     
     MKDirectionsRequest *directionsRequest = [[MKDirectionsRequest alloc] init];
     MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:destinationLocation addressDictionary:nil];
-    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemarksource]];//[MKMapItem mapItemForCurrentLocation]];
+//    [directionsRequest setSource:[[MKMapItem alloc] initWithPlacemark:placemarksource]];;
+    [directionsRequest setSource:[MKMapItem mapItemForCurrentLocation]];;
     [directionsRequest setDestination:[[MKMapItem alloc] initWithPlacemark:placemark]];
     directionsRequest.transportType = MKDirectionsTransportTypeAutomobile;
     MKDirections *directions = [[MKDirections alloc] initWithRequest:directionsRequest];

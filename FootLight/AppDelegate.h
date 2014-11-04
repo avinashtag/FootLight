@@ -16,6 +16,7 @@
 #define FLByLocation   @"By Location"
 #define FLMyFavorites   @"My Favorites"
 #define FLBack   @"Back"
+#define FLFootLights   @"FootLights"
 
 #define FlTheater   @"Theatre"
 #define FlMuseums   @"Museums"

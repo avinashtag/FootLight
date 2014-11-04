@@ -46,7 +46,7 @@
 
 /*- (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error{
-    FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:error.localizedDescription cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
+    FLAlert *alert = [[FLAlert alloc]initWithTitle:FLFootLights message:error.localizedDescription cancelButtonTitle:@"Ok" cancelHandler:^(NSUInteger cancel) {
         
     } otherHandler:^(NSUInteger other) {
         

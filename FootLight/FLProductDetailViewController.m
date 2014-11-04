@@ -15,8 +15,11 @@
 #import "FLMapViewController.h"
 #import "AppDelegate.h"
 #import "FlLoadPdf.h"
+#import "ATAlert.h"
 
-@interface FLProductDetailViewController ()
+@interface FLProductDetailViewController (){
+    __block FLAlert *alertView;
+}
 
 @end
 
@@ -27,6 +30,7 @@ static NSString *footLightFavourite = @"FootLightFavorite";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self    prepareView];
+    alertView = [[FLAlert alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -64,14 +68,18 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     _startRatingView.canEdit = YES;
     _startRatingView.maxRating = 5;
     _startRatingView.rating = [_details.avg intValue];
+    
     [self.startRatingView rateChange:^(float rate) {
-       FLAlert* alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:@"Do you Want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+        
+       [alertView initWithTitle:FLFootLights message:@"Do you want to rate?" cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
            _startRatingView.rating = [_details.avg intValue];
 
         } otherHandler:^(NSUInteger other) {
             
             NSString* url = [NSString stringWithFormat:@"rating.php?rid=%@&rating=%f",_details.recordID, rate];
             [[[ATWebService alloc] init] callOnUrlrating:url withSuccessHandler:^(NSArray* response, NSString *message) {
+                [[[FLAlert alloc]init]initWithTitle:FLFootLights message:@"Rating successful" cancelButtonTitle:@"Ok" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
+                _startRatingView.rating = [[[response objectAtIndex:0] valueForKey:@"avg"] floatValue];
             } withFailHandler:^(id response, NSString *message, NSError *error) {
                 
             }];
@@ -82,6 +90,9 @@ static NSString *footLightFavourite = @"FootLightFavorite";
     [self checkFavourite];
 }
 
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSLog(@"Detail simple call");
+}
 
 
 

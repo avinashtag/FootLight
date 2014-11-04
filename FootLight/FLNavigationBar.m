@@ -54,7 +54,7 @@
 }
 */
 - (IBAction)sidePanel:(UITapGestureRecognizer *)sender {
-    if (![self.navigationTitle.text isEqual:@"Foot Light"]) {
+    if (![self.navigationTitle.text isEqual:FLFootLights]) {
         leftmenuController = [[FLLeftMenuViewController alloc]initWithNibName:@"FLLeftMenuViewController" bundle:nil];
         UIViewController *VC = [[AppDelegate sharedNavigationController].viewControllers lastObject];
         
@@ -62,7 +62,7 @@
         [leftmenuController.view setFrame:frame];
         [VC.view addSubview:leftmenuController.view];
         previousTitle = self.navigationTitle.text;
-        [leftmenuController animateViewIn:@"Foot Light"];
+        [leftmenuController animateViewIn:FLFootLights];
     }
     else{
         [leftmenuController animateViewOut:[AppDelegate sharedNavigationController].topViewController.title];

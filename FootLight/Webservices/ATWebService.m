@@ -60,17 +60,19 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     self.atResponseSuccess = success;
     
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError) {
-            self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
-        }
-        else{
-            NSError *readingError = nil;
-            NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
-            
-            self.atResponseSuccess!= nil ? self.atResponseSuccess(result, @"") : NSLog(@"");
-        }
-    }];
+    NSURLResponse *response = nil;
+    NSError *connectionError = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] returningResponse:&response error:&connectionError];
+    if (connectionError) {
+        self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
+    }
+    else{
+        NSError *readingError = nil;
+        NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
+        
+        self.atResponseSuccess!= nil ? self.atResponseSuccess(result, @"") : NSLog(@"");
+    }
+
 }
 
 -(void)callOnUrlPlay:(NSString*)srl withSuccessHandler:(ATResponseSuccess)success withFailHandler:(ATResponseFail)fail{

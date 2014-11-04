@@ -107,7 +107,7 @@ FLServiceType serviceType;
         alertMessage = @"Please select a city.";
     }
     if (alertMessage != nil) {
-        FLAlert *alert = [[FLAlert alloc]initWithTitle:@"Foot Light" message:alertMessage cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
+        [[[FLAlert alloc] init]initWithTitle:FLFootLights message:alertMessage cancelButtonTitle:@"Cancel" cancelHandler:^(NSUInteger cancel) {
             
         } otherHandler:^(NSUInteger other) {
             

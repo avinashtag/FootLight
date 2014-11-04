@@ -9,25 +9,17 @@
 #import "FLAlert.h"
 
 @implementation FLAlert
+UIAlertView *alert;
 
-//-(id)init{
-//    if (!self) {
-//        self = [super init];
-//        [self initWithTitle:<#(NSString *)#> message:<#(NSString *)#> cancelButtonTitle:<#(NSString *)#> cancelHandler:<#^(NSUInteger cancel)cancelHandler#> otherHandler:<#^(NSUInteger other)otherHandler#> otherButtonTitles:<#(NSString *), ...#>]
-//    }
-//}
-
--(id)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelHandler:(FLAlertCancel)cancelHandler otherHandler:(FLAlertOtherPressed)otherHandler otherButtonTitles:(NSString *)otherButtonTitles, ...{
+-(void)initWithTitle:(NSString *)title message:(NSString *)message cancelButtonTitle:(NSString *)cancelButtonTitle cancelHandler:(FLAlertCancel)cancelHandler otherHandler:(FLAlertOtherPressed)otherHandler otherButtonTitles:(NSString *)otherButtonTitles{
     
-        self = [super init];
+//        self = [super init];
         self.cancel = cancelHandler;
         self.OtherPressed = otherHandler;
-        UIAlertView *alert= [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
+        alert= [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:cancelButtonTitle otherButtonTitles:otherButtonTitles, nil];
         [alert show];
-    return self;
     
 }
-
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     [alertView dismissWithClickedButtonIndex:0 animated:YES];
     switch (buttonIndex) {

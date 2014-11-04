@@ -93,7 +93,7 @@
             break;
             
         default:{
-            FLAlert *alert = [[FLAlert alloc]initWithTitle:@"FootLight" message:@"Coming Soon" cancelButtonTitle:@"Cancel" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
+            [[[FLAlert alloc] init]initWithTitle:FLFootLights message:@"Coming Soon" cancelButtonTitle:@"Cancel" cancelHandler:nil otherHandler:nil otherButtonTitles:nil];
         }
             break;
     }
