@@ -58,7 +58,7 @@
     switch (indexPath.row) {
         case 0:{
             FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
-            selectionVC.radius = @"25";
+            selectionVC.radius = @"5";
             selectionVC.serviceType = FLLocation;
             selectionVC.rootTitle = self.title;
             [self.navigationController pushViewController:selectionVC animated:YES];

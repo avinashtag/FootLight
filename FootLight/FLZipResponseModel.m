@@ -204,7 +204,11 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict
 {
     id object = [dict objectForKey:aKey];
-    return [object isEqual:[NSNull null]] ? nil : object;
+    object = [object isEqual:[NSNull null]] ? @" " : object;
+    if ([object isKindOfClass:[NSString class]]){
+        return [[object uppercaseString] isEqualToString:[@"NULL" uppercaseString]] ? @" ": object;
+    }
+    return object;
 }
 
 
