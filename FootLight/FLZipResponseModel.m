@@ -6,7 +6,7 @@
 //
 
 #import "FLZipResponseModel.h"
-
+#import "NSString+FLString.h"
 
 NSString *const kFLZipResponseModelVenueTheatreState = @"VenueTheatreState";
 NSString *const kFLZipResponseModelCompanyName = @"CompanyName";
@@ -373,13 +373,13 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     [listing addObject:model.title];
     [listing addObject:model.venueTheatreName];
     
-    [model.friday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",model.friday]] : NSLog(@"");
-    [model.saturday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",model.saturday]] : NSLog(@"");
-    [model.sunday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",model.sunday]] : NSLog(@"");
-    [model.monday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",model.monday]] : NSLog(@"");
-    [model.tuesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",model.tuesday]] : NSLog(@"");
-    [model.wednesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
-    [model.thursday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
+    [self.monday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
+    [self.tuesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
+    [self.wednesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
+    [self.thursday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",self.thursday]] : NSLog(@"");
+    [self.friday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
+    [self.saturday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
+    [self.sunday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
     NSString *fullList = [listing componentsJoinedByString:@"\n"];
     
     NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
@@ -430,21 +430,30 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     
 }
 
+
+
 -(NSAttributedString*)timingsAttributed{
     
     NSMutableArray *listing = [[NSMutableArray alloc]init];
     NSString *noShow = @"No Show";
-
-    [self.saturdayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : [listing addObject:[NSString stringWithFormat:@"   "]];
-    [self.sundayMatinee isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
+    [listing addObject:[NSString stringWithFormat:@"  \n  "]];
+    [listing addObject:[NSString stringWithFormat:@"Opening on : %@",self.openingDate]];
+    [listing addObject:[NSString stringWithFormat:@"Closing on : %@",self.closingDate]];
+    [listing addObject:[NSString stringWithFormat:@"  \n  "]];
     
-    [self.friday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
-    [self.saturday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
-    [self.sunday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
-    [self.monday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
-    [self.tuesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
-    [self.wednesday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
-    [self.thursday isEqualToString:noShow] == NO ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",self.thursday]] : NSLog(@"");
+    
+    [self.wednesdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday Matinee: %@",self.wednesdayMatinee]]: NSLog(@"");
+    [self.saturdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : NSLog(@"");
+    [self.sundayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
+    
+    [self.monday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
+    [self.tuesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
+    [self.wednesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
+    [self.thursday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",self.thursday]] : NSLog(@"");
+    [self.friday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
+    [self.saturday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
+    [self.sunday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
+
     NSString *fullList = [listing componentsJoinedByString:@"\n"];
     NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
     [description addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, fullList.length)];

@@ -15,4 +15,18 @@
     return [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]isEqualToString:@""];
 }
 
+-(BOOL)validateNullForShow{
+    
+    NSString *showTrimmed = [self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSString *noShow = @"NoShow";
+    if (showTrimmed!= nil) {
+        
+        if ([[showTrimmed uppercaseString] isEqualToString:[@"<null>" uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[@"null" uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[@"nil" uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[@"<nil>" uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[@"" uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[noShow uppercaseString ]] || [[showTrimmed uppercaseString] isEqualToString:[@"NO SHOW" uppercaseString ]]) {
+            return NO;
+        }
+        else
+            return YES;
+    }
+    return NO;
+}
 @end

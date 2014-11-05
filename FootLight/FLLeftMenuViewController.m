@@ -55,8 +55,13 @@
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FlCriticsPick image:[UIImage imageNamed:@"critic"]]];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLMyFavorites image:[UIImage imageNamed:@"favorite"]]];
     [self.products addObject:[[FLLeftMenuCellModel alloc]initWithTitle:FLBack image:[UIImage imageNamed:@"FLBack"]]];
-    [self.leftMenu reloadData];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self.leftMenu reloadData];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,8 +80,10 @@
 */
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-
-    return  [[AppDelegate sharedNavigationController].topViewController isKindOfClass:[ViewController class]] ? self.products.count-1 : self.products.count;
+    if ([[AppDelegate sharedNavigationController].topViewController isMemberOfClass:[ViewController class]]) {
+        return self.products.count-1;
+    }
+    return self.products.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -178,7 +185,6 @@
         leftFrame.origin.x = 0;
         [self.leftMenu setFrame:leftFrame];
         [self.view setNavigationTitle:navigationTitleText];
-        [self.leftMenu reloadData];
         
     } completion:^(BOOL finished) {
         

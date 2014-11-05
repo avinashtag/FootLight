@@ -11,4 +11,5 @@
 @interface NSString (FLString)
 
 -(BOOL)isBlankString;
+-(BOOL)validateNullForShow;
 @end
