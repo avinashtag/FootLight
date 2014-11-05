@@ -38,7 +38,9 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     self.queue = [[NSOperationQueue alloc]init];
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
     NSLog(@"url : %@\n",url);
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [req setAllowsCellularAccess:YES];
+    [NSURLConnection sendAsynchronousRequest:req queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
         }
@@ -62,7 +64,9 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
     NSURLResponse *response = nil;
     NSError *connectionError = nil;
-    NSData *data = [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] returningResponse:&response error:&connectionError];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [req setAllowsCellularAccess:YES];
+    NSData *data = [NSURLConnection sendSynchronousRequest:req returningResponse:&response error:&connectionError];
     if (connectionError) {
         self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
     }
@@ -80,7 +84,9 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     self.atResponseSuccess = success;
     
     NSString *url = [NSString stringWithFormat:@"%@%@",baseUrl,srl];
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:url]] queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [req setAllowsCellularAccess:YES];
+    [NSURLConnection sendAsynchronousRequest:req queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
         }
