@@ -29,7 +29,8 @@ MKRoute *routeDetails;
     
 //    [self openMapForRoutes];
     
-    FLAnnotation *annotation = [[FLAnnotation alloc]initWithCordinate:CLLocationCoordinate2DMake([_model.venueLatitude doubleValue], [_model.venueLongitude doubleValue]) title:_model.title subtitle:_model.venueTheatreCity];
+    NSString *subtitle = [NSString stringWithFormat:@"%@ %@ %@",_model.venueTheatreStreetAddress, _model.venueTheatreCity, _model.venueTheatreState];
+    FLAnnotation *annotation = [[FLAnnotation alloc]initWithCordinate:CLLocationCoordinate2DMake([_model.venueLatitude doubleValue], [_model.venueLongitude doubleValue]) title:_model.title subtitle:subtitle];
 //    annotation.title = self.model.title;
 //    annotation.coordinate = CLLocationCoordinate2DMake([self.model.venueLatitude doubleValue], [self.model.venueLongitude doubleValue]);
     
