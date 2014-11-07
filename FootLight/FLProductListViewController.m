@@ -84,7 +84,7 @@ UIImage *placeholderImage ;
 //}
 
 -(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere{
-    MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@",genere];
@@ -115,7 +115,7 @@ UIImage *placeholderImage ;
 }
 
 -(void)statusFilter:(NSString*)url filterGenere:(NSString*)genere{
-    MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@",genere];
