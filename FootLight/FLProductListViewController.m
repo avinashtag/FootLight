@@ -83,11 +83,11 @@ UIImage *placeholderImage ;
 //    return 63+21 + [zipModel.cellCreated doubleValue];
 //}
 
--(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere filterShow:(NSString*)showStatus{
+-(void)zipCallNormal:(NSString*)url filterGenere:(NSString*)genere{
     MBProgressHUD *mbhud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[[ATWebService alloc] init] callOnUrlZip:url withSuccessHandler:^(NSArray* response, NSString *message) {
         
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@ and SELF.genre CONTAINS[cd] %@",genere];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.genre CONTAINS[cd] %@",genere];
         self.products = ([genere isEqualToString:@"All"]) ? [response mutableCopy] : [[response filteredArrayUsingPredicate:predicate] mutableCopy];
         
         dispatch_async(dispatch_get_main_queue(), ^{

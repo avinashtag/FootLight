@@ -52,28 +52,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FootLight/FLMapViewController.m"
-            timestampString = "436630959.033883"
+            timestampString = "436981191.889597"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
             landmarkName = "-mapView:viewForAnnotation:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FootLight/FLMapViewController.m"
-            timestampString = "436630959.033883"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-mapView:annotationView:calloutAccessoryControlTapped:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -147,13 +131,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FootLight/FLZipResponseModel.m"
-            timestampString = "436821718.04634"
+            filePath = "FootLight/FLTheaterViewController.m"
+            timestampString = "437068331.380409"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-initWithDictionary:"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "-zipcallservice"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -163,13 +147,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FootLight/FLLeftMenuViewController.m"
-            timestampString = "436893302.703086"
+            filePath = "FootLight/FLByLocationViewController.m"
+            timestampString = "437068567.880739"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
-            landmarkName = "-tableView:numberOfRowsInSection:"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "-callWithService:placemark:zipcode:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

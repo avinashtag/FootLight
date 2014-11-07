@@ -60,7 +60,6 @@ FLServiceType serviceType;
 
 -(void)callWithService:(FLServiceType)srt placemark:(CLPlacemark*)park zipcode:(NSString*)zip{
 
-    [self initiateView];
     FLTheaterViewController *selectionVC = [self.storyboard instantiateViewControllerWithIdentifier:@"FLTheaterViewController"];
     selectionVC.serviceType = srt;
     selectionVC.zip = zip;
@@ -69,6 +68,7 @@ FLServiceType serviceType;
     selectionVC.rootTitle = self.title;
     [self.navigationController pushViewController:selectionVC animated:YES];
     [selectionVC.titlenavigation setText:FLByLocation];
+    [self initiateView];
 
 }
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{

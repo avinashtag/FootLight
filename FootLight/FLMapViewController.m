@@ -54,6 +54,7 @@ MKRoute *routeDetails;
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
+    [mapView deselectAnnotation:view.annotation animated:YES];
     [self route];
 }
 
