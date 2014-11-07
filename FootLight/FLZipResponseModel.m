@@ -138,12 +138,14 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
             self.venueTheatreCity = [self objectOrNilForKey:kFLZipResponseModelVenueTheatreCity fromDictionary:dict];
             self.boxOfficePhone = [self objectOrNilForKey:kFLZipResponseModelBoxOfficePhone fromDictionary:dict];
             self.weeklyPassportEblast = [self objectOrNilForKey:kFLZipResponseModelWeeklyPassportEblast fromDictionary:dict];
-
-        self.cellTimings = [self showTimings:self];
+        
+        NSMutableArray *timings = [self showTimings];
+        self.cellTimings = (timings.count) ? [timings componentsJoinedByString:@"\n"] : [[NSString alloc]init];
+        
         self.cellCreated = [NSNumber numberWithDouble:ceil([self.cellTimings sizeWithAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}].height)];
         self.favourite = [NSNumber numberWithBool:NO];
-        self.list = [self attributedList:self];
-        self.detailedDescription = [self attributeddetail:self];
+        self.list = [self theaterListDetail];
+        self.detailedDescription = [self theaterDetail];
 
     }
     
@@ -349,103 +351,12 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     return copy;
 }
 
--(NSString*)showTimings:(FLZipResponseModel*)model{
-    
-    NSString *noShow = @"No Show";
-    NSMutableArray *timings = [[NSMutableArray alloc]init];
-    [model.friday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Friday: %@",model.friday]] : NSLog(@"");
-    [model.saturday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Saturday: %@",model.saturday]] : NSLog(@"");
-    [model.sunday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Sunday: %@",model.sunday]] : NSLog(@"");
-    [model.monday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Monday: %@",model.monday]] : NSLog(@"");
-    [model.tuesday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Tuesday: %@",model.tuesday]] : NSLog(@"");
-    [model.wednesday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Wednesday: %@",model.wednesday]] : NSLog(@"");
-    [model.thursday isEqualToString:noShow] == NO ? [timings addObject:[NSString stringWithFormat:@"Thursday: %@",model.thursday]] : NSLog(@"");
-    return [timings componentsJoinedByString:@"\n"];
-    
-}
-
-
-
--(NSAttributedString *)attributedList:(FLZipResponseModel*)model{
-    
-    NSString *noShow = @"No Show";
-    NSMutableArray *listing = [[NSMutableArray alloc]init];
-    [listing addObject:model.title];
-    [listing addObject:model.venueTheatreName];
-    
-    [self.monday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
-    [self.tuesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
-    [self.wednesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
-    [self.thursday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",self.thursday]] : NSLog(@"");
-    [self.friday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
-    [self.saturday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
-    [self.sunday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
-    NSString *fullList = [listing componentsJoinedByString:@"\n"];
-    
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
-    [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
-
-    NSRange titleRange = [fullList rangeOfString:model.title];
-    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:titleRange];
-
-    
-    NSRange venueRange = [fullList rangeOfString:model.venueTheatreName];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
-    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
-
-    
-    return description;
-    
-}
-
--(NSAttributedString *)attributeddetail:(FLZipResponseModel*)model{
-    
-    NSString *noShow = @"No Show";
-    NSMutableArray *listing = [[NSMutableArray alloc]init];
-    [listing addObject:model.playDescription];
-    [listing addObject:model.productionWebsite];
-   
-    NSString *fullList = [listing componentsJoinedByString:@"\n"];
-    
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
-    [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
-    
-    //****** Website *********//
-    NSRange websiteRange = [fullList rangeOfString:self.productionWebsite];
-    [description addAttribute:NSLinkAttributeName value:[NSURL URLWithString:self.productionWebsite] range:websiteRange];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:websiteRange];
-    NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
-    [pragraphWebsite setAlignment:NSTextAlignmentCenter];
-    [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:websiteRange];
-
-    [description appendAttributedString:[self timingsAttributed]];
-    
-    
-    NSRange venueRange = [fullList rangeOfString:model.venueTheatreName];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
-    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
-    
-    
-    return description;
-    
-}
-
-
-
--(NSAttributedString*)timingsAttributed{
+-(NSMutableArray*)showTimings{
     
     NSMutableArray *listing = [[NSMutableArray alloc]init];
-    NSString *noShow = @"No Show";
-    [listing addObject:[NSString stringWithFormat:@"  \n  "]];
-    [listing addObject:[NSString stringWithFormat:@"Opening on : %@",self.openingDate]];
-    [listing addObject:[NSString stringWithFormat:@"Closing on : %@",self.closingDate]];
-    [listing addObject:[NSString stringWithFormat:@"  \n  "]];
-    
-    
     [self.wednesdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday Matinee: %@",self.wednesdayMatinee]]: NSLog(@"");
     [self.saturdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : NSLog(@"");
     [self.sundayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
-    
     [self.monday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
     [self.tuesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
     [self.wednesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
@@ -453,16 +364,110 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     [self.friday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
     [self.saturday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
     [self.sunday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
+    return listing;
+    
+}
 
-    NSString *fullList = [listing componentsJoinedByString:@"\n"];
-    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
-    [description addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, fullList.length)];
-    [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
 
-    NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
-    [pragraphWebsite setAlignment:NSTextAlignmentCenter];
-    [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:NSMakeRange(0, fullList.length)];
+//****** Done *******//
+
+-(NSAttributedString *)theaterListDetail{
+    
+    NSMutableArray *listing = [[NSMutableArray alloc]init];
+    ([self.title validateNullForShow]) ? [listing addObject:self.title] : NSLog(@"title Name Nil");
+    ([self.venueTheatreName validateNullForShow]) ? [listing addObject:self.venueTheatreName] : NSLog(@"theater Name Nil");
+    
+    NSMutableArray *timings = [self showTimings];
+    if (timings.count) {
+        [listing addObjectsFromArray:timings];
+    }
+    NSString *fullList = listing.count ? [listing componentsJoinedByString:@"\n"] : [[NSString alloc]init];
+    
+    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] init];
+    if (fullList.length) {
+        [description appendAttributedString:[[NSAttributedString alloc]initWithString:fullList]];
+        [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
+        
+        if ([self.title validateNullForShow]) {
+            NSRange titleRange = [fullList rangeOfString:self.title];
+            [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:titleRange];
+        }
+        if ([self.venueTheatreName validateNullForShow]) {
+            NSRange venueRange = [fullList rangeOfString:self.venueTheatreName];
+            [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
+            [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
+        }
+    }
     return description;
+    
+}
+
+//****** Done *******//
+
+-(NSAttributedString *)theaterDetail{
+    
+    NSMutableArray *listing = [[NSMutableArray alloc]init];
+    ([self.playDescription validateNullForShow])?[listing addObject:self.playDescription]:NSLog(@"playDescription nil");
+    ([self.productionWebsite validateNullForShow])?[listing addObject:self.productionWebsite]:NSLog(@"productionWebsite nil");
+   
+    NSString *fullList = listing.count ? [listing componentsJoinedByString:@"\n"] : [[NSString alloc]init];
+    NSMutableAttributedString *description = [[NSMutableAttributedString alloc] init];
+    if (fullList.length) {
+        
+        [description appendAttributedString:[[NSAttributedString alloc] initWithString:fullList]];
+        [description addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
+        
+        //****** Website *********//
+        if ([self.productionWebsite validateNullForShow]) {
+            NSRange websiteRange = [fullList rangeOfString:self.productionWebsite];
+            [description addAttribute:NSLinkAttributeName value:[NSURL URLWithString:self.productionWebsite] range:websiteRange];
+            [description addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:websiteRange];
+            NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
+            [pragraphWebsite setAlignment:NSTextAlignmentCenter];
+            [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:websiteRange];
+        }
+        
+        NSAttributedString *timingAttributed = [self showtimingsAttributed];
+        if (timingAttributed!=nil) {
+            [description appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"\n"]]];
+            [description appendAttributedString:timingAttributed];
+        }
+        if ([self.venueTheatreName validateNullForShow]) {
+            NSRange venueRange = [fullList rangeOfString:self.venueTheatreName];
+            [description addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:venueRange];
+            [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:venueRange];
+        }
+    }
+    [description appendAttributedString:[[NSAttributedString alloc]initWithString:[NSString stringWithFormat:@"                                          \r\r"]]];
+    return description;
+}
+
+
+//****** Done ******//
+-(NSAttributedString*)showtimingsAttributed{
+    
+    NSMutableArray *listing = [[NSMutableArray alloc]init];
+    if ([self.openingDate validateNullForShow] && [self.closingDate validateNullForShow]) {
+        [listing addObject:[NSString stringWithFormat:@"Opening on : %@",self.openingDate]];
+        [listing addObject:[NSString stringWithFormat:@" Closing on : %@",self.closingDate]];
+        [listing addObject:[NSString stringWithFormat:@"  \n  "]];
+    }
+    NSMutableArray *timings = [self showTimings];
+    if (timings.count) {
+        [listing addObjectsFromArray:timings];
+    }
+    
+    if (listing.count) {
+        NSString *fullList = [listing componentsJoinedByString:@"\n"];
+        NSMutableAttributedString *description = [[NSMutableAttributedString alloc] initWithString:fullList];
+        [description addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, fullList.length)];
+        [description addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:14.0] range:NSMakeRange(0, fullList.length)];
+        NSMutableParagraphStyle *pragraphWebsite = [[NSMutableParagraphStyle alloc]init];
+        [pragraphWebsite setAlignment:NSTextAlignmentCenter];
+        [description addAttribute:NSParagraphStyleAttributeName value:pragraphWebsite range:NSMakeRange(0, fullList.length)];
+        return description;
+    }
+    return nil;
 
 }
 

@@ -40,19 +40,19 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
     NSLog(@"url : %@\n",url);
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
     [req setAllowsCellularAccess:YES];
+    
     [NSURLConnection sendAsynchronousRequest:req queue:self.queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
         }
         else{
+            NSLog(@"response : %@\n",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
             NSError *readingError = nil;
             NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
-            NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
             NSMutableArray *zipResult = [[NSMutableArray alloc]init];
             [result enumerateObjectsUsingBlock:^(NSDictionary* dictionary, NSUInteger idx, BOOL *stop) {
                 [zipResult addObject:[[FLZipResponseModel alloc]initWithDictionary:dictionary]];
             }];
-            NSLog(@"response : %@\n",zipResult);
             self.atResponseSuccess!= nil ? self.atResponseSuccess(zipResult, @"") : NSLog(@"");
         }
     }];
@@ -72,6 +72,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
         self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
     }
     else{
+        NSLog(@"response : %@\n",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
         NSError *readingError = nil;
         NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
         
@@ -92,6 +93,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
             self.atResponseFail!= nil ? self.atResponseFail(@"", @"", connectionError) : NSLog(@"");
         }
         else{
+            NSLog(@"response : %@\n",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
             NSError *readingError = nil;
             NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
 
