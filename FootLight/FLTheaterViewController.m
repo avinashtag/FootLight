@@ -102,7 +102,8 @@
         return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
     else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Closing Soon"]) {
-        
+//        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=34.1616690&loc_lng=-118.2555600&distance=25"];
+
         return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
     }
     return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];

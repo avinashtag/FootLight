@@ -377,6 +377,8 @@
 				BB7C321419FAB82500A5EFCF /* AppDelegate.h */,
 				BB7C321519FAB82500A5EFCF /* AppDelegate.m */,
 				BB7C321A19FAB82500A5EFCF /* Main.storyboard */,
+				BB13883F19FBEAB80034027C /* FLTheaterViewController.h */,
+				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -392,8 +394,6 @@
 				BB13883519FBE07E0034027C /* FootLightCategoryViewController.m */,
 				BB13884A19FBF2290034027C /* FLByLocationViewController.h */,
 				BB13884B19FBF2290034027C /* FLByLocationViewController.m */,
-				BB13883F19FBEAB80034027C /* FLTheaterViewController.h */,
-				BB13884019FBEAB80034027C /* FLTheaterViewController.m */,
 				BBF937961A000C48000BF603 /* FLProductListViewController.h */,
 				BBF937971A000C48000BF603 /* FLProductListViewController.m */,
 				BB7A74B619FEA69500D71D66 /* FLProductDetailViewController.h */,

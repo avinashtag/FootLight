@@ -354,15 +354,16 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
 -(NSMutableArray*)showTimings{
     
     NSMutableArray *listing = [[NSMutableArray alloc]init];
-    [self.wednesdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday Matinee: %@",self.wednesdayMatinee]]: NSLog(@"");
-    [self.saturdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : NSLog(@"");
-    [self.sundayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
+    
     [self.monday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Monday: %@",self.monday]] : NSLog(@"");
     [self.tuesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Tuesday: %@",self.tuesday]] : NSLog(@"");
+    [self.wednesdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday Matinee: %@",self.wednesdayMatinee]]: NSLog(@"");
     [self.wednesday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Wednesday: %@",self.wednesday]] : NSLog(@"");
     [self.thursday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Thursday: %@",self.thursday]] : NSLog(@"");
     [self.friday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Friday: %@",self.friday]] : NSLog(@"");
+    [self.saturdayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday Matinee: %@",self.saturdayMatinee]] : NSLog(@"");
     [self.saturday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Saturday: %@",self.saturday]] : NSLog(@"");
+    [self.sundayMatinee validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday Matinee: %@",self.sundayMatinee]] : NSLog(@"");
     [self.sunday validateNullForShow] == YES ? [listing addObject:[NSString stringWithFormat:@"Sunday: %@",self.sunday]] : NSLog(@"");
     return listing;
     
