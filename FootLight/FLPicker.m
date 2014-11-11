@@ -113,4 +113,16 @@
     
     return [_pickerDatasource objectAtIndex:row];
 }
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    @try {
+        if (_pickerSelected != nil) {
+            NSString* seletedValue = [_pickerDatasource objectAtIndex:row];
+            _pickerSelected(seletedValue);
+        }
+    }
+    @catch (NSException *exception) {
+        
+    }
+
+}
 @end

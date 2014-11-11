@@ -134,7 +134,7 @@ FLServiceType serviceType;
     [cell callBackPickerSelected:^(NSString* value) {
         rowsCount = 0;
         [(UITextField*)[self.header viewWithTag:100] setText:value ];
-        [tableView reloadData];
+//        [tableView reloadData];
     } cancelPicker:^(NSString* value) {
         rowsCount =  0;
         [tableView reloadData];
