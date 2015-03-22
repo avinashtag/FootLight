@@ -181,8 +181,8 @@
     [cell.picker selectRow:[cell.pickerDatasource indexOfObject:selectedValue] inComponent:0 animated:YES];
     [cell callBackPickerSelected:^(NSString* value) {
        (indexPath.section == 0) ? [(UITextField*)[self.showStatusHeader viewWithTag:100] setText:value ] : [(UITextField*)[self.theaterTypeHeader viewWithTag:100] setText:value ];
-        rowsCount =  @[@(0),@(0)];
-        [tableView reloadData];
+//        rowsCount =  @[@(0),@(0)];
+//        [tableView reloadData];
     } cancelPicker:^(NSString* value) {
         rowsCount =  @[@(0),@(0)];
         [tableView reloadData];
