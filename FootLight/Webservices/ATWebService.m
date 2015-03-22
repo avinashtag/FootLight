@@ -11,7 +11,7 @@
 
 @implementation ATWebService
 
-NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
+NSString *baseUrl = @"http://gofootlights.com/ibrahim/?param=events&action=searchEvent&";
 
 
 /******
@@ -48,7 +48,7 @@ NSString *baseUrl = @"http://footlightstheatre.com/newqb/";
         else{
             NSLog(@"response : %@\n",[[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding]);
             NSError *readingError = nil;
-            NSArray* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError];
+            NSArray* result = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&readingError] valueForKey:@"data"];
             NSMutableArray *zipResult = [[NSMutableArray alloc]init];
             [result enumerateObjectsUsingBlock:^(NSDictionary* dictionary, NSUInteger idx, BOOL *stop) {
                 [zipResult addObject:[[FLZipResponseModel alloc]initWithDictionary:dictionary]];

@@ -14,7 +14,7 @@ NSString *const kFLZipResponseModelClosingDate = @"ClosingDate";
 NSString *const kFLZipResponseModelTitle = @"Title";
 NSString *const kFLZipResponseModelWednesdayMatinee = @"WednesdayMatinee";
 NSString *const kFLZipResponseModelVenueTheatreStreetAddress = @"VenueTheatreStreetAddress";
-NSString *const kFLZipResponseModelRecordID = @"RecordID";
+NSString *const kFLZipResponseModelRecordID = @"ProjectID";
 NSString *const kFLZipResponseModelTuesday = @"Tuesday";
 NSString *const kFLZipResponseModelVenueTheatreName = @"VenueTheatreName";
 NSString *const kFLZipResponseModelSunday = @"Sunday";
@@ -47,6 +47,8 @@ NSString *const kFLZipResponseModellist = @"List";
 NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
 
 
+
+
 @interface FLZipResponseModel ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
@@ -55,6 +57,7 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
 
 @implementation FLZipResponseModel
 
+static NSString *imageDir = @"http://gofootlights.com/covers/";
 @synthesize venueTheatreState = _venueTheatreState;
 @synthesize companyName = _companyName;
 @synthesize closingDate = _closingDate;
@@ -129,7 +132,7 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
             self.venueLatitude = [self objectOrNilForKey:kFLZipResponseModelVenueLatitude fromDictionary:dict];
             self.sundayMatinee = [self objectOrNilForKey:kFLZipResponseModelSundayMatinee fromDictionary:dict];
             self.monday = [self objectOrNilForKey:kFLZipResponseModelMonday fromDictionary:dict];
-            self.imagename = [self objectOrNilForKey:kFLZipResponseModelImagename fromDictionary:dict];
+            self.imagename = [NSString stringWithFormat:@"%@%@.jpg",imageDir,self.recordID];
             self.wednesday = [self objectOrNilForKey:kFLZipResponseModelWednesday fromDictionary:dict];
             self.distance = [self objectOrNilForKey:kFLZipResponseModelDistance fromDictionary:dict];
             self.relatedVenue = [self objectOrNilForKey:kFLZipResponseModelRelatedVenue fromDictionary:dict];
@@ -471,5 +474,6 @@ NSString *const kFLZipResponseModeldetailedDescription = @"detailedDescription";
     return nil;
 
 }
+
 
 @end

@@ -116,6 +116,7 @@
         [self.leftMenu setFrame:leftFrame];
     } completion:^(BOOL finished) {
         
+        __block BOOL exist =NO;
         switch (indexPath.row) {
             case 0://Home
                 
@@ -144,25 +145,35 @@
                 [self.view setNavigationTitle:[AppDelegate sharedNavigationController].title];
                 [[AppDelegate sharedNavigationController].viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
                     if ([viewControl isKindOfClass:[FLByLocationViewController class]]) {
+                        exist = YES;
                         [[AppDelegate sharedNavigationController] popToViewController:viewControl animated:NO];
                         return ;
                     }
                 }];
-                ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
-                [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+                if (!exist) {
+                    ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
+                    [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:1 inSection:0]];
+                }
             }
                 break;
                 
             case 4:{
                 [self.view setNavigationTitle:[AppDelegate sharedNavigationController].topViewController.title];
                 [[AppDelegate sharedNavigationController].viewControllers enumerateObjectsUsingBlock:^(UIViewController* viewControl, NSUInteger idx, BOOL *stop) {
+            
                     if ([viewControl isKindOfClass:[FLProductListViewController class]]) {
+                        exist = YES;
                         [[AppDelegate sharedNavigationController] popToViewController:viewControl animated:NO];
+                        self.navigationController.title = FLMyFavorites;
+                        viewControl.title = FLMyFavorites;
+                        [(FLProductListViewController*)viewControl loadFavourite];
                         return ;
                     }
                 }];
+                if (!exist) {
                 ViewController *Vc = (ViewController*)[[[AppDelegate sharedNavigationController] viewControllers] objectAtIndex:0];
                 [Vc.CategoryCollection.delegate collectionView:Vc.CategoryCollection didSelectItemAtIndexPath:[NSIndexPath indexPathForItem:3 inSection:0]];
+                }
             }
                 break;
             case 5:{

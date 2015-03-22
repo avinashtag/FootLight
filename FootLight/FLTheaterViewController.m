@@ -26,6 +26,7 @@
     UIView *footer;
     ATPicker *pick;
     NSArray* rowsCount;
+    NSNumber *serviceType;
 }
 
 @end
@@ -56,6 +57,7 @@
 
  
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
@@ -89,43 +91,46 @@
 }
 
 
--(NSString*)locationServices{
-    
-    
+-(NSString*)locationServices:(NSInteger)pageCount{
+    pageCount = pageCount+1;
     CLLocation *location = (self.placemark == nil ) ? [AppDelegate SharedApplication].locationManager.location : self.placemark.location;
+    
+    NSString *type = @"1";
+    
     if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Now Playing"]) {
         
-        return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
-   }
+        type = @"1";
+    }
     else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Opening Soon"]) {
         
-        return [NSString stringWithFormat:@"openingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
+        type = @"2";
     }
     else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Closing Soon"]) {
-//        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=34.1616690&loc_lng=-118.2555600&distance=25"];
-
-        return [NSString stringWithFormat:@"closingsoon.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius];
+        type = @"3";
     }
-    return [NSString stringWithFormat:@"newplay.php?loc_lat=%f&loc_lng=%f&distance=%@",location.coordinate.latitude,location.coordinate.longitude,@"25"];
+    return [NSString stringWithFormat:@"lat=%f&long=%f&radius=%@&type=%@&page=%ld&size=%@",location.coordinate.latitude,location.coordinate.longitude,self.radius,type,(long)pageCount,pageLimit];
+
 }
 
-
--(NSString*)zipcallservice{
+-(NSString*)zipcallservice:(NSInteger)pageCount{
+    pageCount = pageCount+1;
 //    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
 
+    NSString *type = @"1";
     if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Now Playing"]) {
         
-        return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",self.zip,self.radius];
+        type = @"1" ;
     }
     else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Opening Soon"]) {
         
-        return [NSString stringWithFormat:@"openzip.php?q=%@&distance=%@",self.zip,self.radius];
+        type = @"2" ;
     }
     else  if ([[(UITextField*)[self.showStatusHeader viewWithTag:100] text ] isEqualToString:@"Closing Soon"]) {
         
-        return [NSString stringWithFormat:@"closezip.php?q=%@&distance=%@",self.zip,self.radius];
+        type = @"3" ;
     }
-    return [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
+    return [NSString stringWithFormat:@"zip=%@&radius=%@&type=%@&page=%ld&size=%@",self.zip,self.radius,type,(long)pageCount,pageLimit];
+//     [NSString stringWithFormat:@"zipdis.php?q=%@&distance=%@",@"91502",@"25"];
 
 }
 
@@ -137,17 +142,22 @@
     product.title = self.rootTitle;
     [self.navigationController pushViewController:product animated:YES];
     
-    switch (self.serviceType) {
-        case FLLocation:
-            [product statusFilter:[self locationServices] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
-            break;
-        case FLZipService:
-            [product zipCallNormal:[self zipcallservice] filterGenere:[(UITextField*)[self.theaterTypeHeader viewWithTag:100] text ]];
-            break;
+    __weak FLTheaterViewController *theater = self;
+    [product refreshCompletion:^(NSNumber *pagecount) {
+        switch (_serviceType) {
+            case FLLocation:
+                [product statusFilter:[theater locationServices:[pagecount intValue]] filterGenere:[(UITextField*)[_theaterTypeHeader viewWithTag:100] text ]];
+                break;
+            case FLZipService:
+                [product zipCallNormal:[theater zipcallservice:[pagecount intValue]] filterGenere:[(UITextField*)[_theaterTypeHeader viewWithTag:100] text ]];
+                break;
+                
+            default:
+                break;
+        }
 
-        default:
-            break;
-    }
+    }];
+    
 }
 
 

@@ -8,6 +8,7 @@
 #import <Foundation/Foundation.h>
 
 
+#define pdfDir  @"http://gofootlights.com/pdfs/"
 
 @interface FLZipResponseModel : NSObject <NSCoding, NSCopying>
 

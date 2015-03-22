@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#define pageLimit @"20"
+
 typedef void(^ATResponseSuccess)(id response, NSString* message);
 typedef void(^ATResponseFail)(id response, NSString* message , NSError *error);
 @interface ATWebService : NSObject
